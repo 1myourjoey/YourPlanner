@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.18'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.yong'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '11'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-configuration-processor'
+
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.springframework.boot:spring-boot-starter-tomcat'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    //jsp
+    implementation 'javax.servlet:jstl'
+    implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
+    //jdbc
+//    implementation "org.springframework.boot:spring-boot-starter-jdbc"
+    //logback
+    implementation('org.slf4j:jcl-over-slf4j')
+    implementation('ch.qos.logback:logback-classic')
+    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16'
+    //유효성검사
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    //mybatis
+//  implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+//  implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    runtimeOnly 'com.h2database:h2'
+    //jpa
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    //mariaDB
+    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.3.3'
+    //파일등록
+    implementation 'commons-io:commons-io:2.11.0'
+    //lombok
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    testAnnotationProcessor 'org.projectlombok:lombok' // 테스트를 위한 세팅 @Slf4j
+    testImplementation 'org.projectlombok:lombok' // 테스트를 위한 세팅 @Slf4j
+    implementation 'org.springframework.boot:spring-boot-starter-mail:2.7.1'
+}
+
+
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

@@ -13,7 +13,7 @@ function App() {
         <div className="App">
             <h1>YOUR PLANNER</h1>
             <h4>유플과 시작하는 여행 !</h4>
-            <h5> 테스트 업하기</h5>
+            <h5> 깃허브 테스트</h5>
 
             <div className="travel">
 

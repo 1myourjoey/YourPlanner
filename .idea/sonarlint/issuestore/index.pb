@@ -31,3 +31,5 @@ _
 .src/main/frontend/src/components/js/MapSvg.jsx,c/d/cd610e9a285932f6beb458d4c2c45b2a45835bd4
 b
 2src/main/frontend/src/components/js/TravelDate.jsx,e/8/e876cdbd880e7b7e40d0b3dd9439a5b4f12facf0
+e
+5src/main/frontend/src/components/js/TravelDetails.jsx,c/0/c085a52d5bcd7794869f9f2f508da4ea6813ecd8

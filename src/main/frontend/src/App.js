@@ -1,30 +1,23 @@
-import React, { useState } from 'react';
-
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'react-datepicker/dist/react-datepicker.css';
 import './App.css';
 import TravelDate from "./components/js/TravelDate";
-import MapSvg from './components/js/MapSvg'
+import TravelDetails from "./components/js/TravelDetails";
+
 function App() {
-    const [startDate, setStartDate] = useState(null);
-    const [endDate, setEndDate] = useState(null);
-    const [destination, setDestination] = useState('');
-
     return (
-        <div className="App">
-            <h1>YOUR PLANNER</h1>
-            <h4>유플과 시작하는 여행 !</h4>
-            <h5> 깃허브 테스트</h5>
+        <Router>
+            <div className="App">
+                <h1>YOUR PLANNER</h1>
+                <h4>유플과 시작하는 여행 !</h4>
 
-            <div className="travel">
-
-                <TravelDate/>
+                <Routes>
+                    <Route path="/" element={<TravelDate />} />
+                    <Route path="/details" element={<TravelDetails />} />
+                </Routes>
             </div>
-
-            <div>
-                <p>ddddd</p>
-            </div>
-
-        </div>
+        </Router>
     );
 }
 

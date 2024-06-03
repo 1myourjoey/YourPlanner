@@ -29,12 +29,8 @@ public class UserController {
             session.setAttribute("loggedInUser", user);
         }
 
-
         return userService.login(user.getLoginId(), user.getPw());
     }
-
-
-
 
     @PostMapping("/signUp")
     public User register(@RequestBody User user) {

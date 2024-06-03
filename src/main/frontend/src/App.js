@@ -5,7 +5,6 @@ import './App.css';
 import TravelDate from "./components/js/TravelDate";
 import TravelDetails from "./components/js/TravelDetails";
 
-import LocationBasedList from "./components/js/LocationBasedList";
 
 
 function App() {

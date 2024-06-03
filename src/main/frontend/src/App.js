@@ -7,8 +7,11 @@ import TravelDetails from "./components/js/TravelDetails";
 
 import MapSvg from "./components/js/MapSvg";
 
+
 import Login from "./components/js/Login";
 import SignUp from "./components/js/SignUp";
+
+
 
 
 function App() {
@@ -31,6 +34,8 @@ function App() {
 
             </div>
         </Router>
+        
+
     );
 }
 

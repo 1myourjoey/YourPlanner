@@ -16,6 +16,7 @@ const TravelDate = () => {
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [destination, setDestination] = useState('');
+    const [departure, setDeparture] = useState('');
     const navigate = useNavigate();
 
     const handleTravel = () => {
@@ -24,10 +25,16 @@ const TravelDate = () => {
         const params = new URLSearchParams({
             startDate: formattedStartDate,
             endDate: formattedEndDate,
+            departure,
             destination
         });
         navigate(`/details?${params.toString()}`);
     };
+    const cities = [
+        "서울", "부산", "대구", "인천", "광주", "대전", "울산",
+        "세종", "경기도", "강원도", "충청북도", "충창남도", "전라북도", "전라남도",
+        "경상북도", "경상남도", "제주도"
+    ];
 
     return (
         <div className="form">
@@ -45,6 +52,17 @@ const TravelDate = () => {
                 onChange={date => setEndDate(date)}
                 dateFormat="yyyy-MM-dd"
             />
+            <label htmlFor="departure">Departure:</label>
+            <select
+                id="departure"
+                value={departure}
+                onChange={e => setDeparture(e.target.value)}
+            >
+                <option value="">도시를 선택하세요</option>
+                {cities.map(city => (
+                    <option key={city} value={city}>{city}</option>
+                ))}
+            </select>
             <label htmlFor="destination">Destination:</label>
             <input
                 type="text"
@@ -52,10 +70,11 @@ const TravelDate = () => {
                 value={destination}
                 onChange={e => setDestination(e.target.value)}
             />
+
             <button onClick={handleTravel}>여행하기</button>
             <div className="map-container">
                 <p>지도에서 지역을 선택해보세요 !</p>
-                <MapSvg onCityClick={setDestination} />
+                <MapSvg onCityClick={setDestination}/>
             </div>
         </div>
     );

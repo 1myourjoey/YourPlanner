@@ -6,11 +6,13 @@ const TravelDetails = () => {
     const params = new URLSearchParams(location.search);
     const startDate = params.get('startDate');
     const endDate = params.get('endDate');
+    const departure = params.get('departure');
     const destination = params.get('destination');
 
     return (
         <div>
             <h2>Travel Details</h2>
+            <p><strong>Departure:</strong> {departure}</p>
             <p><strong>Destination:</strong> {destination}</p>
             <p><strong>Start Date:</strong> {startDate}</p>
             <p><strong>End Date:</strong> {endDate}</p>

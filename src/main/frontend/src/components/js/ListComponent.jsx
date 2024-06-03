@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from 'react';
-
-import '../css/ListComponent.css';
 import RecommendedPlaces from './RecommendedPlaces';
+import '../css/ListComponent.css';
 
-const ListComponent = ({ areaCode }) => {
+const ListComponent = ({ areaCode, sigunguCode }) => {
   const [data, setData] = useState([]);
-  const [page, setPage] = useState(1); // 페이지 번호 상태
-  const [loading, setLoading] = useState(false); // 로딩 상태
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
-  // 초기 로딩 시 데이터를 가져오는 함수
   const fetchInitialData = async () => {
     try {
-      setLoading(true); // 로딩 상태 시작
-      const response = await fetch(`http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5uJ1mFn4tOfEwReTW3dupjd4w2n5kEHO5nciT%2BDVGAVWTl90sysBKbMTIlIxLW5lCPo1VmpZ%2FXggxU84GhG81g%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=${areaCode}`);
+      setLoading(true);
+      const response = await fetch(`http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5uJ1mFn4tOfEwReTW3dupjd4w2n5kEHO5nciT%2BDVGAVWTl90sysBKbMTIlIxLW5lCPo1VmpZ%2FXggxU84GhG81g%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=${areaCode}&sigunguCode=${sigunguCode}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const responseData = await response.text(); // XML 데이터를 텍스트로 가져옴
+      const responseData = await response.text();
       const parser = new DOMParser();
       const xmlData = parser.parseFromString(responseData, 'text/xml');
       const items = xmlData.getElementsByTagName('item');
@@ -25,23 +23,22 @@ const ListComponent = ({ areaCode }) => {
         addr1: item.getElementsByTagName('addr1')[0].textContent,
         firstimage2: item.getElementsByTagName('firstimage2')[0]?.textContent || ''
       }));
-      setData(extractedData); // 초기 데이터 설정
+      setData(extractedData);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
-      setLoading(false); // 로딩 상태 종료
+      setLoading(false);
     }
   };
 
-  // 더보기 버튼 클릭 시 데이터를 가져오는 함수
   const fetchMoreData = async (pageNumber) => {
     try {
-      setLoading(true); // 로딩 상태 시작
-      const response = await fetch(`http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5uJ1mFn4tOfEwReTW3dupjd4w2n5kEHO5nciT%2BDVGAVWTl90sysBKbMTIlIxLW5lCPo1VmpZ%2FXggxU84GhG81g%3D%3D&pageNo=${pageNumber}&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=${areaCode}`);
+      setLoading(true);
+      const response = await fetch(`http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5uJ1mFn4tOfEwReTW3dupjd4w2n5kEHO5nciT%2BDVGAVWTl90sysBKbMTIlIxLW5lCPo1VmpZ%2FXggxU84GhG81g%3D%3D&pageNo=${pageNumber}&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=${areaCode}&sigunguCode=${sigunguCode}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      const responseData = await response.text(); // XML 데이터를 텍스트로 가져옴
+      const responseData = await response.text();
       const parser = new DOMParser();
       const xmlData = parser.parseFromString(responseData, 'text/xml');
       const items = xmlData.getElementsByTagName('item');
@@ -50,26 +47,26 @@ const ListComponent = ({ areaCode }) => {
         addr1: item.getElementsByTagName('addr1')[0].textContent,
         firstimage2: item.getElementsByTagName('firstimage2')[0]?.textContent || ''
       }));
-      setData(prevData => [...prevData, ...extractedData]); // 새로운 데이터를 기존 데이터에 추가
+      setData(prevData => [...prevData, ...extractedData]);
     } catch (error) {
       console.error('Error fetching data:', error);
     } finally {
-      setLoading(false); // 로딩 상태 종료
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchInitialData(); // 초기 로딩 시 데이터 가져오기
-  }, [areaCode]);
+    fetchInitialData();
+  }, [areaCode, sigunguCode]);
 
   useEffect(() => {
     if (page > 1) {
-      fetchMoreData(page); // 페이지가 변경될 때만 더 많은 데이터를 가져옴
+      fetchMoreData(page);
     }
   }, [page]);
 
   const loadMore = () => {
-    setPage(prevPage => prevPage + 1); // 페이지 번호 증가
+    setPage(prevPage => prevPage + 1);
   };
 
   return (

@@ -1,0 +1,24 @@
+.card-container {
+  display: flex; /* Flexbox 레이아웃 사용 */
+  flex-wrap: wrap; /* 요소가 영역을 넘어가면 줄 바꿈 */
+  gap: 16px;
+}
+
+.card {
+  width: 300px; /* 카드의 너비 지정 */
+  margin: 10px; /* 카드 간 간격 설정 */
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 카드에 그림자 추가 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hotel-image {
+  width: 300px; /* 카드 너비에 맞추기 */
+  height: 200px; /* 고정된 높이 설정 */
+  object-fit: cover; /* 이미지가 영역을 채우도록 조정 */
+  border-radius: 8px;
+}

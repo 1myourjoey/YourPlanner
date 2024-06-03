@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../css/ListComponent.css';
-
-
 import RecommendedPlaces from './RecommendedPlaces';
 
-const ListHotel = ({ areaCode }) => {
-  const [data, setData] = useState([]);
+const ListHotel = ({ areaCode, sigunguCode }) => {
+  const [data, setData] = useState([]); // 데이터 상태
   const [page, setPage] = useState(1); // 페이지 번호 상태
   const [loading, setLoading] = useState(false); // 로딩 상태
 
@@ -13,7 +11,7 @@ const ListHotel = ({ areaCode }) => {
   const fetchInitialData = async () => {
     try {
       setLoading(true); // 로딩 상태 시작
-      const response = await fetch(`http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5uJ1mFn4tOfEwReTW3dupjd4w2n5kEHO5nciT%2BDVGAVWTl90sysBKbMTIlIxLW5lCPo1VmpZ%2FXggxU84GhG81g%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=${areaCode}&contentTypeId=32`);
+      const response = await fetch(`http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5uJ1mFn4tOfEwReTW3dupjd4w2n5kEHO5nciT%2BDVGAVWTl90sysBKbMTIlIxLW5lCPo1VmpZ%2FXggxU84GhG81g%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=${areaCode}&sigunguCode=${sigunguCode}&contentTypeId=32`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -38,7 +36,7 @@ const ListHotel = ({ areaCode }) => {
   const fetchMoreData = async (pageNumber) => {
     try {
       setLoading(true); // 로딩 상태 시작
-      const response = await fetch(`http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5uJ1mFn4tOfEwReTW3dupjd4w2n5kEHO5nciT%2BDVGAVWTl90sysBKbMTIlIxLW5lCPo1VmpZ%2FXggxU84GhG81g%3D%3D&pageNo=${pageNumber}&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=${areaCode}&contentTypeId=32`);
+      const response = await fetch(`http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5uJ1mFn4tOfEwReTW3dupjd4w2n5kEHO5nciT%2BDVGAVWTl90sysBKbMTIlIxLW5lCPo1VmpZ%2FXggxU84GhG81g%3D%3D&pageNo=${pageNumber}&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=${areaCode}&sigunguCode=${sigunguCode}&contentTypeId=32`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -61,7 +59,7 @@ const ListHotel = ({ areaCode }) => {
 
   useEffect(() => {
     fetchInitialData(); // 초기 로딩 시 데이터 가져오기
-  }, [areaCode]);
+  }, [areaCode, sigunguCode]);
 
   useEffect(() => {
     if (page > 1) {

@@ -6,6 +6,8 @@ import TravelDate from "./components/js/TravelDate";
 import TravelDetails from "./components/js/TravelDetails";
 import MapSvg from "./components/js/MapSvg";
 
+
+
 function App() {
     return (
         <Router>
@@ -21,6 +23,8 @@ function App() {
 
             </div>
         </Router>
+        
+
     );
 }
 

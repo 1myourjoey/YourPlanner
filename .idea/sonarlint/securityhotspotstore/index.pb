@@ -6,7 +6,7 @@
 S
 #src/main/frontend/package-lock.json,6/6/667c3f418bd932076f449856c3cce3e9817bb8c2
 N
-src/main/frontend/package.json,3/7/37d8cea481454febd3c3f81b4e32f3a4a9f32cee
+src/main/frontend/package.json,3\7\37d8cea481454febd3c3f81b4e32f3a4a9f32cee
 L
 src/main/frontend/src/App.js,6\5\65107325a79051577112de2ce586496b00ad83a7
 N

@@ -23,6 +23,7 @@ const DummyListHotel = ({ areaCode, sigunguCode, addData, setLoading }) => {
             const extractedData = Array.from(items).map(item => ({
                 title: item.getElementsByTagName('title')[0].textContent,
                 addr1: item.getElementsByTagName('addr1')[0].textContent,
+                contenttypeid: item.getElementsByTagName('contenttypeid')[0].textContent,
                 firstimage2: item.getElementsByTagName('firstimage2')[0]?.textContent || ''
             }));
             setData(extractedData); // 초기 데이터 설정
@@ -48,6 +49,7 @@ const DummyListHotel = ({ areaCode, sigunguCode, addData, setLoading }) => {
             const extractedData = Array.from(items).map(item => ({
                 title: item.getElementsByTagName('title')[0].textContent,
                 addr1: item.getElementsByTagName('addr1')[0].textContent,
+                contenttypeid: item.getElementsByTagName('contenttypeid')[0].textContent,
                 firstimage2: item.getElementsByTagName('firstimage2')[0]?.textContent || ''
             }));
             setData(prevData => [...prevData, ...extractedData]); // 새로운 데이터를 기존 데이터에 추가

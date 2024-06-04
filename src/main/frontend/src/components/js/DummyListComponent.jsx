@@ -18,6 +18,7 @@ const DummyListComponent = ({ areaCode, sigunguCode, addData, setLoading }) => {
             const extractedData = Array.from(items).map(item => ({
                 title: item.getElementsByTagName('title')[0].textContent,
                 addr1: item.getElementsByTagName('addr1')[0].textContent,
+                contenttypeid: item.getElementsByTagName('contenttypeid')[0].textContent,
                 firstimage2: item.getElementsByTagName('firstimage2')[0]?.textContent || ''
             }));
             addData(extractedData);
@@ -42,6 +43,7 @@ const DummyListComponent = ({ areaCode, sigunguCode, addData, setLoading }) => {
             const extractedData = Array.from(items).map(item => ({
                 title: item.getElementsByTagName('title')[0].textContent,
                 addr1: item.getElementsByTagName('addr1')[0].textContent,
+                contenttypeid: item.getElementsByTagName('contenttypeid')[0].textContent,
                 firstimage2: item.getElementsByTagName('firstimage2')[0]?.textContent || ''
             }));
             addData(extractedData);

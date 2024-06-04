@@ -9,6 +9,7 @@ const TravelDetails = () => {
     const endDate = params.get('endDate');
     let departure = params.get('departure');
     let destination = params.get('destination');
+    let destination2 = params.get('destination');
 
     const regionMapping = {
         "서울": "1",
@@ -32,8 +33,8 @@ const TravelDetails = () => {
 
 
     // destination 값을 rnum 값으로 변환
-    if (regionMapping[destination]) {
-        destination = regionMapping[destination];
+    if (regionMapping[destination2]) {
+        destination2 = regionMapping[destination2];
     }
 
     return (
@@ -43,7 +44,7 @@ const TravelDetails = () => {
             <p><strong>Destination:</strong> {destination}</p>
             <p><strong>Start Date:</strong> {startDate}</p>
             <p><strong>End Date:</strong> {endDate}</p>
-            <LocationBasedList destination={destination} />
+            <LocationBasedList destination2={destination2} />
         </div>
     );
 };

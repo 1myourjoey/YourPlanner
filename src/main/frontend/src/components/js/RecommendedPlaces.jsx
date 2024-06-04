@@ -39,6 +39,7 @@ const RecommendedPlaces = ({ data }) => {
             
             <h2>{item.title}</h2>
             <p>{item.addr1}</p>
+            <input type='hidden' value={item.contenttypeid}></input>
             <img
               src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
               alt={item.title}

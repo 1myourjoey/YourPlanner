@@ -39,3 +39,7 @@ c
 3src/main/frontend/src/components/css/TravelDate.css,6\7\67eb6241476a025d6b32493e5d1c956faacd47af
 R
 "src/main/frontend/build/index.html,6\3\63550594fe3fa62c58e0565da4f3d0313b1288b4
+^
+.src/main/frontend/src/components/js/footer.jsx,5\7\57f9dafe7d538bf6ce893345b4fd7d2dd8dee1e5
+^
+.src/main/frontend/src/components/js/Footer.jsx,e\1\e14ec7c9da9403c799d696003d13c6792fe64d9d

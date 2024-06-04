@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import LocationBasedList from './LocationBasedList';
+import DummyLocationBasedList from './DummyLocationBasedList';
 
 const TravelDetails = () => {
     const location = useLocation();
@@ -44,7 +44,7 @@ const TravelDetails = () => {
             <p><strong>Destination:</strong> {destination}</p>
             <p><strong>Start Date:</strong> {startDate}</p>
             <p><strong>End Date:</strong> {endDate}</p>
-            <LocationBasedList destination2={destination2} />
+            <DummyLocationBasedList destination2={destination2} />
         </div>
     );
 };

@@ -6,8 +6,6 @@ import sky.yp.dto.User;
 @Mapper
 public interface UserMapper {
 
-
-
     @Insert("INSERT INTO USER (login_id, pw, email, tel) VALUES (#{loginId}, #{pw}, #{email}, #{tel})")
     void save(User user);
 

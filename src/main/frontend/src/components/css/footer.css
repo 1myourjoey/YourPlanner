@@ -1,0 +1,19 @@
+
+.footer-flow {
+    overflow: hidden;
+    position: relative;
+}
+
+.footer-flow .card {
+    animation: footerFlow 20s linear infinite;
+}
+
+/* 푸터 애니메이션 */
+@keyframes footerFlow {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}

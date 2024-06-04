@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import '../css/RecommendedPlaces.css';
 
@@ -15,7 +16,7 @@ const RecommendedPlaces = ({ data }) => {
 
   return (
     <div>
-      <h2>추천 명소</h2>
+
       <div className="card-container">
         {data.map((item, index) => (
           <div key={index} className="card">
@@ -38,12 +39,14 @@ const RecommendedPlaces = ({ data }) => {
             
             <h2>{item.title}</h2>
             <p>{item.addr1}</p>
+            <input type='hidden' value={item.contenttypeid}></input>
             <img
               src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
               alt={item.title}
               className="selected-image"
             />
             <button onClick={() => handleRemoveClick(item)}>삭제</button>
+            
           </div>
         ))}
       </div>

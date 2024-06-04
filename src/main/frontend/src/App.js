@@ -4,7 +4,6 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './App.css';
 import TravelDate from "./components/js/TravelDate";
 import TravelDetails from "./components/js/TravelDetails";
-import RestaurantBoard from "./components/js/RestaurantBoard";
 
 function App() {
     return (
@@ -16,7 +15,6 @@ function App() {
                 <Routes>
                     <Route path="/" element={<TravelDate />} />
                     <Route path="/details" element={<TravelDetails />} />
-                    <Route path="/restaurant" element={<RestaurantBoard />} />
 
                 </Routes>
             </div>

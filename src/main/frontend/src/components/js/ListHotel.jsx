@@ -73,11 +73,13 @@ const ListHotel = ({ areaCode, sigunguCode }) => {
 
   return (
     <div>
+      <h2>숙박 장소</h2>      
       <RecommendedPlaces data={data} />
       <div className="load-more-container">
         <button onClick={loadMore} disabled={loading}>
           {loading ? '로딩 중...' : '더보기'}
         </button>
+
       </div>
     </div>
   );

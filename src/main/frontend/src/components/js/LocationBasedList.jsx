@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect } from 'react';
 
 import ListComponent from './ListComponent';
@@ -86,6 +88,8 @@ const LocationBasedList = ({ destination }) => {
     setSelectedSigungu(event.target.value);
   };
 
+
+  
   return (
     <div>
       {locations.length > 0 ? (

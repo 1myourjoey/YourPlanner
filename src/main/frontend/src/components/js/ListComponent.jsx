@@ -1,8 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import RecommendedPlaces from './RecommendedPlaces';
 import '../css/ListComponent.css';
 
-const ListComponent = ({ areaCode, sigunguCode }) => {
+const ListComponent = ({ areaCode, sigunguCode}) => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -71,7 +72,8 @@ const ListComponent = ({ areaCode, sigunguCode }) => {
 
   return (
     <div>
-      <RecommendedPlaces data={data} />
+      <h2>추천 명소</h2>
+      <RecommendedPlaces data={data}/>
       <div className="load-more-container">
         <button onClick={loadMore} disabled={loading}>
           {loading ? '로딩 중...' : '더보기'}

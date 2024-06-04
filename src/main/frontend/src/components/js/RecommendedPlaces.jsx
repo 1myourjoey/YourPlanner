@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import '../css/RecommendedPlaces.css';
 
@@ -15,7 +16,7 @@ const RecommendedPlaces = ({ data }) => {
 
   return (
     <div>
-      <h2>추천 명소</h2>
+
       <div className="card-container">
         {data.map((item, index) => (
           <div key={index} className="card">
@@ -44,6 +45,7 @@ const RecommendedPlaces = ({ data }) => {
               className="selected-image"
             />
             <button onClick={() => handleRemoveClick(item)}>삭제</button>
+            
           </div>
         ))}
       </div>

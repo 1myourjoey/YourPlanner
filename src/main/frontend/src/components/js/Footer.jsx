@@ -1,37 +1,48 @@
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Footer = () => {
-  return (
-      <footer className="container footer-flow">
-        <div className="row">
-          <div className="col">
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">Footer Card Title 1</h5>
-                <p className="card-text">Footer card content 1 goes here.</p>
-              </div>
+    const [weatherData, setWeatherData] = useState([]);
+
+    useEffect(() => {
+        const cities = ['Seoul', 'Busan', 'Incheon'];
+
+        const fetchWeatherData = async () => {
+            try {
+                const responses = await Promise.all(
+                    cities.map(city =>
+                        axios.get(`/api/weather`, {
+                            params: { city }
+                        })
+                    )
+                );
+                const data = responses.map(response => response.data);
+                setWeatherData(data);
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+            }
+        };
+
+        fetchWeatherData();
+    }, []);
+
+    return (
+        <footer className="container footer-flow">
+            <div className="row">
+                {weatherData.map((data, index) => (
+                    <div className="col" key={index}>
+                        <div className="card">
+                            <div className="card-body">
+                                <h5 className="card-title">Weather in {data.name}</h5>
+                                <p className="card-text">Temperature: {data.main.temp}°C</p>
+                                <p className="card-text">Weather: {data.weather[0].description}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
-          </div>
-          <div className="col">
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">Footer Card Title 2</h5>
-                <p className="card-text">Footer card content 2 goes here.</p>
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">Footer Card Title 3</h5>
-                <p className="card-text">Footer card content 3 goes here.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-  );
+        </footer>
+    );
 };
 
 export default Footer;

@@ -1,4 +1,3 @@
-// MainLayout.js
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import Footer from './Footer';

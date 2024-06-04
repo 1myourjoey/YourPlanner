@@ -1,11 +1,11 @@
 
-X
-java:S2259 "BA "NullPointerException" could be thrown; "user" is nullable here.(ÖÛ¹ş
-`
-java:S1764"ECorrect one of the identical sub-expressions on both sides of equals.(±£ “şÿÿÿÿ
-U
-java:S2441":Make "User" serializable or don't store it in the session.(ÅÌÉıÿÿÿÿ
-[
-java:S1128"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤Šúÿÿÿÿ
-_
-java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿ
+~
+java:S2259 "BA "NullPointerException" could be thrown; "user" is nullable here.(ÖÛ¹şJ$77c121cb-42dc-4437-9463-b43f2d711f2a
+†
+java:S1764"ECorrect one of the identical sub-expressions on both sides of equals.(±£ “şÿÿÿÿJ$e5fd82d5-8f8f-4122-9dcb-178cbb7d210c
+{
+java:S2441":Make "User" serializable or don't store it in the session.(ÅÌÉıÿÿÿÿJ$99dd3a6e-a386-4593-9f04-1bb22fd46c2e
+
+java:S1128"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤ŠúÿÿÿÿJ$53614179-e817-407e-92fa-373558d52c8b
+…
+java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿJ$55326608-c19e-4799-827b-2c5314f7c196

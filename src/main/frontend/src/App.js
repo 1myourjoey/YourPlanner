@@ -13,7 +13,6 @@ function App() {
     return (
         <Router>
             <div className="App">
-                
                 <header className="container">
                     <div className="col">
                         <h1>YOUR PLANNER</h1>

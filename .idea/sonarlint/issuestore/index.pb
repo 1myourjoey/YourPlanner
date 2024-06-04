@@ -45,3 +45,5 @@ c
 3src/main/frontend/src/components/css/TravelDate.css,6\7\67eb6241476a025d6b32493e5d1c956faacd47af
 _
 /src/main/frontend/src/components/css/footer.css,1\b\1b1453ef3ad309ebbaf3d0bdef9b5dae6b682099
+R
+"src/main/frontend/build/index.html,6\3\63550594fe3fa62c58e0565da4f3d0313b1288b4

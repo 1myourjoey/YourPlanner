@@ -33,3 +33,15 @@ b
 2src/main/frontend/src/components/js/TravelDate.jsx,e/8/e876cdbd880e7b7e40d0b3dd9439a5b4f12facf0
 e
 5src/main/frontend/src/components/js/TravelDetails.jsx,c/0/c085a52d5bcd7794869f9f2f508da4ea6813ecd8
+i
+9src/main/frontend/src/components/js/LocationBasedList.jsx,1/5/1556e4666338e4b4f4c06ef794676b30b3d93e05
+a
+1src/main/frontend/src/components/js/ListHotel.jsx,f/8/f837f63433deb45daca04ce29820a477f62d0f9f
+i
+9src/main/frontend/src/components/js/RecommendedPlaces.jsx,9/4/943c943bb5a63b3543f9df3707daece651137536
+c
+3src/main/java/sky/yp/controller/UserController.java,c/9/c9212386118dceb7a14d80e1ef9170171a5b6386
+[
++src/main/java/sky/yp/mapper/UserMapper.java,4/2/421a282173d0705c6fb3b60bdd4e2bf5d652a5fb
+]
+-src/main/java/sky/yp/service/UserService.java,0/a/0ac7b31726bfe84f2da8d5488219ddca58e54bdf

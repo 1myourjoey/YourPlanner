@@ -1,0 +1,77 @@
+.form {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* 아이템들을 위쪽으로 정렬 */
+    justify-content: space-between;
+}
+
+/* 왼쪽 영역 스타일 */
+.left-panel {
+    flex: 1; /* 남은 공간을 모두 차지하도록 설정 */
+    padding: 10px;
+    margin-right: 10px; /* 오른쪽 여백 추가 */
+}
+
+.right-panel {
+    flex: 1; /* 남은 공간을 모두 차지하도록 설정 */
+    padding: 20px;
+    margin-left: 10px; /* 왼쪽 여백 추가 */
+}
+.label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0px;
+}
+
+/* 입력 요소 스타일 */
+.input-field {
+    width: 225px; /* 입력 필드의 너비를 조정하여 외곽선(border)의 두께를 고려합니다 */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    font-size: 16px;
+    outline: none; /* 포커스 효과 제거 */
+    margin: 3px;
+}
+
+/* 출발지 입력 요소 스타일 */
+.departure-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    font-size: 16px;
+    outline: none; /* 포커스 효과 제거 */
+    margin: 3px;
+    width: 240px; /* 너비 설정 */
+}
+
+/* 도착지 입력 요소 스타일 */
+.destination-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    font-size: 16px;
+    outline: none; /* 포커스 효과 제거 */
+    margin: 3px;
+    width: 225px; /* 너비 설정 */
+}
+
+/* 버튼 스타일 */
+.button {
+    background-color: #D3D3D3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.button:hover {
+    background-color: #808080;
+}

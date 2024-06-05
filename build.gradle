@@ -52,6 +52,7 @@ dependencies {
     testImplementation 'org.projectlombok:lombok' // 테스트를 위한 세팅 @Slf4j
     implementation 'org.springframework.boot:spring-boot-starter-mail:2.7.1'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0' // 사용하는 버전에 맞게 변경하세요
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
 
 
 

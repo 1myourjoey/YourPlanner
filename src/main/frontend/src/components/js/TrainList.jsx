@@ -1,42 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const formatDate = (datetime) => {
+  if (typeof datetime !== 'string') {
+    datetime = datetime.toString();
+  }
+  const year = datetime.substring(0, 4);
+  const month = datetime.substring(4, 6);
+  const day = datetime.substring(6, 8);
+  const hour = datetime.substring(8, 10);
+  const minute = datetime.substring(10, 12);
+
+  return `${month}월${day}일 ${hour}시${minute}분`;
+};
+
 const TrainList = ({ depPlaceId, arrPlaceId, startDate }) => {
   const [trainData, setTrainData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const formatDate = (date) => {
-    const d = new Date(date);
-    let month = '' + (d.getMonth() + 1);
-    let day = '' + d.getDate();
-    const year = d.getFullYear();
-
-    if (month.length < 2)
-      month = '0' + month;
-    if (day.length < 2)
-      day = '0' + day;
-
-    return [year, month, day].join('');
-  };
-
   useEffect(() => {
     const fetchTrainData = async () => {
       try {
         setLoading(true);
-        const serviceKey = 'LOr7zB0jDV%2BlQ6WGnVGCY%2BvG22rkxdPRMM36e7spCgFeKjRlh488A09FtjZbwnw6bEMMW3Virexop2ihnhIe7g%3D%3D';
-        const response = await axios.get(`http://apis.data.go.kr/1613000/TrainInfoService/getStrtpntAlocFndTrainInfo`, {
+        const serviceKey = 'LOr7zB0jDV+lQ6WGnVGCY+vG22rkxdPRMM36e7spCgFeKjRlh488A09FtjZbwnw6bEMMW3Virexop2ihnhIe7g==';
+        const formattedDate = startDate.replace(/-/g, '');
+        console.log('Formatted Date:', formattedDate);
+        console.log('depPlaceId:', depPlaceId);
+        console.log('arrPlaceId:', arrPlaceId);
+
+        const response = await axios.get('http://apis.data.go.kr/1613000/TrainInfoService/getStrtpntAlocFndTrainInfo', {
           params: {
             serviceKey,
             depPlaceId,
             arrPlaceId,
-            depPlandTime: startDate,
-            _type: 'json'
+            depPlandTime: formattedDate,
+            _type: 'json',
+            trainGradeCode: '00' // 예: 모든 차량 종류 포함
           }
         });
 
+        console.log('API Response:', response.data); // 응답 데이터 확인
+        console.log('Response Header:', response.data.response.header); // 응답 헤더 확인
+        console.log('Response Body:', response.data.response.body); // 응답 본문 확인
+
         const items = response.data.response?.body?.items?.item;
-        if (items) {
+
+        if (items && Array.isArray(items)) {
           const extractedData = items.map(item => ({
             traingradename: item.traingradename,
             depplandtime: item.depplandtime,
@@ -46,6 +56,17 @@ const TrainList = ({ depPlaceId, arrPlaceId, startDate }) => {
             adultcharge: item.adultcharge,
             trainno: item.trainno
           }));
+          setTrainData(extractedData);
+        } else if (items) {
+          const extractedData = [{
+            traingradename: items.traingradename,
+            depplandtime: items.depplandtime,
+            arrplandtime: items.arrplandtime,
+            depplacename: items.depplacename,
+            arrplacename: items.arrplacename,
+            adultcharge: items.adultcharge,
+            trainno: items.trainno
+          }];
           setTrainData(extractedData);
         } else {
           setTrainData([]);
@@ -71,23 +92,12 @@ const TrainList = ({ depPlaceId, arrPlaceId, startDate }) => {
     return <div>데이터를 불러오는 중 오류가 발생했습니다: {error.message}</div>;
   }
 
-  if (!trainData.length) {
-    return <div>해당 날짜에 대한 기차 정보를 찾을 수 없습니다.</div>;
-  }
-
   return (
     <div>
-      <h1>기차 정보</h1>
       <ul>
         {trainData.map((train, index) => (
           <li key={train.trainno || index}>
-            <p>기차 이름: {train.traingradename}</p>
-            <p>출발 시간: {train.depplandtime}</p>
-            <p>도착 시간: {train.arrplandtime}</p>
-            <p>출발역: {train.depplacename}</p>
-            <p>도착역: {train.arrplacename}</p>
-            <p>요금: {train.adultcharge}</p>
-            <p>기차 번호: {train.trainno}</p>
+            <p>{train.traingradename} / 출발: {train.depplacename}역 {formatDate(train.depplandtime)} / 도착: {train.arrplacename}역 {formatDate(train.arrplandtime)} / 요금: {train.adultcharge}원 / 열차번호: {train.trainno}</p>
           </li>
         ))}
       </ul>

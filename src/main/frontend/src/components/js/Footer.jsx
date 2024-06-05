@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Chat from './components/js/Chat';
+import Chat from './Chat';
 
 const Footer = () => {
     const [weatherData, setWeatherData] = useState([]);

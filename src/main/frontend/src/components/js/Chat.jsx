@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../css/modal.css';
-import chatIcon from '../img/chat.png'; // 이미지 경로에 맞게 수정하세요
+import chatIcon from '../img/chat.png';
 
 function Chat() {
   const [messages, setMessages] = useState([]);

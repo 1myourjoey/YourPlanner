@@ -2,21 +2,25 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'react-datepicker/dist/react-datepicker.css';
 import './App.css';
+import "../src/components/css/footer.css";
 import TravelDate from "./components/js/TravelDate";
 import TravelDetails from "./components/js/TravelDetails";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from "./components/js/Login";
+import SignUp from "./components/js/SignUp";
+import MainLayout from './components/js/MainLayout';
 
 function App() {
     return (
         <Router>
-            <div className="App">
-                <h1>YOUR PLANNER</h1>
-                <h4>유플과 시작하는 여행 !</h4>
-
-                <Routes>
+            <Routes>
+                <Route element={<MainLayout />}>
                     <Route path="/" element={<TravelDate />} />
-                    <Route path="/details" element={<TravelDetails />} />
-                </Routes>
-            </div>
+                </Route>
+                <Route path="/details" element={<TravelDetails />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<SignUp />} />
+            </Routes>
         </Router>
     );
 }

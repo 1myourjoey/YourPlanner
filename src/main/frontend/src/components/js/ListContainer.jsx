@@ -3,13 +3,17 @@ import DummyListRestaurant from "./DummyListRestaurant";
 import ListComponent from "./ListComponent";
 import DummyListHotel from "./DummyListHotel";
 import RecommendedPlaces from "./RecommendedPlaces";
+import LoadMoreButton from './LoadMoreButton';
 
-
-/* 선택된 리스트를 저장하는 최상위 컴포넌트 */
 const ListContainer = ({ areaCode, sigunguCode, view }) => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
+    const [selectedItems, setSelectedItems] = useState({
+        attractions: [],
+        hotels: [],
+        restaurants: []
+    });
 
     const fetchData = async (pageNumber, type) => {
         try {
@@ -23,7 +27,7 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
                     url = `http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5uJ1mFn4tOfEwReTW3dupjd4w2n5kEHO5nciT%2BDVGAVWTl90sysBKbMTIlIxLW5lCPo1VmpZ%2FXggxU84GhG81g%3D%3D&pageNo=${pageNumber}&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=B&areaCode=${areaCode}&sigunguCode=${sigunguCode}&contentTypeId=32`;
                     break;
                 case 'restaurant':
-                    url = `http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5V%2BytDDcz11Mfxc3tREUmoX6wOvDmA3oIaBkQfhB%2Bo%2B4vBWem3h6eQhKVvJuiJvpVonGtnuRqU6A83YSSBAh8A%3D%3D&pageNo=1&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=${areaCode}&sigunguCode=${sigunguCode}&contentTypeId=39`;
+                    url = `http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5V%2BytDDcz11Mfxc3tREUmoX6wOvDmA3oIaBkQfhB%2Bo%2B4vBWem3h6eQhKVvJuiJvpVonGtnuRqU6A83YSSBAh8A%3D%3D&pageNo=${pageNumber}&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=${areaCode}&sigunguCode=${sigunguCode}&contentTypeId=39`;
                     break;
                 default:
                     return;
@@ -38,12 +42,18 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
             const xmlData = parser.parseFromString(responseData, 'text/xml');
             const items = xmlData.getElementsByTagName('item');
             const extractedData = Array.from(items).map(item => ({
+                contentid: item.getElementsByTagName('contentid')[0].textContent,
                 title: item.getElementsByTagName('title')[0].textContent,
                 addr1: item.getElementsByTagName('addr1')[0].textContent,
                 contenttypeid: item.getElementsByTagName('contenttypeid')[0].textContent,
                 firstimage2: item.getElementsByTagName('firstimage2')[0]?.textContent || ''
             }));
-            setData(prevData => [...prevData, ...extractedData]);
+            setData(prevData => {
+                const newData = [...prevData, ...extractedData];
+                const uniqueData = Array.from(new Set(newData.map(item => item.contentid)))
+                    .map(id => newData.find(item => item.contentid === id));
+                return uniqueData;
+            });
         } catch (error) {
             console.error('Error fetching data:', error);
         } finally {
@@ -67,16 +77,16 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
         setPage(prevPage => prevPage + 1);
     };
 
-
     return (
         <div>
-            {/*RecommendedPlaces에 값 전달*/}
-            <RecommendedPlaces data={data} />
-            <div className="load-more-container">
-                <button onClick={loadMore} disabled={loading}>
-                    {loading ? '로딩 중...' : '더보기'}
-                </button>
-            </div>
+            <RecommendedPlaces 
+                data={data} 
+                loadMore={loadMore} 
+                loading={loading} 
+                view={view}
+                selectedItems={selectedItems}
+                setSelectedItems={setSelectedItems} 
+            />
         </div>
     );
 };

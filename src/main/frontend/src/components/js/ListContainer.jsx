@@ -5,11 +5,15 @@ import DummyListHotel from "./DummyListHotel";
 import RecommendedPlaces from "./RecommendedPlaces";
 import LoadMoreButton from './LoadMoreButton';
 
-/* 선택된 리스트를 저장하는 최상위 컴포넌트 */
 const ListContainer = ({ areaCode, sigunguCode, view }) => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
+    const [selectedItems, setSelectedItems] = useState({
+        attractions: [],
+        hotels: [],
+        restaurants: []
+    });
 
     const fetchData = async (pageNumber, type) => {
         try {
@@ -73,11 +77,16 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
         setPage(prevPage => prevPage + 1);
     };
 
-
     return (
         <div>
-            {/*RecommendedPlaces에 값 전달*/}
-            <RecommendedPlaces data={data} loadMore={loadMore} loading={loading} />
+            <RecommendedPlaces 
+                data={data} 
+                loadMore={loadMore} 
+                loading={loading} 
+                view={view}
+                selectedItems={selectedItems}
+                setSelectedItems={setSelectedItems} 
+            />
         </div>
     );
 };

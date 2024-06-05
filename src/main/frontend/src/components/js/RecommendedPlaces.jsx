@@ -1,26 +1,31 @@
-
 import React, { useState } from 'react';
 import '../css/RecommendedPlaces.css';
+import LoadMoreButton from './LoadMoreButton';
 
-
-const RecommendedPlaces = ({ data }) => {
+const RecommendedPlaces = ({ data, loadMore, loading }) => {
   const [selectedItems, setSelectedItems] = useState([]);
 
   const handleAddClick = (item) => {
-    setSelectedItems([...selectedItems, item]);
+    const existingItem = selectedItems.find(selectedItem => selectedItem.contentid === item.contentid);
+    if (!existingItem) {
+      const newItem = { ...item, uniqueId: Date.now() + Math.random().toString(36).substr(2, 9) };
+      setSelectedItems([...selectedItems, newItem]);
+    }
   };
 
-  const handleRemoveClick = (itemToRemove) => {
-    setSelectedItems(selectedItems.filter(item => item.title !== itemToRemove.title));
+  const handleRemoveClick = (uniqueId) => {
+    setSelectedItems(selectedItems.filter(item => item.uniqueId !== uniqueId));
+  };
+
+  const isItemSelected = (contentid) => {
+    return selectedItems.some(item => item.contentid === contentid);
   };
 
   return (
     <div>
-
       <div className="card-container">
         {data.map((item, index) => (
-          <div key={index} className="card">
-            
+          <div key={item.contentid + index} className="card">
             <h2>{item.title}</h2>
             <p>{item.addr1}</p>
             <img
@@ -28,15 +33,19 @@ const RecommendedPlaces = ({ data }) => {
               alt={item.title}
               className="hotel-image"
             />
-            <button onClick={() => handleAddClick(item)}>추가</button>
+            {isItemSelected(item.contentid) ? (
+              <button onClick={() => handleRemoveClick(item.uniqueId)}>체크</button>
+            ) : (
+              <button onClick={() => handleAddClick(item)}>추가</button>
+            )}
           </div>
         ))}
       </div>
+      <LoadMoreButton loadMore={loadMore} loading={loading} />
       <h1>Selected Places</h1>
       <div className="selected-items">
-        {selectedItems.map((item, index) => (
-          <div key={index} className="card">
-            
+        {selectedItems.map((item) => (
+          <div key={item.uniqueId} className="card">
             <h2>{item.title}</h2>
             <p>{item.addr1}</p>
             <input type='hidden' value={item.contenttypeid}></input>
@@ -45,8 +54,7 @@ const RecommendedPlaces = ({ data }) => {
               alt={item.title}
               className="selected-image"
             />
-            <button onClick={() => handleRemoveClick(item)}>삭제</button>
-            
+            <button onClick={() => handleRemoveClick(item.uniqueId)}>삭제</button>
           </div>
         ))}
       </div>

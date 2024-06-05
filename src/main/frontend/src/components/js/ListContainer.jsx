@@ -3,7 +3,7 @@ import DummyListRestaurant from "./DummyListRestaurant";
 import ListComponent from "./ListComponent";
 import DummyListHotel from "./DummyListHotel";
 import RecommendedPlaces from "./RecommendedPlaces";
-
+import LoadMoreButton from './LoadMoreButton';
 
 /* 선택된 리스트를 저장하는 최상위 컴포넌트 */
 const ListContainer = ({ areaCode, sigunguCode, view }) => {
@@ -38,6 +38,7 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
             const xmlData = parser.parseFromString(responseData, 'text/xml');
             const items = xmlData.getElementsByTagName('item');
             const extractedData = Array.from(items).map(item => ({
+                contentid: item.getElementsByTagName('contentid')[0].textContent,
                 title: item.getElementsByTagName('title')[0].textContent,
                 addr1: item.getElementsByTagName('addr1')[0].textContent,
                 contenttypeid: item.getElementsByTagName('contenttypeid')[0].textContent,
@@ -71,12 +72,7 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
     return (
         <div>
             {/*RecommendedPlaces에 값 전달*/}
-            <RecommendedPlaces data={data} />
-            <div className="load-more-container">
-                <button onClick={loadMore} disabled={loading}>
-                    {loading ? '로딩 중...' : '더보기'}
-                </button>
-            </div>
+            <RecommendedPlaces data={data} loadMore={loadMore} loading={loading} />
         </div>
     );
 };

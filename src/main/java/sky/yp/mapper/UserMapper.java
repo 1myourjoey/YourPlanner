@@ -1,6 +1,10 @@
 package sky.yp.mapper;
 
-import org.apache.ibatis.annotations.*;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.data.repository.query.Param;
 import sky.yp.dto.User;
 
 @Mapper

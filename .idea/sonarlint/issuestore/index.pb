@@ -39,3 +39,17 @@ E
 src/main/package.json,4\5\45aeda900083444e242159559a0c32c1344105bf
 S
 #src/main/frontend/public/index.html,f\b\fb4c430928484f1ec2ebc33fae3a74884b42f4fb
+b
+2src/main/frontend/src/components/js/MainLayout.jsx,9\2\920db8a4acc2d254d0c17b5d8f374b3a2499a43f
+^
+.src/main/frontend/src/components/js/MapSvg.jsx,c\d\cd610e9a285932f6beb458d4c2c45b2a45835bd4
+n
+>src/main/frontend/src/components/js/DummyLocationBasedList.jsx,4\4\44cb021a0eadf21515a79f177f067887a763740f
+_
+/src/main/frontend/src/components/css/MapSvg.css,1\a\1ae858a07d3e672def13bd058276fe208a086938
+c
+3src/main/frontend/src/components/css/TravelDate.css,6\7\67eb6241476a025d6b32493e5d1c956faacd47af
+j
+:src/main/frontend/src/components/css/RecommendedPlaces.css,d\8\d831b45a5c944e32dfafdf65d752eda1d20c8868
+f
+6src/main/frontend/src/components/css/ListComponent.css,4\6\467041cfa53fde467acf87d934150447fd657c84

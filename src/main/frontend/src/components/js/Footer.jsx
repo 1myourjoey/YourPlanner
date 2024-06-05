@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Footer = () => {
     const [weatherData, setWeatherData] = useState([]);
 
     useEffect(() => {
-        const cities = ['Seoul', 'Busan', 'Incheon'];
+        const cities = ['Seoul','Jeju', 'Busan', 'Incheon', 'Daegu','Daejeon','Ulsan'];
 
         const fetchWeatherData = async () => {
             try {

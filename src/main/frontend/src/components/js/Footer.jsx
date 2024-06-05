@@ -11,7 +11,7 @@ const Footer = () => {
             try {
                 const responses = await Promise.all(
                     cities.map(city =>
-                        axios.get(`/api/weather`, {
+                        axios.get('/api/weather', {
                             params: { city }
                         })
                     )
@@ -33,6 +33,9 @@ const Footer = () => {
                     <div className="col" key={index}>
                         <div className="card">
                             <div className="card-body">
+                                <svg height="100" width="100">
+                                    <circle cx="50" cy="50" r="40" stroke="white" strokeWidth="3" fill="grey"/>
+                                </svg>
                                 <h5 className="card-title">Weather in {data.name}</h5>
                                 <p className="card-text">Temperature: {data.main.temp}°C</p>
                                 <p className="card-text">Weather: {data.weather[0].description}</p>

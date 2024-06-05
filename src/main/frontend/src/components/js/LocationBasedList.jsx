@@ -1,11 +1,12 @@
+
 import React, { useState, useEffect } from 'react';
 
 import ListComponent from './ListComponent';
 import ListHotel from './ListHotel';
 
-const LocationBasedList = ({ destination }) => {
+const LocationBasedList = ({ destination2 }) => {
   const [locations, setLocations] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState(destination);
+  const [selectedLocation, setSelectedLocation] = useState(destination2);
   const [selectedSigungu, setSelectedSigungu] = useState('');
   const [view, setView] = useState('attractions'); // 'attractions' or 'hotels'
   const [sigungus, setSigungus] = useState([]); // 시/군/구 목록 추가
@@ -46,8 +47,8 @@ const LocationBasedList = ({ destination }) => {
   }, []);
 
   useEffect(() => {
-    setSelectedLocation(destination);
-  }, [destination]);
+    setSelectedLocation(destination2);
+  }, [destination2]);
 
   useEffect(() => {
     const fetchSigungus = async () => {
@@ -86,6 +87,8 @@ const LocationBasedList = ({ destination }) => {
     setSelectedSigungu(event.target.value);
   };
 
+
+  
   return (
     <div>
       {locations.length > 0 ? (

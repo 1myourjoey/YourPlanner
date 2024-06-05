@@ -1,12 +1,14 @@
 package sky.yp.mapper;
 
-import org.apache.ibatis.annotations.*;
+
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.data.repository.query.Param;
 import sky.yp.dto.User;
 
 @Mapper
 public interface UserMapper {
-
-
 
     @Insert("INSERT INTO USER (login_id, pw, email, tel) VALUES (#{loginId}, #{pw}, #{email}, #{tel})")
     void save(User user);

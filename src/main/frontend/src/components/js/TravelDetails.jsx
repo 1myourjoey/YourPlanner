@@ -1,7 +1,11 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+<<<<<<< HEAD
 import LocationBasedList from './LocationBasedList';
 import TrainList from './TrainList';
+=======
+import DummyLocationBasedList from './DummyLocationBasedList';
+>>>>>>> master
 
 const TravelDetails = () => {
     const location = useLocation();
@@ -10,6 +14,7 @@ const TravelDetails = () => {
     const endDate = params.get('endDate');
     let departure = params.get('departure');
     let destination = params.get('destination');
+    let destination2 = params.get('destination');
 
     const regionMapping = {
         "서울": "1",
@@ -35,8 +40,8 @@ const TravelDetails = () => {
     const destinationCode = regionMapping[destination];
 
     // destination 값을 rnum 값으로 변환
-    if (regionMapping[destination]) {
-        destination = regionMapping[destination];
+    if (regionMapping[destination2]) {
+        destination2 = regionMapping[destination2];
     }
 
     return (
@@ -46,8 +51,12 @@ const TravelDetails = () => {
             <p><strong>Destination:</strong> {destination}</p>
             <p><strong>Start Date:</strong> {startDate}</p>
             <p><strong>End Date:</strong> {endDate}</p>
+<<<<<<< HEAD
             <TrainList depPlaceId={departureCode} arrPlaceId={destinationCode} startDate={startDate} />
             <LocationBasedList destination={destination} />
+=======
+            <DummyLocationBasedList destination2={destination2} />
+>>>>>>> master
         </div>
     );
 };

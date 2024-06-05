@@ -13,8 +13,8 @@ const RecommendedPlaces = ({ data, loadMore, loading }) => {
     }
   };
 
-  const handleRemoveClick = (uniqueId) => {
-    setSelectedItems(selectedItems.filter(item => item.uniqueId !== uniqueId));
+  const handleRemoveClick = (contentid) => {
+    setSelectedItems(selectedItems.filter(item => item.contentid !== contentid));
   };
 
   const isItemSelected = (contentid) => {
@@ -34,7 +34,7 @@ const RecommendedPlaces = ({ data, loadMore, loading }) => {
               className="hotel-image"
             />
             {isItemSelected(item.contentid) ? (
-              <button onClick={() => handleRemoveClick(item.uniqueId)}>체크</button>
+              <button onClick={() => handleRemoveClick(item.contentid)}>체크</button>
             ) : (
               <button onClick={() => handleAddClick(item)}>추가</button>
             )}
@@ -54,7 +54,7 @@ const RecommendedPlaces = ({ data, loadMore, loading }) => {
               alt={item.title}
               className="selected-image"
             />
-            <button onClick={() => handleRemoveClick(item.uniqueId)}>삭제</button>
+            <button onClick={() => handleRemoveClick(item.contentid)}>삭제</button>
           </div>
         ))}
       </div>

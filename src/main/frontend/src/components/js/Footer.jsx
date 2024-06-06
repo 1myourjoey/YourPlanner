@@ -31,15 +31,18 @@ const Footer = () => {
         <footer className="container footer-flow">
             <div>
                 <Chat />
-                </div>
+            </div>
             <div className="row">
                 {weatherData.map((data, index) => (
                     <div className="col" key={index}>
                         <div className="card">
                             <div className="card-body">
-                                <svg height="100" width="100">
-                                    <circle cx="50" cy="50" r="40" stroke="white" strokeWidth="3" fill="grey"/>
-                                </svg>
+                                <img
+                                    src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
+                                    alt={data.weather[0].description}
+                                    height="100"
+                                    width="100"
+                                />
                                 <h5 className="card-title">Weather in {data.name}</h5>
                                 <p className="card-text">Temperature: {data.main.temp}°C</p>
                                 <p className="card-text">Weather: {data.weather[0].description}</p>

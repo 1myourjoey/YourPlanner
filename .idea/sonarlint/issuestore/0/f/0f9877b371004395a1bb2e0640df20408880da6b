@@ -1,0 +1,6 @@
+
+mjavascript:S6847)"RNon-interactive elements should not be assigned mouse or keyboard event listeners.(¥ŠÃk
+zjavascript:S1082)"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(¥ŠÃk
+Şjavascript:S6848/"ÂAvoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element.(¾ã
+zjavascript:S1082/"_Visible, non-interactive elements with click handlers must have at least one keyboard listener.(¾ã
+?javascript:S64794"Do not use Array index in keys(Ò…¥¿üÿÿÿÿ

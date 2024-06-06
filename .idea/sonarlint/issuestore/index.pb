@@ -6,7 +6,7 @@
 S
 #src/main/frontend/package-lock.json,6/6/667c3f418bd932076f449856c3cce3e9817bb8c2
 N
-src/main/frontend/package.json,3\7\37d8cea481454febd3c3f81b4e32f3a4a9f32cee
+src/main/frontend/package.json,3/7/37d8cea481454febd3c3f81b4e32f3a4a9f32cee
 L
 src/main/frontend/src/App.js,6/5/65107325a79051577112de2ce586496b00ad83a7
 N
@@ -37,8 +37,6 @@ e
 -src/main/frontend/src/components/js/Login.jsx,0\0\003378ff777836ffe6468f0524a434bd9a336790
 c
 3src/main/frontend/src/components/css/TravelDate.css,6\7\67eb6241476a025d6b32493e5d1c956faacd47af
-R
-"src/main/frontend/build/index.html,6\3\63550594fe3fa62c58e0565da4f3d0313b1288b4
 [
 +src/main/java/sky/yp/mapper/UserMapper.java,4/2/421a282173d0705c6fb3b60bdd4e2bf5d652a5fb
 ]
@@ -58,11 +56,11 @@ n
 b
 2src/main/frontend/src/components/js/MainLayout.jsx,9/2/920db8a4acc2d254d0c17b5d8f374b3a2499a43f
 ^
-.src/main/frontend/src/components/js/Footer.jsx,e\1\e14ec7c9da9403c799d696003d13c6792fe64d9d
+.src/main/frontend/src/components/js/Footer.jsx,e/1/e14ec7c9da9403c799d696003d13c6792fe64d9d
 `
 0src/main/java/sky/yp/service/WeatherService.java,e/f/ef635f4583d112779c2ff84f6e43f933c17b5be7
 f
-6src/main/java/sky/yp/controller/WeatherController.java,4\e\4e5e7c5448bfc3e7482ffe36efd8d8c1bccd761a
+6src/main/java/sky/yp/controller/WeatherController.java,4/e/4e5e7c5448bfc3e7482ffe36efd8d8c1bccd761a
 c
 3src/main/java/sky/yp/controller/UserController.java,c/9/c9212386118dceb7a14d80e1ef9170171a5b6386
 e
@@ -73,3 +71,19 @@ Y
 +src/main/java/sky/yp/config/CorsConfig.java,2/d/2d60757e97d273bf13f0453d0c701a9638c1becc
 E
 src/main/package.json,4/5/45aeda900083444e242159559a0c32c1344105bf
+Z
+*src/main/java/sky/yp/config/AppConfig.java,7/8/78cb6f7a15913c5d52d48926a45b08520e786c17
+\
+,src/main/frontend/src/components/js/Chat.jsx,0/f/0f9877b371004395a1bb2e0640df20408880da6b
+d
+4src/main/java/sky/yp/dto/ChatCompletionResponse.java,5/9/5970c9f5b0b347f1bef98670842e0af62673e612
+c
+3src/main/java/sky/yp/dto/ChatCompletionRequest.java,9/4/94e3cf91aee6ad1783b06a8a91e87dfc54b7af8a
+U
+%src/main/java/sky/yp/dto/Weather.java,4/1/41dd8e55001791bcb02d3dc7b3fc4916d9b05018
+V
+&src/main/java/sky/yp/dto/MainData.java,b/a/ba7f44a961802c1b8c1815f41a93ae8ea6492740
+f
+6src/main/java/sky/yp/controller/ChatGPTController.java,1/a/1a569bb28a4ad178ba046ab027c99b9e5148ee1f
+`
+0src/main/java/sky/yp/service/ChatGPTService.java,3/3/331ff50de4496dd1f006f4a2cc6c55cdddd57877

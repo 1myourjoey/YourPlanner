@@ -31,4 +31,37 @@
     </update>
 
 
+
+
+
+
+
+    <!-- saveNo를 기준으로 숙박 정보를 가져오는 쿼리 -->
+    <select id="selectAccommodationBySaveNo" resultType="sky.yp.entity.AccommodationEntity">
+        SELECT * FROM accommodation
+        WHERE save_no = #{saveNo}
+    </select>
+
+    <!-- saveNo를 기준으로 레스토랑 정보를 가져오는 쿼리 -->
+    <select id="selectRestaurantBySaveNo" resultType="sky.yp.entity.RestaurantEntity">
+        SELECT * FROM restaurant
+        WHERE save_no = #{saveNo}
+    </select>
+
+    <!-- saveNo를 기준으로 교통 수단 정보를 가져오는 쿼리 -->
+    <select id="selectTransportationBySaveNo" resultType="sky.yp.entity.TransportationEntity">
+        SELECT * FROM transportation
+        WHERE save_no = #{saveNo}
+    </select>
+
+    <!-- saveNo를 기준으로 관광 정보를 가져오는 쿼리 -->
+    <select id="selectTourBySaveNo" resultType="sky.yp.entity.TourEntity">
+        SELECT * FROM tour
+        WHERE save_no = #{saveNo}
+    </select>
+
+    <delete id="deletePlan" parameterType="int">
+        DELETE FROM Save WHERE save_no = #{saveNo}
+    </delete>
+
 </mapper>

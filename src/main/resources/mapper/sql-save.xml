@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sky.yp.mapper.SaveMapper">
+
+
+
+    <!-- 쿼리 -->
+    <select id="selectlist" resultType="sky.yp.dto.Save">
+        <![CDATA[
+            SELECT
+                save_no,
+                user_no,
+                save_title,
+                first_date,
+                end_date,
+                first_place,
+                end_place,
+                todo
+            FROM
+                Save
+            WHERE
+                user_no = #{userNo};
+        ]]>
+    </select>
+
+
+    <update id="updateTodo" parameterType="sky.yp.dto.Save">
+        UPDATE Save
+        SET todo = #{todo}
+        WHERE save_no = #{saveNo}
+    </update>
+
+
+</mapper>

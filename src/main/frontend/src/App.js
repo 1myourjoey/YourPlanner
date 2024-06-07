@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'react-datepicker/dist/react-datepicker.css';
 import './App.css';
-import "../src/components/css/footer.css";
+import "./components/css/Weather.css";
 import TravelDate from "./components/js/TravelDate";
 import TravelDetails from "./components/js/TravelDetails";
 import 'bootstrap/dist/css/bootstrap.min.css';

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import MainLayout from './MainLayout'
-import Footer from './Footer';
+import Weather from './Weather';
 function MyPlanDetail() {
   const { state } = useLocation();
   const [plan, setPlan] = useState(state && state.plan);
@@ -59,7 +59,7 @@ function MyPlanDetail() {
           </div>
         </>
       )}
-      <Footer />
+      <Weather />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Footer from './Footer';
+import Weather from './Weather';
 
 const MainLayout = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -55,7 +55,7 @@ const MainLayout = () => {
                     </div>
                 </div>
             </section>
-            <Footer />
+            <Weather />
         </div>
     );
 };

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Footer from './Footer';
+import DummyFooter from './DummyFooter';
+
 
 const MainLayout = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -56,6 +58,8 @@ const MainLayout = () => {
                 </div>
             </section>
             <Footer />
+            <DummyFooter />            
+
         </div>
     );
 };

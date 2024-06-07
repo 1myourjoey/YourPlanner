@@ -17,6 +17,7 @@
     "react-tooltip": "^5.26.4",
     "web-vitals": "^2.1.4"
   },
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

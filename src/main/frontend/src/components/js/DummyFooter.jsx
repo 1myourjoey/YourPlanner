@@ -1,23 +1,24 @@
 import React from 'react';
 import '../css/DummyFooter.css';
+import Mypick from '../img/Mypick.png'; // 이미지를 import
 
 const DummyFooter = () => {
     return (
         <footer id="footer">
             <div className="footer-content">
                 <div className="f-logo">
-                    <img src="../../resources/img/pattern/layout/head_logo.svg" className="logo-im" alt="YourPlanner" />
+                    <img src={Mypick} className="logo-im" alt="YourPlanner" /> {/* 이미지를 변수로 사용 */}
                 </div>
                 <div className="f-info">
-                    <p className="info-addr">(26464) 강원특별자치도 원주시 건강로 32(반곡동) 국민건강보험공단</p>
+                    <p className="info-addr">서울 마포구 신촌로 176 중앙빌딩</p>
                     <ul className="info-cs">
-                        <li><strong className="strong">대표전화 1577-1000</strong><span className="span">(유료, 평일 09시~18시)</span></li>
-                        <li><strong className="strong">해외이용 82-33-811-2001</strong><span className="span">(유료, 평일 09시~18시)</span></li>
+                        
+                        <li><strong className="strong">대표자:정상은 / 사업자등록번호:220-95-00629</strong><span className="span"></span></li>
+                        <li><strong className="strong">TEL:02-704-1711(평일 09시~18시) / FAX:02-393-9218</strong><span className="span"></span></li>
                     </ul>
                 </div>
                 <div className="f-btm">
                     <p className="f-copy">© Ministry of Education. All rights reserved.</p>
-                    <span className="ban-txt">이 누리집은 보건복지부 산하기관 누리집입니다.</span>
                 </div>
             </div>
         </footer>

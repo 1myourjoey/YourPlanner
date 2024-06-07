@@ -1,0 +1,25 @@
+.section1 {
+    color: #fff;
+    background: linear-gradient(-45deg, #1d2c41, #B7C9D9, #4FA3F0, #22131a);
+    background-repeat: no-repeat;
+    background-size: 400% 400%;
+    position: relative;
+    animation: backgroundChange 20s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+@keyframes backgroundChange {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import '../css/RecommendedPlaces.css';
 import LoadMoreButton from './LoadMoreButton';
 
-const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSelectedItems }) => {
+const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSelectedItems, selectedTrains, setSelectedTrains }) => {
 
   const handleAddClick = (item) => {
     let category;
@@ -20,7 +20,6 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
         return;
     }
 
-    // Ensure the category array exists
     if (!selectedItems[category]) {
       setSelectedItems(prevState => ({
         ...prevState,
@@ -28,7 +27,6 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
       }));
     }
 
-    // Check if the item already exists in the category array
     const existingItem = selectedItems[category]?.find(selectedItem => selectedItem.contentid === item.contentid);
     if (!existingItem) {
       const newItem = { ...item, uniqueId: Date.now() + Math.random().toString(36).substr(2, 9) };
@@ -46,8 +44,24 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
     }));
   };
 
+  const handleRemoveTrainClick = (trainno) => {
+    setSelectedTrains(prevState => prevState.filter(train => train.trainno !== trainno));
+  };
+
   const isItemSelected = (contentid, category) => {
     return selectedItems[category] && selectedItems[category].some(item => item.contentid === contentid);
+  };
+
+  const formatDate = (datetime) => {
+    if (typeof datetime !== 'string') {
+      datetime = datetime.toString();
+    }
+    const year = datetime.substring(0, 4);
+    const month = datetime.substring(4, 6);
+    const day = datetime.substring(6, 8);
+    const hour = datetime.substring(8, 10);
+    const minute = datetime.substring(10, 12);
+    return `${month}월 ${day}일 ${hour}시 ${minute}분`;
   };
 
   return (
@@ -103,7 +117,6 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
             </div>
           ))}
         </div>
-
         <h1>Selected Hotels</h1>
         <div className="selected-items">
           {selectedItems.hotels && selectedItems.hotels.map((item) => (
@@ -119,7 +132,6 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
             </div>
           ))}
         </div>
-
         <h1>Selected Restaurants</h1>
         <div className="selected-items">
           {selectedItems.restaurants && selectedItems.restaurants.map((item) => (
@@ -135,7 +147,9 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
             </div>
           ))}
         </div>
+
       </div>
+
     </div>
   );
 };

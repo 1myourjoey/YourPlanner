@@ -1,7 +1,8 @@
+// src/components/TrainList.js
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import TrainCode from './TrainCode';
-import RecommendedPlaces from './RecommendedPlaces';
 
 const TrainList = ({ depPlaceId, arrPlaceId, startDate, selectedTrains, setSelectedTrains }) => {
   const [trainData, setTrainData] = useState([]);
@@ -46,6 +47,8 @@ const TrainList = ({ depPlaceId, arrPlaceId, startDate, selectedTrains, setSelec
 
         for (const depCode of depPlaceId) {
           for (const destCode of arrPlaceId) {
+            console.log(`Fetching data for depCode: ${depCode}, destCode: ${destCode}, date: ${formattedDate}`);
+
             const response = await axios.get('http://apis.data.go.kr/1613000/TrainInfoService/getStrtpntAlocFndTrainInfo', {
               params: {
                 serviceKey,
@@ -56,6 +59,8 @@ const TrainList = ({ depPlaceId, arrPlaceId, startDate, selectedTrains, setSelec
                 trainGradeCode: '00'
               }
             });
+
+            console.log('API response:', response.data);
 
             const items = response.data.response?.body?.items?.item;
 
@@ -122,7 +127,15 @@ const TrainList = ({ depPlaceId, arrPlaceId, startDate, selectedTrains, setSelec
         ))}
       </ul>
 
-
+      <h1>선택된 열차 목록</h1>
+      <div className="selected-items">
+        {selectedTrains.map((train) => (
+          <div key={train.uniqueId} className="card">
+            <p>{train.traingradename} / 출발: {train.depplacename}역 {formatDate(train.depplandtime)} / 도착: {train.arrplacename}역 {formatDate(train.arrplandtime)} / 요금: {train.adultcharge}원 / 열차번호: {train.trainno}</p>
+            <button onClick={() => handleRemoveClick(train.trainno)}>삭제</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

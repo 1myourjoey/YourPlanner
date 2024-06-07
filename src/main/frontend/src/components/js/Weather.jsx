@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Chat from './Chat';
 
-const Footer = () => {
+const Weather = () => {
     const [weatherData, setWeatherData] = useState([]);
 
     useEffect(() => {
@@ -55,4 +55,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default Weather;

@@ -1,11 +1,5 @@
 
-~
-java:S2259 "BA "NullPointerException" could be thrown; "user" is nullable here.(ÖÛ¹şJ$2ea588a0-977b-4b66-bf6f-a379ceb390d6
-†
-java:S1764"ECorrect one of the identical sub-expressions on both sides of equals.(±£ “şÿÿÿÿJ$34e5ae02-5b89-48da-99ad-4b1479eb9eae
-{
-java:S2441":Make "User" serializable or don't store it in the session.(ÅÌÉıÿÿÿÿJ$e70e2eee-a423-45f5-9490-847115513554
-
-java:S1128"@Remove this unused import 'org.springframework.http.HttpStatus'.(íŸ¤ŠúÿÿÿÿJ$58d350ff-3702-4bd4-a079-000cff68bdd3
-…
-java:S1128"DRemove this unused import 'org.springframework.http.ResponseEntity'.(¶¯ø¦úÿÿÿÿJ$43003f2d-17b5-4e74-8325-2de7269e25f9
+W
+java:S2441":Make "User" serializable or don't store it in the session.(Á®íğ8º´‡ÿ1
+G	java:S106 "+Replace this use of System.out by a logger.(Óß£Ô8¼´‡ÿ1
+L	java:S1069"+Replace this use of System.out by a logger.(¹ûö–şÿÿÿÿ8Â´‡ÿ1

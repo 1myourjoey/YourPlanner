@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import '../css/MyPlanDetail.css'; // CSS 파일 호출
+import DummyFooter from './DummyFooter';
+
 
 function MyPlanDetail() {
   const { state } = useLocation();
@@ -56,10 +58,12 @@ function MyPlanDetail() {
                       placeholder="새로운 할일 입력"
                   />
                   <button className="myplandetail-btn btn btn-primary" onClick={handleUpdateTodo}>입력</button>
+
                 </div>
               </>
           )}
         </div>
+
       </div>
   );
 }

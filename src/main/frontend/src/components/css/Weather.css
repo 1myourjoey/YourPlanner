@@ -6,6 +6,7 @@
 
 .footer-flow .card {
     animation: footerFlow 20s linear infinite;
+    top: 0;
 }
 
 

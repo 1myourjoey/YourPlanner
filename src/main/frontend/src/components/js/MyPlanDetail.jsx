@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import MainLayout from './MainLayout'
-import Footer from './Footer';
+
+
 function MyPlanDetail() {
   const { state } = useLocation();
   const [plan, setPlan] = useState(state && state.plan);
@@ -22,7 +22,7 @@ function MyPlanDetail() {
   return (
 
     <div className="travel-plan-details">
-         <MainLayout />
+
       <h2>나의 여행 계획 상세</h2>
       {plan && (
         <>
@@ -59,7 +59,7 @@ function MyPlanDetail() {
           </div>
         </>
       )}
-      <Footer />
+
     </div>
   );
 }

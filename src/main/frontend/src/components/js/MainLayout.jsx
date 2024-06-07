@@ -10,6 +10,7 @@ const MainLayout = () => {
     const handleLogout = () => {
         axios.post('/api/users/logout')
             .then(() => {
+                sessionStorage.removeItem('loginId');
                 setIsLoggedIn(false);
                 navigate('/');
             })
@@ -19,11 +20,10 @@ const MainLayout = () => {
     };
 
     useEffect(() => {
-        // 로그인 상태를 확인하는 로직 추가 (예: 세션 스토리지 등을 통해 확인)
-        const loggedIn = sessionStorage.getItem('loginId') !== null; // 예시: 세션 스토리지에 loginId가 있는지 확인
-        setIsLoggedIn(loggedIn);
-    }, []);
-
+          // 로그인 상태를 확인하는 로직 추가 (예: 세션 스토리지 등을 통해 확인)
+          const loggedIn = sessionStorage.getItem('loginId') !== null; // 예시: 세션 스토리지에 loginId가 있는지 확인
+          setIsLoggedIn(loggedIn);
+      }, []);
     return (
         <div className="App">
             <header className="container">

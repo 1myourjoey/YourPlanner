@@ -1,5 +1,6 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "/static/css/main.ac8547fd.css",
     "main.js": "/static/js/main.26473277.js",
     "static/js/453.d855a71b.chunk.js": "/static/js/453.d855a71b.chunk.js",
@@ -11,5 +12,18 @@
   "entrypoints": [
     "static/css/main.ac8547fd.css",
     "static/js/main.26473277.js"
+=======
+    "main.css": "/static/css/main.c41d2264.css",
+    "main.js": "/static/js/main.a364c2fb.js",
+    "static/js/453.d855a71b.chunk.js": "/static/js/453.d855a71b.chunk.js",
+    "index.html": "/index.html",
+    "main.c41d2264.css.map": "/static/css/main.c41d2264.css.map",
+    "main.a364c2fb.js.map": "/static/js/main.a364c2fb.js.map",
+    "453.d855a71b.chunk.js.map": "/static/js/453.d855a71b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c41d2264.css",
+    "static/js/main.a364c2fb.js"
+>>>>>>> jcy
   ]
 }

@@ -4,6 +4,8 @@ import TrainCode from './TrainCode';
 import LocationBasedList from './LocationBasedList';
 import TrainList from './TrainList';
 import DummyLocationBasedList from './DummyLocationBasedList';
+import '../css/header.css';
+import Header from './Header';
 
 const TravelDetails = () => {
     const location = useLocation();
@@ -44,6 +46,7 @@ const TravelDetails = () => {
 
     return (
         <div>
+            <Header />
             <h2>Travel Details</h2>
             <p><strong>Departure:</strong> {departure}</p>
             <p><strong>Destination:</strong> {destination}</p>

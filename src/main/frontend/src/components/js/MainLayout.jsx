@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Footer from './Footer';
+import Weather from './Weather';
 import DummyFooter from './DummyFooter';
 import '../css/header.css';
 
@@ -26,7 +26,7 @@ const MainLayout = () => {
           const loggedIn = sessionStorage.getItem('loginId') !== null; // 예시: 세션 스토리지에 loginId가 있는지 확인
           setIsLoggedIn(loggedIn);
       }, []);
-    return (
+      return (
         <div className="App">
             <header className="container header">
             <div className="row">
@@ -61,7 +61,7 @@ const MainLayout = () => {
                     </div>
                 </div>
             </section>
-            <Footer />
+            <Weather />
             <DummyFooter />            
 
         </div>

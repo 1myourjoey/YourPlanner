@@ -11,8 +11,6 @@ L
 src/main/frontend/src/App.js,6/5/65107325a79051577112de2ce586496b00ad83a7
 N
 src/main/frontend/src/index.js,c/6/c6cb98d7f9fa1b50106cd95cc089f9fc178f5efe
-c
-3src/main/java/sky/yp/controller/TestController.java,0\8\0882fe6ef75bbb105cc8f53c094d71f86d71d651
 `
 0src/main/java/sky/yp/YourPlannerApplication.java,6/3/632dc5f78f794d334b0ddbf10de5280875c1c78c
 S
@@ -34,9 +32,9 @@ b
 e
 5src/main/frontend/src/components/js/TravelDetails.jsx,c/0/c085a52d5bcd7794869f9f2f508da4ea6813ecd8
 ]
--src/main/frontend/src/components/js/Login.jsx,0\0\003378ff777836ffe6468f0524a434bd9a336790
+-src/main/frontend/src/components/js/Login.jsx,0/0/003378ff777836ffe6468f0524a434bd9a336790
 c
-3src/main/frontend/src/components/css/TravelDate.css,6\7\67eb6241476a025d6b32493e5d1c956faacd47af
+3src/main/frontend/src/components/css/TravelDate.css,6/7/67eb6241476a025d6b32493e5d1c956faacd47af
 [
 +src/main/java/sky/yp/mapper/UserMapper.java,4/2/421a282173d0705c6fb3b60bdd4e2bf5d652a5fb
 ]
@@ -55,8 +53,6 @@ n
 .src/main/frontend/src/components/js/SignUp.jsx,a/c/acbf4eb74e867ba47b47db15c6b547a2ffc60056
 b
 2src/main/frontend/src/components/js/MainLayout.jsx,9/2/920db8a4acc2d254d0c17b5d8f374b3a2499a43f
-^
-.src/main/frontend/src/components/js/Footer.jsx,e/1/e14ec7c9da9403c799d696003d13c6792fe64d9d
 `
 0src/main/java/sky/yp/service/WeatherService.java,e/f/ef635f4583d112779c2ff84f6e43f933c17b5be7
 f
@@ -87,3 +83,35 @@ f
 6src/main/java/sky/yp/controller/ChatGPTController.java,1/a/1a569bb28a4ad178ba046ab027c99b9e5148ee1f
 `
 0src/main/java/sky/yp/service/ChatGPTService.java,3/3/331ff50de4496dd1f006f4a2cc6c55cdddd57877
+R
+"src/main/java/sky/yp/dto/Save.java,4/0/40b83ee7b8d2db462290fd1ad0c0f876e0347dfc
+d
+4src/main/frontend/src/components/js/MyPlanDetail.jsx,1/0/1090d1cbcbb53ad7ef6a6a42c7c061b7af4f154e
+c
+3src/main/java/sky/yp/controller/SaveController.java,3/6/367f9e38838f92267c36cad787e81b93a2477c85
+R
+"src/main/java/sky/yp/dto/User.java,f/8/f85bb1c9de4fab5efdacf60f0d6e30ef21686967
+[
++src/main/java/sky/yp/entity/SaveEntity.java,c/8/c8ee45662f1fe8f7f28a490a313f7cefae06adb8
+[
++src/main/java/sky/yp/entity/UserEntity.java,1/b/1bb98d9f8ea2e53eb85741c2b9b55fbf35eb8bb8
+[
++src/main/java/sky/yp/mapper/SaveMapper.java,9/9/99d536f9f7f3ba3c634c2e4b596819cbea3a0421
+`
+0src/main/frontend/src/components/css/Weather.css,1/e/1ed3994c12f023c9bde4f0789385e45a4bef4651
+_
+/src/main/frontend/src/components/js/Weather.jsx,5/0/503517ebcb1250eb80de66b30cfbaedf4eda7589
+^
+.src/main/frontend/src/components/js/MyPlan.jsx,5/c/5c7a2e054c1b17aa72baf1fc78deb25252b76232
+e
+5src/main/frontend/src/components/js/ListContainer.jsx,b/f/bf0f4a8551f783e7bd91240ddc39efcf6b73e123
+e
+5src/main/frontend/src/components/css/MyPlanDetail.css,3/a/3ab10642df8edc4b643e2ef6f4abe52e763570e9
+^
+.src/main/frontend/src/components/css/modal.css,2/f/2f4c2302ede0f66ebb3fb378d22f2997ad89977d
+^
+.src/main/frontend/src/components/js/MyPage.jsx,a/8/a8a5675a3d637800d19bdc85f6113e7231f7d76d
+a
+1src/main/frontend/src/components/js/TrainList.jsx,5/5/5553abba5a8a12d84cdcf0bfcfb63f8f3318cdec
+a
+1src/main/frontend/src/components/js/TrainCode.jsx,e/e/eede7fdabf3ca18d259ac400ea9fadfc145e1902

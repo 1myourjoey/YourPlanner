@@ -6,7 +6,6 @@ import DummyFooter from './DummyFooter';
 import '../css/header.css';
 import Header from './Header';
 
-
 const MainLayout = () => {
       return (
         <div className="App">

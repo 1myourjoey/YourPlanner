@@ -1,6 +1,8 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import Footer from './Footer';
+import Chat from './Chat';
+import axios from 'axios';
 
 const MainLayout = () => (
     <div className="App">
@@ -24,6 +26,9 @@ const MainLayout = () => (
                 </div>
             </div>
         </section>
+                    <div>
+                        <Chat />
+                        </div>
         <Footer />
     </div>
 );

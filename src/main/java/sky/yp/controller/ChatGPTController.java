@@ -12,6 +12,7 @@ import java.util.Map;
 
 @RestController
 public class ChatGPTController {
+
     @Autowired
     private ChatGPTService chatGPTService;
 

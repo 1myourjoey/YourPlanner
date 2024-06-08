@@ -8,11 +8,13 @@ import '../css/MainLayout.css'
 import Header from './Header';
 
 
+
 const MainLayout = () => {
       return (
         <div className="App">
             <Header/>
             <section className="section1">
+
                 <section className="container">
                     <div className="col">
                         <h1>YOUR PLANNER</h1>
@@ -23,10 +25,12 @@ const MainLayout = () => {
                             <Outlet/>
                         </div>
                     </div>
+                    <Weather/>
+                    <DummyFooter/>
                 </section>
             </section>
-            <Weather/>
-            <DummyFooter/>
+
+
 
         </div>
       );

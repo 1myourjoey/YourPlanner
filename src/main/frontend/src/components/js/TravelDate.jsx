@@ -4,7 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from 'react-router-dom';
 import MapSvg from "./MapSvg";
 import '../css/TravelDate.css';
-import Plane from "./Plane";
+import Plane from "./Plane"; 
 
 // 날짜를 'yyyy-MM-dd' 형식으로 변환하는 함수
 const formatDate = (date) => {

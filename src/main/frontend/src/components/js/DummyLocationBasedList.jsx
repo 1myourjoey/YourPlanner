@@ -107,7 +107,7 @@ const DummyLocationBasedList = ({ destination2 }) => {
           onClick={() => handleViewChange('attractions')}
           className={view === 'attractions' ? 'selected' : ''}
         >
-          추천 장소
+          관광지
         </button>
         <button
           onClick={() => handleViewChange('hotels')}

@@ -4,6 +4,7 @@ import axios from 'axios';
 import Weather from './Weather';
 import DummyFooter from './DummyFooter';
 import '../css/header.css';
+import '../css/MainLayout.css'
 import Header from './Header';
 
 
@@ -11,22 +12,24 @@ const MainLayout = () => {
       return (
         <div className="App">
             <Header/>
-                <div className="col">
-                    <h1>YOUR PLANNER</h1>
-                    <h4>유플과 시작하는 여행 !</h4>
-                </div>
-            <section className="container">
-                <div className="row">
+            <section className="section1">
+                <section className="container">
                     <div className="col">
-                        <Outlet />
+                        <h1>YOUR PLANNER</h1>
+                        <h4>유플과 시작하는 여행 !</h4>
                     </div>
-                </div>
+                    <div className="row">
+                        <div className="col">
+                            <Outlet/>
+                        </div>
+                    </div>
+                </section>
             </section>
-            <Weather />
-            <DummyFooter />            
+            <Weather/>
+            <DummyFooter/>
 
         </div>
-    );
+      );
 };
 
 export default MainLayout;

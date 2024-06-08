@@ -23,8 +23,8 @@
 }
 
 .card-container .hotel-image {
-  width: 75px; /* 이미지의 너비 */
-  height: 75px; /* 이미지의 높이 */
+  width: 100px; /* 이미지의 너비 */
+  height: 100px; /* 이미지의 높이 */
   object-fit: cover; /* 이미지가 영역을 채우도록 조정 */
   border-radius: 8px;
   margin-right: 15px; /* 이미지와 텍스트 사이 간격 */

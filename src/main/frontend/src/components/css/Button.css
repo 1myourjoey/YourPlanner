@@ -9,6 +9,11 @@ button {
   
 }
 
+button:hover {
+  background-color: #3aa4c3; 
+}
+
+
 .selected {
   background-color: #50BCDF; /* 선택된 버튼 배경색 */
 }

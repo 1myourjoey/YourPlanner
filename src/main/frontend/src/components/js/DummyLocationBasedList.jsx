@@ -89,6 +89,8 @@ const DummyLocationBasedList = ({ destination2 }) => {
         <div>
 
             {selectedLocation && (
+                <div>
+                <span style={{ marginRight: '10px' }}>상세주소:</span>
                 <select value={selectedSigungu} onChange={handleSigunguChange}>
                     <option value="">시/군/구를 선택하세요</option>
                     {sigungus.map((sigungu, index) => (
@@ -97,13 +99,15 @@ const DummyLocationBasedList = ({ destination2 }) => {
                         </option>
                     ))}
                 </select>
+                
+                </div>
             )}
             <div>
             <button
           onClick={() => handleViewChange('attractions')}
           className={view === 'attractions' ? 'selected' : ''}
         >
-          추천 명소
+          추천 장소
         </button>
         <button
           onClick={() => handleViewChange('hotels')}

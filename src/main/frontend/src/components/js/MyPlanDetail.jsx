@@ -80,8 +80,10 @@ function MyPlanDetail() {
                 <p>{plan.endPlace}</p>
               </div>
 
+
             </>
           )}
+            
 
           {plan && (
             <>
@@ -140,6 +142,14 @@ function MyPlanDetail() {
               )}
             </>
           )}
+{/*           {plan && ( */}
+{/*             <div className="myplandetail-section"> */}
+{/*                */}{/* 카카오톡 공유 버튼 */}
+{/*               <a id="kakaotalk-sharing-btn" href="javascript:handleShareKakao()"> */}
+{/*                 <img src="https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png" alt="카카오톡 공유 보내기 버튼" /> */}
+{/*               </a> */}
+{/*             </div> */}
+{/*           )} */}
            <div className="myplandetail-section">
                           <h3>할일</h3>
                           <p>{plan.todo}</p>

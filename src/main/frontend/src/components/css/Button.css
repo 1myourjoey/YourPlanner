@@ -17,3 +17,10 @@ button:hover {
 .selected {
   background-color: #50BCDF; /* 선택된 버튼 배경색 */
 }
+
+.more-button{
+  background-color: #d6d6d6; /* 약간 연한 회색 */
+  color: white;
+  width: 500px;
+  margin: 30px 0px 100px 0px;
+}

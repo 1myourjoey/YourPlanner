@@ -4,6 +4,7 @@ import LoadMoreButton from './LoadMoreButton';
 import Check from '../img/Check.png';
 
 
+
 const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSelectedItems, selectedTrains, setSelectedTrains }) => {
 
   const handleAddClick = (item) => {
@@ -110,7 +111,7 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
         
       
       <div className="selected-container">
-        <h4>Selected Attractions</h4>
+        <p>관광지</p>
         <ul className="selected-items">
           {selectedItems.attractions && selectedItems.attractions.map((item) => (
             <li key={item.uniqueId} className="card">
@@ -128,7 +129,7 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
           ))}
         </ul>
         
-        <h4>Selected Hotels</h4>
+        <p>숙박</p>
         <ul className="selected-items">
           {selectedItems.hotels && selectedItems.hotels.map((item) => (
             <li key={item.uniqueId} className="card">
@@ -146,7 +147,7 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
           ))}
         </ul>
         
-        <h4>Selected Restaurants</h4>
+        <p>맛집</p>
         <ul className="selected-items">
           {selectedItems.restaurants && selectedItems.restaurants.map((item) => (
             <li key={item.uniqueId} className="card">

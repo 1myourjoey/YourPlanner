@@ -1,6 +1,8 @@
 import React from 'react';
 import '../css/RecommendedPlaces.css';
 import LoadMoreButton from './LoadMoreButton';
+import Check from '../img/Check.png';
+
 
 const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSelectedItems, selectedTrains, setSelectedTrains }) => {
 
@@ -68,100 +70,104 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
     <div>
       <div className="list-container">
         <ul className="card-container">
-        {data.map((item, index) => {
-          let category;
-          switch (item.contenttypeid) {
-            case '12':
-              category = 'attractions';
-              break;
-            case '32':
-              category = 'hotels';
-              break;
-            case '39':
-              category = 'restaurants';
-              break;
-            default:
-              return null;
-          }
-          return (
-            <li key={item.contentid + index} className="card">
-              <div className="image-text-container">
-                <img
-                  src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
-                  alt={item.title}
-                  className="hotel-image"
-                />
-                <div className="text-container">
-                  <h5>{item.title}</h5>
-                  <p>{item.addr1}</p>
+          {data.map((item, index) => {
+            let category;
+            switch (item.contenttypeid) {
+              case '12':
+                category = 'attractions';
+                break;
+              case '32':
+                category = 'hotels';
+                break;
+              case '39':
+                category = 'restaurants';
+                break;
+              default:
+                return null;
+            }
+            return (
+              <li key={item.contentid + index} className="card">
+                <div className="image-text-container">
+                  <img
+                    src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
+                    alt={item.title}
+                    className="hotel-image"
+                  />
+                  <div className="text-container">
+                    <h5>{item.title}</h5>
+                    <p>{item.addr1}</p>
+                  </div>
                 </div>
+                {isItemSelected(item.contentid, category) ? (
+                  <button className="selected-button" onClick={() => handleRemoveClick(item.contentid, category)}><img src={Check} alt="Icon" /></button>
+                ) : (
+                  <button className="add-button" onClick={() => handleAddClick(item)}>추가</button>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+        
+      
+      <div className="selected-container">
+        <h4>Selected Attractions</h4>
+        <ul className="selected-items">
+          {selectedItems.attractions && selectedItems.attractions.map((item) => (
+            <li key={item.uniqueId} className="card">
+              <img
+                src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
+                alt={item.title}
+                className="selected-image"
+              />
+              <div className="text-container">
+                <h5>{item.title}</h5>
+                <p>{item.addr1}</p>
               </div>
-              {isItemSelected(item.contentid, category) ? (
-                <button onClick={() => handleRemoveClick(item.contentid, category)}>체크</button>
-              ) : (
-                <button onClick={() => handleAddClick(item)}>추가</button>
-              )}
+              <button onClick={() => handleRemoveClick(item.contentid, 'attractions')}>삭제</button>
             </li>
-          );
-        })}
-      </ul>
-        <LoadMoreButton loadMore={loadMore} loading={loading} />
-        <div>
-          <h1>Selected Attractions</h1>
-          <ul className="selected-items">
-            {selectedItems.attractions && selectedItems.attractions.map((item) => (
-              <li key={item.uniqueId} className="card">
-                <img
-                  src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
-                  alt={item.title}
-                  className="selected-image"
-                />
-                <div className="text-container">
-                  <p>{item.title}</p>
-                  <p>{item.addr1}</p>
-                </div>
-                <button onClick={() => handleRemoveClick(item.contentid, 'attractions')}>삭제</button>
-              </li>
-            ))}
-          </ul>
-          <h1>Selected Hotels</h1>
-          <ul className="selected-items">
-            {selectedItems.hotels && selectedItems.hotels.map((item) => (
-              <li key={item.uniqueId} className="card">
-                <img
-                  src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
-                  alt={item.title}
-                  className="selected-image"
-                />
-                <div className="text-container">
-                  <p>{item.title}</p>
-                  <p>{item.addr1}</p>
-                </div>
-                <button onClick={() => handleRemoveClick(item.contentid, 'hotels')}>삭제</button>
-              </li>
-            ))}
-          </ul>
-          <h1>Selected Restaurants</h1>
-          <ul className="selected-items">
-            {selectedItems.restaurants && selectedItems.restaurants.map((item) => (
-              <li key={item.uniqueId} className="card">
-                <img
-                  src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
-                  alt={item.title}
-                  className="selected-image"
-                />
-                <div className="text-container">
-                  <p>{item.title}</p>
-                  <p>{item.addr1}</p>
-                </div>
-                <button onClick={() => handleRemoveClick(item.contentid, 'restaurants')}>삭제</button>
-              </li>
-            ))}
-          </ul>
-        </div>
+          ))}
+        </ul>
+        
+        <h4>Selected Hotels</h4>
+        <ul className="selected-items">
+          {selectedItems.hotels && selectedItems.hotels.map((item) => (
+            <li key={item.uniqueId} className="card">
+              <img
+                src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
+                alt={item.title}
+                className="selected-image"
+              />
+              <div className="text-container">
+                <h5>{item.title}</h5>
+                <p>{item.addr1}</p>
+              </div>
+              <button onClick={() => handleRemoveClick(item.contentid, 'hotels')}>삭제</button>
+            </li>
+          ))}
+        </ul>
+        
+        <h4>Selected Restaurants</h4>
+        <ul className="selected-items">
+          {selectedItems.restaurants && selectedItems.restaurants.map((item) => (
+            <li key={item.uniqueId} className="card">
+              <img
+                src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
+                alt={item.title}
+                className="selected-image"
+              />
+              <div className="text-container">
+                <h5>{item.title}</h5>
+                <p>{item.addr1}</p>
+              </div>
+              <button onClick={() => handleRemoveClick(item.contentid, 'restaurants')}>삭제</button>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
+    <LoadMoreButton loadMore={loadMore} loading={loading} />
+    </div>
   );
-};
+}
 
 export default RecommendedPlaces;

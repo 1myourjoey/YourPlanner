@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ListContainer from './ListContainer';
+import '../css/Button.css';
 
 const DummyLocationBasedList = ({ destination2 }) => {
     const [locations, setLocations] = useState([]);
@@ -86,18 +87,6 @@ const DummyLocationBasedList = ({ destination2 }) => {
 
     return (
         <div>
-            {locations.length > 0 ? (
-                <select value={selectedLocation} onChange={handleChange}>
-                    <option value="">지역을 선택하세요</option>
-                    {locations.map((location, index) => (
-                        <option key={index} value={location.code}>
-                            {location.name}
-                        </option>
-                    ))}
-                </select>
-            ) : (
-                <p>Loading...</p>
-            )}
 
             {selectedLocation && (
                 <select value={selectedSigungu} onChange={handleSigunguChange}>
@@ -109,14 +98,30 @@ const DummyLocationBasedList = ({ destination2 }) => {
                     ))}
                 </select>
             )}
-
-            <button onClick={() => handleViewChange('attractions')}>추천 명소</button>
-            <button onClick={() => handleViewChange('hotels')}>숙박</button>
-            <button onClick={() => handleViewChange('restaurant')}>맛집</button>
+            <div>
+            <button
+          onClick={() => handleViewChange('attractions')}
+          className={view === 'attractions' ? 'selected' : ''}
+        >
+          추천 명소
+        </button>
+        <button
+          onClick={() => handleViewChange('hotels')}
+          className={view === 'hotels' ? 'selected' : ''}
+        >
+          숙박
+        </button>
+        <button
+          onClick={() => handleViewChange('restaurant')}
+          className={view === 'restaurant' ? 'selected' : ''}
+        >
+          맛집
+        </button>
 
             {selectedLocation && (
                 <ListContainer areaCode={selectedLocation} sigunguCode={selectedSigungu} view={view} />
             )}
+            </div>
         </div>
     );
 };

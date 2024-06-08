@@ -5,6 +5,7 @@ import LocationBasedList from './LocationBasedList';
 import TrainList from './TrainList';
 import DummyLocationBasedList from './DummyLocationBasedList';
 import '../css/header.css';
+import '../css/TravelDetails.css';
 import Header from './Header';
 
 const TravelDetails = () => {
@@ -45,28 +46,32 @@ const TravelDetails = () => {
     }
 
     return (
-        <div>
-            <Header />
+        <div className="travel-container">
+          <Header />
+          <div className="travel-details-card">
             <h2>Travel Details</h2>
-            <p><strong>Departure:</strong> {departure}</p>
-            <p><strong>Destination:</strong> {destination}</p>
-            <p><strong>Start Date:</strong> {startDate}</p>
-            <p><strong>End Date:</strong> {endDate}</p>
-
-            {departureCodes.map(depCode =>
-                destinationCodes.map(destCode => (
-                    <TrainList
-                        key={`${depCode}-${destCode}`}
-                        depPlaceId={depCode}
-                        arrPlaceId={destCode}
-                        startDate={startDate}
-                    />
-                ))
-            )}
-            <LocationBasedList destination={destination} />
-            <DummyLocationBasedList destination2={destination2} />
+            <div className="travel-info">
+              <p><strong>Departure:</strong> {departure}</p>
+              <p><strong>Destination:</strong> {destination}</p>
+              <p><strong>Start Date:</strong> {startDate}</p>
+              <p><strong>End Date:</strong> {endDate}</p>
+            </div>
+          </div>
+          
+          {departureCodes.map(depCode =>
+            destinationCodes.map(destCode => (
+              <TrainList
+                key={`${depCode}-${destCode}`}
+                depPlaceId={depCode}
+                arrPlaceId={destCode}
+                startDate={startDate}
+              />
+            ))
+          )}
+          
+          <DummyLocationBasedList destination2={destination2} />
         </div>
-    );
-};
+      );
+    }
 
 export default TravelDetails;

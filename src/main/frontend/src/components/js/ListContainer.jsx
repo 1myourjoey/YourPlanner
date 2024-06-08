@@ -47,6 +47,8 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
                 addr1: item.getElementsByTagName('addr1')[0].textContent,
                 contenttypeid: item.getElementsByTagName('contenttypeid')[0].textContent,
                 firstimage2: item.getElementsByTagName('firstimage2')[0]?.textContent || ''
+
+                
             }));
             setData(prevData => {
                 const newData = [...prevData, ...extractedData];

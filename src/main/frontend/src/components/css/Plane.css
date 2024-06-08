@@ -1,0 +1,9 @@
+.plane {
+    position: relative;
+    width: 100px; /* 비행기 이미지의 크기 조정 */
+    height: 100px; /* 비행기 이미지의 크기 조정 */
+    background-image: url('../img/Plane.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.5; /* 불투명도 설정 */
+}

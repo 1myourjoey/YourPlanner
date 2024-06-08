@@ -110,7 +110,7 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
         <div className="selected-container">
           {selectedItems.attractions && selectedItems.attractions.length > 0 && (
             <>
-              <p>관광지</p>
+              
               <ul className="selected-items">
                 {selectedItems.attractions.map((item) => (
                   <li key={item.uniqueId} className="card">
@@ -122,6 +122,7 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
                     <div className="text-container">
                       <h5>{item.title}</h5>
                       <p>{item.addr1}</p>
+                      <p>관광지</p>
                     </div>
                     <button onClick={() => handleRemoveClick(item.contentid, 'attractions')}>삭제</button>
                   </li>
@@ -132,7 +133,7 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
           
           {selectedItems.hotels && selectedItems.hotels.length > 0 && (
             <>
-              <p>숙박</p>
+              
               <ul className="selected-items">
                 {selectedItems.hotels.map((item) => (
                   <li key={item.uniqueId} className="card">
@@ -144,6 +145,7 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
                     <div className="text-container">
                       <h5>{item.title}</h5>
                       <p>{item.addr1}</p>
+                      <p>숙박</p>
                     </div>
                     <button onClick={() => handleRemoveClick(item.contentid, 'hotels')}>삭제</button>
                   </li>
@@ -154,7 +156,7 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
           
           {selectedItems.restaurants && selectedItems.restaurants.length > 0 && (
             <>
-              <p>맛집</p>
+              
               <ul className="selected-items">
                 {selectedItems.restaurants.map((item) => (
                   <li key={item.uniqueId} className="card">
@@ -166,6 +168,7 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
                     <div className="text-container">
                       <h5>{item.title}</h5>
                       <p>{item.addr1}</p>
+                      <p>맛집</p>
                     </div>
                     <button onClick={() => handleRemoveClick(item.contentid, 'restaurants')}>삭제</button>
                   </li>

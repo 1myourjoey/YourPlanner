@@ -57,11 +57,7 @@ const TravelDetails = () => {
       <p><strong>Destination:</strong> {destination}</p>
       <p><strong>Start Date:</strong> {startDate}</p>
       <p><strong>End Date:</strong> {endDate}</p>
-
-      <LocationBasedList destination={destination} />
-      <DummyLocationBasedList destination2={destination2} />
-
-      {departureCodes.length > 0 && destinationCodes.length > 0 && (
+ {departureCodes.length > 0 && destinationCodes.length > 0 && (
         <TrainList
           depPlaceId={departureCodes}
           arrPlaceId={destinationCodes}
@@ -70,7 +66,8 @@ const TravelDetails = () => {
           setSelectedTrains={setSelectedTrains}
         />
       )}
-
+      <LocationBasedList destination={destination} />
+      <DummyLocationBasedList destination2={destination2} />
       <h1>Selected Train</h1>
       <div className="selected-items">
         {selectedTrains.map((train) => (

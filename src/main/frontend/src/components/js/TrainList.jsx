@@ -127,15 +127,6 @@ const TrainList = ({ depPlaceId, arrPlaceId, startDate, selectedTrains, setSelec
         ))}
       </ul>
 
-      <h1>선택된 열차 목록</h1>
-      <div className="selected-items">
-        {selectedTrains.map((train) => (
-          <div key={train.uniqueId} className="card">
-            <p>{train.traingradename} / 출발: {train.depplacename}역 {formatDate(train.depplandtime)} / 도착: {train.arrplacename}역 {formatDate(train.arrplandtime)} / 요금: {train.adultcharge}원 / 열차번호: {train.trainno}</p>
-            <button onClick={() => handleRemoveClick(train.trainno)}>삭제</button>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };

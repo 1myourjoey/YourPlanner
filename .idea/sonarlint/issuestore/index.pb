@@ -121,9 +121,5 @@ _
 /src/main/frontend/src/components/css/header.css,d/6/d67204f5ec2d092f3bc4fac479d142a8b00488d8
 c
 3src/main/frontend/src/components/js/DummyFooter.jsx,1/d/1dab5acd6564f75215d9230f02126b8c08a32be1
-e
-5src/main/frontend/src/components/js/MainBackVideo.jsx,7/0/70003be633d49cc765651a903dfbaf81e7b1ec53
-f
-6src/main/frontend/src/components/css/MainBackVideo.css,1/5/1582b2bdbd7b374be4dc51d2a565b0d12443e3be
 c
 3src/main/frontend/src/components/css/MainLayout.css,e/b/ebc2e9aa1413585930ab132f47c54ff6938bbd3d

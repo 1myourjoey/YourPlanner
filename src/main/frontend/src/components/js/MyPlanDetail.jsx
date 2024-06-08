@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-
 import '../css/MyPlanDetail.css'; // CSS 파일 호출
-import DummyFooter from './DummyFooter';
+// import DummyFooter from './DummyFooter';
 
 function MyPlanDetail() {
   const { state } = useLocation();
@@ -15,6 +14,13 @@ function MyPlanDetail() {
     restaurants: [],
     transportations: []
   });
+
+  // 컴포넌트가 마운트될 때 newTodo의 초기값을 plan.todo로 설정
+  useEffect(() => {
+    if (plan && plan.todo) {
+      setNewTodo(plan.todo);
+    }
+  }, [plan]);
 
   useEffect(() => {
     async function fetchPlanDetails() {
@@ -73,26 +79,10 @@ function MyPlanDetail() {
                 <h3>도착지</h3>
                 <p>{plan.endPlace}</p>
               </div>
-              <div className="myplandetail-section">
-                <h3>할일</h3>
-                <p>{plan.todo}</p>
-                <input
-                  type="text"
-                  className="form-control"
-                  value={newTodo}
-                  onChange={(e) => setNewTodo(e.target.value)}
-                  placeholder="새로운 할일 입력"
-                />
-                <button className="myplandetail-btn btn btn-primary" onClick={handleUpdateTodo}>입력</button>
-              </div>
+
             </>
           )}
-        </div>
-      </div>
 
-      <div className="myplandetail-container">
-        <div className="myplandetail-card">
-          <h2 className="myplandetail-text-center">나의 여행 계획 상세</h2>
           {plan && (
             <>
               {details.accommodations.length > 0 && (
@@ -150,6 +140,17 @@ function MyPlanDetail() {
               )}
             </>
           )}
+           <div className="myplandetail-section">
+                          <h3>할일</h3>
+                          <p>{plan.todo}</p>
+                          <input
+                            type="text"
+                            className="form-control"
+                            value={newTodo}
+                            onChange={(e) => setNewTodo(e.target.value)}
+              />
+            <button className="myplandetail-btn btn btn-primary" onClick={handleUpdateTodo}>입력</button>
+            </div>
         </div>
       </div>
     </div>

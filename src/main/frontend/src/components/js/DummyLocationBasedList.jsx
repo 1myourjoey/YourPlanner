@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ListContainer from './ListContainer';
 
-const DummyLocationBasedList = ({ destination2 }) => {
+const DummyLocationBasedList = ({ destination2, departure, destination, startDate, endDate }) => {
     const [locations, setLocations] = useState([]);
     const [selectedLocation, setSelectedLocation] = useState(destination2);
     const [selectedSigungu, setSelectedSigungu] = useState('');
@@ -115,7 +115,15 @@ const DummyLocationBasedList = ({ destination2 }) => {
             <button onClick={() => handleViewChange('restaurant')}>맛집</button>
 
             {selectedLocation && (
-                <ListContainer areaCode={selectedLocation} sigunguCode={selectedSigungu} view={view} />
+                <ListContainer
+                    areaCode={selectedLocation}
+                    sigunguCode={selectedSigungu}
+                    view={view}
+                    departure={departure}
+                    destination={destination}
+                    startDate={startDate}
+                    endDate={endDate}
+                />
             )}
         </div>
     );

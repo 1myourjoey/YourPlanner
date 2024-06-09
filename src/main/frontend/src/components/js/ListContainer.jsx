@@ -4,8 +4,9 @@ import ListComponent from "./ListComponent";
 import DummyListHotel from "./DummyListHotel";
 import RecommendedPlaces from "./RecommendedPlaces";
 import LoadMoreButton from './LoadMoreButton';
+import SaveTourInfo from "./SavePlanInfo";
 
-const ListContainer = ({ areaCode, sigunguCode, view }) => {
+const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, startDate, endDate }) => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
@@ -79,13 +80,26 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
 
     return (
         <div>
-            <RecommendedPlaces 
-                data={data} 
-                loadMore={loadMore} 
-                loading={loading} 
+            <RecommendedPlaces
+                data={data}
+                loadMore={loadMore}
+                loading={loading}
                 view={view}
                 selectedItems={selectedItems}
-                setSelectedItems={setSelectedItems} 
+                setSelectedItems={setSelectedItems}
+                startDate={startDate}
+                endDate={endDate}
+                departure={departure}
+                destination={destination}
+            />
+
+            {/* 플랜 저장 버튼을 누를 시 값들을 전달함 */}
+            <SaveTourInfo
+                selectedItems={selectedItems}
+                startDate={startDate}
+                endDate={endDate}
+                departure={departure}
+                destination={destination}
             />
         </div>
     );

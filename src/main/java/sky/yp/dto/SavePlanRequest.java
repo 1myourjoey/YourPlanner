@@ -15,11 +15,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SavePlanRequest {
-    private String startDate;
-    private String endDate;
-    private String departure;
-    private String destination;
-    private SelectedItems selectedItems;
+    // 여행정보를 JSON으로 받아오는 데이터 테이블
+    private String startDate;       // 여행 시작일
+    private String endDate;         // 여행 종료일
+    private String departure;       // 출발 지역
+    private String destination;     // 도착 지역
+    private SelectedItems selectedItems;    // 선택한 여행 정보들(관광지 / 숙소 / 맛집)
 
     @Override
     public String toString() {

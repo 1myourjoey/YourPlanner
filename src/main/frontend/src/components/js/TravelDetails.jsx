@@ -4,6 +4,7 @@ import TrainCode from './TrainCode';
 import LocationBasedList from './LocationBasedList';
 import TrainList from './TrainList';
 import DummyLocationBasedList from './DummyLocationBasedList';
+import ListContainer from "./ListContainer";
 
 const TravelDetails = () => {
     const location = useLocation();
@@ -61,7 +62,13 @@ const TravelDetails = () => {
                 ))
             )}
             <LocationBasedList destination={destination} />
-            <DummyLocationBasedList destination2={destination2} />
+            <DummyLocationBasedList
+                destination2={destination2}
+                departure={departure}
+                destination={destination}
+                startDate={startDate}
+                endDate={endDate}
+            />
         </div>
     );
 };

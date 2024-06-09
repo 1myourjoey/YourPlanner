@@ -9,6 +9,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SelectedItems {
+    // JSON으로 받아온 여행 정보를 저장하는 객체, 각 항목마다 배열로 값을 받아옴
     private List<AttractionDto> attractions;
     private List<HotelDto> hotels;
     private List<RestaurantDto> restaurants;

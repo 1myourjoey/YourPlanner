@@ -7,6 +7,7 @@ import DummyLocationBasedList from './DummyLocationBasedList';
 import '../css/header.css';
 import '../css/TravelDetails.css';
 import Header from './Header';
+import SelectedTrains from './SelectedTrains';
 
 
 const TravelDetails = () => {
@@ -65,7 +66,8 @@ const TravelDetails = () => {
               <p><strong>End Date:</strong> {endDate}</p>
             </div>
           </div>
- {departureCodes.length > 0 && destinationCodes.length > 0 && (
+          
+      {departureCodes.length > 0 && destinationCodes.length > 0 && (
         <TrainList
           depPlaceId={departureCodes}
           arrPlaceId={destinationCodes}
@@ -75,15 +77,7 @@ const TravelDetails = () => {
         />
       )}
       <DummyLocationBasedList destination2={destination2} />
-      <h1>Selected Train</h1>
-      <div className="selected-items">
-        {selectedTrains.map((train) => (
-          <div key={train.uniqueId} className="card">
-            <p>{train.traingradename} / 출발: {train.depplacename}역 {train.depplandtime} / 도착: {train.arrplacename}역 {train.arrplandtime} / 요금: {train.adultcharge}원 / 열차번호: {train.trainno}</p>
-            <button onClick={() => setSelectedTrains(selectedTrains.filter(t => t.trainno !== train.trainno))}>삭제</button>
-          </div>
-        ))}
-      </div>
+      <SelectedTrains selectedTrains={selectedTrains} setSelectedTrains={setSelectedTrains} />
     </div>
   );
 };

@@ -9,6 +9,7 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
+    const [selectedTrains, setSelectedTrains] = useState([]);
     const [selectedItems, setSelectedItems] = useState({
         attractions: [],
         hotels: [],
@@ -50,6 +51,8 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
 
                 
             }));
+            
+
             setData(prevData => {
                 const newData = [...prevData, ...extractedData];
                 const uniqueData = Array.from(new Set(newData.map(item => item.contentid)))
@@ -88,6 +91,8 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
                 view={view}
                 selectedItems={selectedItems}
                 setSelectedItems={setSelectedItems} 
+                selectedTrains={selectedTrains}
+                setSelectedTrains={setSelectedTrains}
             />
         </div>
     );

@@ -2,6 +2,7 @@ import React from 'react';
 import '../css/RecommendedPlaces.css';
 import LoadMoreButton from './LoadMoreButton';
 import Check from '../img/Check.png';
+import SelectedTrains from './SelectedTrains';
 
 const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSelectedItems, selectedTrains, setSelectedTrains }) => {
 
@@ -64,6 +65,7 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
     const minute = datetime.substring(10, 12);
     return `${month}월 ${day}일 ${hour}시 ${minute}분`;
   };
+
 
   return (
     <div>
@@ -133,7 +135,6 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
           
           {selectedItems.hotels && selectedItems.hotels.length > 0 && (
             <>
-              
               <ul className="selected-items">
                 {selectedItems.hotels.map((item) => (
                   <li key={item.uniqueId} className="card">
@@ -156,7 +157,6 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
           
           {selectedItems.restaurants && selectedItems.restaurants.length > 0 && (
             <>
-              
               <ul className="selected-items">
                 {selectedItems.restaurants.map((item) => (
                   <li key={item.uniqueId} className="card">
@@ -175,7 +175,9 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
                 ))}
               </ul>
             </>
+
           )}
+          <SelectedTrains selectedTrains={selectedTrains} setSelectedTrains={setSelectedTrains} />
         </div>
       </div>
       <LoadMoreButton loadMore={loadMore} loading={loading} />

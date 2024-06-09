@@ -114,7 +114,7 @@ const LocationBasedList = ({ destination2 }) => {
           ))}
         </select>
       )}
-  
+
       <button onClick={() => handleViewChange('attractions')}>추천 명소</button>
       <button onClick={() => handleViewChange('hotels')}>숙박</button>
   

@@ -13,7 +13,8 @@ const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, st
     const [selectedItems, setSelectedItems] = useState({
         attractions: [],
         hotels: [],
-        restaurants: []
+        restaurants: [],
+        trains: [] // 열차 항목 추가
     });
 
     const fetchData = async (pageNumber, type) => {
@@ -29,6 +30,9 @@ const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, st
                     break;
                 case 'restaurant':
                     url = `http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5V%2BytDDcz11Mfxc3tREUmoX6wOvDmA3oIaBkQfhB%2Bo%2B4vBWem3h6eQhKVvJuiJvpVonGtnuRqU6A83YSSBAh8A%3D%3D&pageNo=${pageNumber}&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=${areaCode}&sigunguCode=${sigunguCode}&contentTypeId=39`;
+                    break;
+                case 'trains':
+                    url = `https://api.example.com/trains?departure=${departure}&destination=${destination}&startDate=${startDate}&endDate=${endDate}&pageNo=${pageNumber}`;
                     break;
                 default:
                     return;

@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import ListContainer from './ListContainer';
+import TrainList from './TrainList';
+import TrainCode from './TrainCode'; // TrainCode 임포트
+import '../css/DummyLocationBasedList.css';
 
-const DummyLocationBasedList = ({ destination2, departure, destination, startDate, endDate }) => {
+const DummyLocationBasedList = ({ destination2, departure, destination, startDate, endDate, initialView = 'attractions', setSelectedTrains }) => {
     const [locations, setLocations] = useState([]);
     const [selectedLocation, setSelectedLocation] = useState(destination2);
     const [selectedSigungu, setSelectedSigungu] = useState('');
-    const [view, setView] = useState('attractions'); // 'attractions' or 'hotels' or 'restaurant'
+    const [view, setView] = useState(initialView); // 'attractions', 'hotels', 'restaurant' or 'trains'
     const [sigungus, setSigungus] = useState([]); // 시/군/구 목록 추가
+    const [selectedTrains, setSelectedTrainsLocal] = useState([]); // selectedTrains 상태 추가
     const OPEN_KEY = "5uJ1mFn4tOfEwReTW3dupjd4w2n5kEHO5nciT%2BDVGAVWTl90sysBKbMTIlIxLW5lCPo1VmpZ%2FXggxU84GhG81g%3D%3D";
 
     const parseXmlToJson = (xmlString) => {
@@ -84,10 +88,13 @@ const DummyLocationBasedList = ({ destination2, departure, destination, startDat
         setSelectedSigungu(event.target.value);
     };
 
+    const departureCodes = TrainCode[departure] || [];
+    const destinationCodes = TrainCode[destination] || [];
+
     return (
-        <div>
+        <div className="container">
             {locations.length > 0 ? (
-                <select value={selectedLocation} onChange={handleChange}>
+                <select className="select" value={selectedLocation} onChange={handleChange}>
                     <option value="">지역을 선택하세요</option>
                     {locations.map((location, index) => (
                         <option key={index} value={location.code}>
@@ -96,11 +103,11 @@ const DummyLocationBasedList = ({ destination2, departure, destination, startDat
                     ))}
                 </select>
             ) : (
-                <p>Loading...</p>
+                <p className="loading-message">Loading...</p>
             )}
 
             {selectedLocation && (
-                <select value={selectedSigungu} onChange={handleSigunguChange}>
+                <select className="select" value={selectedSigungu} onChange={handleSigunguChange}>
                     <option value="">시/군/구를 선택하세요</option>
                     {sigungus.map((sigungu, index) => (
                         <option key={index} value={sigungu.code}>
@@ -109,12 +116,23 @@ const DummyLocationBasedList = ({ destination2, departure, destination, startDat
                     ))}
                 </select>
             )}
+            <div className="sidebar">
+            <button className="button" onClick={() => handleViewChange('trains')}>열차목록</button>
+            <button className="button" onClick={() => handleViewChange('attractions')}>추천 명소</button>
+            <button className="button" onClick={() => handleViewChange('hotels')}>숙박</button>
+            <button className="button" onClick={() => handleViewChange('restaurant')}>맛집</button>
+            </div>
+            {view === 'trains' && departureCodes.length > 0 && destinationCodes.length > 0 && (
+                <TrainList
+                    depPlaceId={departureCodes}
+                    arrPlaceId={destinationCodes}
+                    startDate={startDate}
+                    selectedTrains={selectedTrains}
+                    setSelectedTrains={setSelectedTrains || setSelectedTrainsLocal} // prop이나 로컬 상태 사용
+                />
+            )}
 
-            <button onClick={() => handleViewChange('attractions')}>추천 명소</button>
-            <button onClick={() => handleViewChange('hotels')}>숙박</button>
-            <button onClick={() => handleViewChange('restaurant')}>맛집</button>
-
-            {selectedLocation && (
+            {selectedLocation && view !== 'trains' && (
                 <ListContainer
                     areaCode={selectedLocation}
                     sigunguCode={selectedSigungu}
@@ -128,9 +146,5 @@ const DummyLocationBasedList = ({ destination2, departure, destination, startDat
         </div>
     );
 };
-
-function PrintConsole(){
-    console.log("test");
-}
 
 export default DummyLocationBasedList;

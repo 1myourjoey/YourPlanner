@@ -1,15 +1,12 @@
+
 .selected-items {
   display: flex; /* Flexbox 레이아웃 사용 */
   flex-wrap: wrap; /* 요소가 영역을 넘어가면 줄 바꿈 */
   gap: 16px;
 }
 
-.card-container {
-  display: flex; /* Flexbox 레이아웃 사용 */
-}
-
 .card {
-  width: 300px; /* 카드의 너비 지정 */
+  width: 900px; /* 카드의 너비 지정 */
   margin: 10px; /* 카드 간 간격 설정 */
   padding: 16px;
   border: 1px solid #ccc;
@@ -25,4 +22,192 @@
   height: 200px; /* 고정된 높이 설정 */
   object-fit: cover; /* 이미지가 영역을 채우도록 조정 */
   border-radius: 8px;
+}
+
+
+
+
+/* 사이드바 스타일 */
+.sidebar {
+  position: fixed; /* 고정된 위치 */
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-right: 1px solid #dee2e6;
+  overflow-y: auto; /* 스크롤 가능하게 설정 */
+}
+
+.sidebar h2 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.sidebar button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.sidebar button:hover {
+  background-color: #0056b3;
+}
+
+/* 메인 콘텐츠 스타일 */
+.main-content {
+  margin-left: 220px; /* 사이드바의 너비 + 여백 */
+  flex: 1;
+
+  padding: 10px; /* 패딩을 줄여서 더 많은 공간 확보 */
+  overflow-y: auto;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* 간격을 20px로 설정 */
+  justify-content: center; /* 중앙 정렬 */
+}
+
+.card {
+  width: calc(33.333% - 40px); /* 카드의 너비를 33.333%로 설정하여 3개씩 나오게 함 */
+  background-color: white;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 0.7rem;
+  margin-bottom: 8px;
+}
+
+.card img {
+  width: 100%;
+  height: 170px; /* 이미지 높이를 줄임 */
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.card button {
+  width: 100%;
+  padding: 6px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem; /* 폰트 크기를 줄임 */
+}
+
+.card button:hover {
+  background-color: #218838;
+}
+
+.card button.remove {
+  background-color: #dc3545;
+}
+
+.card button.remove:hover {
+  background-color: #c82333;
+}
+
+/* 로드 모어 버튼 스타일 */
+.load-more-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+.load-more-button:hover {
+  background-color: #0056b3;
+}
+
+/* 선택된 아이템 및 열차 섹션 컨테이너 스타일 */
+.selected-container {
+  position: fixed; /* 고정된 위치 */
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-left: 1px solid #dee2e6;
+  overflow-y: auto; /* 스크롤 가능하게 설정 */
+}
+
+/* 선택된 항목 스타일 */
+.selected-sidebar {
+  flex: 1;
+
+  margin-bottom: 20px;
+}
+
+.selected-sidebar h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* 선택된 열차 섹션 스타일 */
+.selected-trains {
+  order: 2; /* 선택된 열차 섹션을 두 번째로 배치 */
+}
+
+.selected-trains h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.selected-sidebar .card, .selected-trains .card {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.selected-sidebar .card img, .selected-trains .card img {
+  height: 100px;
+}
+
+/* 선택된 항목 및 열차 통합 */
+.selected-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-sidebar h4, .selected-trains h4 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.selected-sidebar .card {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.selected-sidebar .card img {
+  height: 100px; /* 이미지 높이를 줄임 */
+}
+
+.selected-trains {
+  display: block;
 }

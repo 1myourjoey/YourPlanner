@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ListContainer from './ListContainer';
 import '../css/Button.css';
 
-const DummyLocationBasedList = ({ destination2 }) => {
+const DummyLocationBasedList = ({ destination2,departure, destination, startDate, endDate, selectedTrains, setSelectedTrains }) => {
     const [locations, setLocations] = useState([]);
     const [selectedLocation, setSelectedLocation] = useState(destination2);
     const [selectedSigungu, setSelectedSigungu] = useState('');
@@ -87,47 +87,60 @@ const DummyLocationBasedList = ({ destination2 }) => {
 
     return (
         <div>
+          <div className="location-selection">
 
-            {selectedLocation && (
-                <div>
-                <span style={{ marginRight: '10px' }}>상세주소:</span>
-                <select value={selectedSigungu} onChange={handleSigunguChange}>
-                    <option value="">시/군/구를 선택하세요</option>
-                    {sigungus.map((sigungu, index) => (
-                        <option key={index} value={sigungu.code}>
-                            {sigungu.name}
-                        </option>
-                    ))}
-                </select>
-                
-                </div>
-            )}
-            <div>
-            <button
-          onClick={() => handleViewChange('attractions')}
-          className={view === 'attractions' ? 'selected' : ''}
-        >
-          관광지
-        </button>
-        <button
-          onClick={() => handleViewChange('hotels')}
-          className={view === 'hotels' ? 'selected' : ''}
-        >
-          숙박
-        </button>
-        <button
-          onClick={() => handleViewChange('restaurant')}
-          className={view === 'restaurant' ? 'selected' : ''}
-        >
-          맛집
-        </button>
-
-            {selectedLocation && (
-                <ListContainer areaCode={selectedLocation} sigunguCode={selectedSigungu} view={view} />
-            )}
+          <div className="view-selection">
+              <button
+                onClick={() => handleViewChange('attractions')}
+                className={view === 'attractions' ? 'selected' : ''}
+              >
+                명소
+              </button>
+              <button
+                onClick={() => handleViewChange('hotels')}
+                className={view === 'hotels' ? 'selected' : ''}
+              >
+                숙박
+              </button>
+              <button
+                onClick={() => handleViewChange('restaurant')}
+                className={view === 'restaurant' ? 'selected' : ''}
+              >
+                맛집
+              </button>
             </div>
+            {selectedLocation && (
+              <div className="address-selection" >
+                <span style={{ marginLeft: '170px' }}></span>
+                <select value={selectedSigungu} onChange={handleSigunguChange}>
+                  <option value="">시/군/구를 선택하세요</option>
+                  {sigungus.map((sigungu, index) => (
+                    <option key={index} value={sigungu.code}>
+                      {sigungu.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+          </div>
+      
+          {selectedLocation && (
+                <ListContainer
+                areaCode={selectedLocation}
+                sigunguCode={selectedSigungu}
+                view={view}
+                departure={departure}
+                destination={destination}
+                startDate={startDate}
+                endDate={endDate}
+                selectedTrains={selectedTrains}
+                setSelectedTrains={setSelectedTrains}
+
+            />
+          )}
         </div>
-    );
+      );      
 };
 
 function PrintConsole(){

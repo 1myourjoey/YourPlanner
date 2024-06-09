@@ -124,7 +124,7 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
                     <div className="text-container">
                       <h5>{item.title}</h5>
                       <p>{item.addr1}</p>
-                      <p>관광지</p>
+                      <p>명소</p>
                     </div>
                     <button onClick={() => handleRemoveClick(item.contentid, 'attractions')}>삭제</button>
                   </li>

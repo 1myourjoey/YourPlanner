@@ -3,7 +3,7 @@ import axios from 'axios';
 import TrainCode from './TrainCode';
 import RecommendedPlaces from './RecommendedPlaces';
 import '../css/DummyTrainList.css';
-
+import Check from '../img/Check.png';
 
 const TrainList = ({ depPlaceId, arrPlaceId, startDate, selectedTrains, setSelectedTrains }) => {
   const [trainData, setTrainData] = useState([]);
@@ -137,9 +137,9 @@ const TrainList = ({ depPlaceId, arrPlaceId, startDate, selectedTrains, setSelec
           <td>{train.trainno}</td>
           <td>
             {isTrainSelected(train.trainno) ? (
-              <button className="train-button" onClick={() => handleRemoveClick(train.trainno)}>삭제</button>
+              <button className="selected-button" onClick={() => handleRemoveClick(train.trainno)}><img src={Check} alt="Icon" /></button>
             ) : (
-              <button className="train-button" onClick={() => handleAddClick(train)}>추가</button>
+              <button className="add-button" onClick={() => handleAddClick(train)}>추가</button>
             )}
           </td>
         </tr>

@@ -76,8 +76,15 @@ const TravelDetails = () => {
           setSelectedTrains={setSelectedTrains}
         />
       )}
-      <DummyLocationBasedList destination2={destination2} />
-      <SelectedTrains selectedTrains={selectedTrains} setSelectedTrains={setSelectedTrains} />
+        <DummyLocationBasedList
+          destination2={destination2}
+          departure={departure}
+          destination={destination}
+          startDate={startDate}
+          endDate={endDate}
+          selectedTrains={selectedTrains}
+          setSelectedTrains={setSelectedTrains}
+      />
     </div>
   );
 };

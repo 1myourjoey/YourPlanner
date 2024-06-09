@@ -5,11 +5,10 @@ import DummyListHotel from "./DummyListHotel";
 import RecommendedPlaces from "./RecommendedPlaces";
 import LoadMoreButton from './LoadMoreButton';
 
-const ListContainer = ({ areaCode, sigunguCode, view }) => {
+const ListContainer = ({ areaCode, sigunguCode, view, selectedTrains, setSelectedTrains}) => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
-    const [selectedTrains, setSelectedTrains] = useState([]);
     const [selectedItems, setSelectedItems] = useState({
         attractions: [],
         hotels: [],

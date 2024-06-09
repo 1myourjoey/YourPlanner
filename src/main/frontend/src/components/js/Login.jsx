@@ -1,8 +1,10 @@
-// src/Login.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import Header from './Header';
+import '../css/header.css';
+import '../css/Login.css';
+import DummyFooter from './DummyFooter';
 
 const Login = ({ setIsLoggedIn }) => {
     const [loginId, setLoginId] = useState('');
@@ -39,31 +41,37 @@ const Login = ({ setIsLoggedIn }) => {
 
     return (
         <div>
-            <h2>로그인</h2>
-            {error && <div>{error}</div>}
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="loginId">아이디:</label>
-                    <input
-                        type="text"
-                        id="loginId"
-                        name="loginId"
-                        value={loginId}
-                        onChange={(e) => setLoginId(e.target.value)}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="pw">비밀번호:</label>
-                    <input
-                        type="password"
-                        id="pw"
-                        name="pw"
-                        value={pw}
-                        onChange={(e) => setPw(e.target.value)}
-                    />
-                </div>
-                <button type="submit">로그인</button>
-            </form>
+            <Header />
+            <div className="login-container">
+                <h2>로그인</h2>
+                {error && <div>{error}</div>}
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor="loginId">아이디:</label>
+                        <input
+                            type="text"
+                            id="loginId"
+                            name="loginId"
+                            value={loginId}
+                            onChange={(e) => setLoginId(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="pw">비밀번호:</label>
+                        <input
+                            type="password"
+                            id="pw"
+                            name="pw"
+                            value={pw}
+                            onChange={(e) => setPw(e.target.value)}
+                        />
+                    </div>
+                    <button type="submit">로그인</button>
+                </form>
+                <Link to="/signup" className="signup-link">회원가입</Link>
+                <Link to="/" className="home-link">홈으로 가기</Link>
+            </div>
+           <DummyFooter />
         </div>
     );
 };

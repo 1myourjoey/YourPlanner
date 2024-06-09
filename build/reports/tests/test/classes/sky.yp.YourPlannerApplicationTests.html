@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.266s</div>
+<div class="counter">0.174s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">0.266s</td>
+<td class="success">0.174s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,44 +87,44 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>01:16:42.407 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-01:16:42.418 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-01:16:42.449 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [sky.yp.YourPlannerApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
-01:16:42.462 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [sky.yp.YourPlannerApplicationTests], using SpringBootContextLoader
-01:16:42.466 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [sky.yp.YourPlannerApplicationTests]: class path resource [sky/yp/YourPlannerApplicationTests-context.xml] does not exist
-01:16:42.467 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [sky.yp.YourPlannerApplicationTests]: class path resource [sky/yp/YourPlannerApplicationTestsContext.groovy] does not exist
-01:16:42.467 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [sky.yp.YourPlannerApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
-01:16:42.468 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [sky.yp.YourPlannerApplicationTests]: YourPlannerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-01:16:42.502 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [sky.yp.YourPlannerApplicationTests]
-01:16:42.552 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\cy\Documents\GitHub\YourPlanner\build\classes\java\main\sky\yp\YourPlannerApplication.class]
-01:16:42.553 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration sky.yp.YourPlannerApplication for test class sky.yp.YourPlannerApplicationTests
-01:16:42.642 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [sky.yp.YourPlannerApplicationTests]: using defaults.
-01:16:42.642 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-01:16:42.659 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6c67e137, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2c9399a4, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@191ae03f, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@9635fa, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@53ab0286, org.springframework.test.context.support.DirtiesContextTestExecutionListener@63c5efee, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2d10e0b1, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1c98290c, org.springframework.test.context.event.EventPublishingTestExecutionListener@172ca72b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5bda80bf, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@71e5f61d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2ce86164, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5e8f9e2d, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@51df223b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@fd46303]
-01:16:42.662 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@5f3b9c57 testClass = YourPlannerApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1e044120 testClass = YourPlannerApplicationTests, locations = '{}', classes = '{class sky.yp.YourPlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@1941a8ff, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7502291e, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@63798ca7, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2a448449, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4758820d, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@7c711375], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
-01:16:42,903 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
-01:16:42,903 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [console]
-01:16:42,908 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
-01:16:42,926 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
-01:16:42,926 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [console-infolog]
-01:16:42,926 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
-01:16:42,927 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.sky.lms_web_service] to DEBUG
-01:16:42,927 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating DEBUG level on Logger[com.sky.lms_web_service] onto the JUL framework
-01:16:42,927 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [jdbc.sqlonly] to INFO
-01:16:42,927 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating INFO level on Logger[jdbc.sqlonly] onto the JUL framework
-01:16:42,928 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [jdbc.resultsettable] to INFO
-01:16:42,928 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating INFO level on Logger[jdbc.resultsettable] onto the JUL framework
-01:16:42,928 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.springframework] to ERROR
-01:16:42,928 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating ERROR level on Logger[org.springframework] onto the JUL framework
-01:16:42,928 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.springframework.jdbc] to ERROR
-01:16:42,928 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating ERROR level on Logger[org.springframework.jdbc] onto the JUL framework
-01:16:42,928 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to ERROR
-01:16:42,928 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating ERROR level on Logger[ROOT] onto the JUL framework
-01:16:42,928 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [console] to Logger[ROOT]
-01:16:42,928 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
-01:16:42,929 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@27f1bbe0 - Registering current configuration as safe fallback point
-01:16:42,941 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating DEBUG level on Logger[org.springframework.web.reactive.function.client] onto the JUL framework
-01:16:42,941 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating DEBUG level on Logger[reactor.netty.http.client] onto the JUL framework
+<pre>01:40:35.902 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+01:40:35.913 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+01:40:35.945 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [sky.yp.YourPlannerApplicationTests] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+01:40:35.956 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [sky.yp.YourPlannerApplicationTests], using SpringBootContextLoader
+01:40:35.961 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [sky.yp.YourPlannerApplicationTests]: class path resource [sky/yp/YourPlannerApplicationTests-context.xml] does not exist
+01:40:35.962 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [sky.yp.YourPlannerApplicationTests]: class path resource [sky/yp/YourPlannerApplicationTestsContext.groovy] does not exist
+01:40:35.962 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [sky.yp.YourPlannerApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+01:40:35.963 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [sky.yp.YourPlannerApplicationTests]: YourPlannerApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+01:40:36.008 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [sky.yp.YourPlannerApplicationTests]
+01:40:36.069 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\cy\Documents\GitHub\YourPlanner\build\classes\java\main\sky\yp\YourPlannerApplication.class]
+01:40:36.070 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration sky.yp.YourPlannerApplication for test class sky.yp.YourPlannerApplicationTests
+01:40:36.181 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [sky.yp.YourPlannerApplicationTests]: using defaults.
+01:40:36.181 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+01:40:36.200 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6c67e137, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2c9399a4, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@191ae03f, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@9635fa, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@53ab0286, org.springframework.test.context.support.DirtiesContextTestExecutionListener@63c5efee, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2d10e0b1, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1c98290c, org.springframework.test.context.event.EventPublishingTestExecutionListener@172ca72b, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5bda80bf, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@71e5f61d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@2ce86164, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5e8f9e2d, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@51df223b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@fd46303]
+01:40:36.203 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@5f3b9c57 testClass = YourPlannerApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@1e044120 testClass = YourPlannerApplicationTests, locations = '{}', classes = '{class sky.yp.YourPlannerApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@1941a8ff, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7502291e, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@63798ca7, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2a448449, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@4758820d, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@7c711375], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
+01:40:36,442 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+01:40:36,443 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [console]
+01:40:36,447 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+01:40:36,464 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+01:40:36,464 |-INFO in ch.qos.logback.core.joran.action.AppenderAction - Naming appender as [console-infolog]
+01:40:36,464 |-INFO in ch.qos.logback.core.joran.action.NestedComplexPropertyIA - Assuming default type [ch.qos.logback.classic.encoder.PatternLayoutEncoder] for [encoder] property
+01:40:36,465 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [com.sky.lms_web_service] to DEBUG
+01:40:36,465 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating DEBUG level on Logger[com.sky.lms_web_service] onto the JUL framework
+01:40:36,466 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [jdbc.sqlonly] to INFO
+01:40:36,466 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating INFO level on Logger[jdbc.sqlonly] onto the JUL framework
+01:40:36,466 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [jdbc.resultsettable] to INFO
+01:40:36,466 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating INFO level on Logger[jdbc.resultsettable] onto the JUL framework
+01:40:36,466 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.springframework] to ERROR
+01:40:36,466 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating ERROR level on Logger[org.springframework] onto the JUL framework
+01:40:36,466 |-INFO in ch.qos.logback.classic.joran.action.LoggerAction - Setting level of logger [org.springframework.jdbc] to ERROR
+01:40:36,466 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating ERROR level on Logger[org.springframework.jdbc] onto the JUL framework
+01:40:36,467 |-INFO in ch.qos.logback.classic.joran.action.RootLoggerAction - Setting level of ROOT logger to ERROR
+01:40:36,467 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating ERROR level on Logger[ROOT] onto the JUL framework
+01:40:36,467 |-INFO in ch.qos.logback.core.joran.action.AppenderRefAction - Attaching appender named [console] to Logger[ROOT]
+01:40:36,467 |-INFO in ch.qos.logback.classic.joran.action.ConfigurationAction - End of configuration.
+01:40:36,467 |-INFO in org.springframework.boot.logging.logback.SpringBootJoranConfigurator@27f1bbe0 - Registering current configuration as safe fallback point
+01:40:36,481 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating DEBUG level on Logger[org.springframework.web.reactive.function.client] onto the JUL framework
+01:40:36,481 |-INFO in ch.qos.logback.classic.jul.LevelChangePropagator@6b580b88 - Propagating DEBUG level on Logger[reactor.netty.http.client] onto the JUL framework
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -134,6 +134,76 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::               (v2.7.18)
 
+Hibernate: 
+    
+    create table accommodation (
+       acc_no integer generated by default as identity,
+        acc_address varchar(255),
+        acc_img varchar(255),
+        acc_name varchar(255),
+        acc_tel varchar(255),
+        save_no integer not null,
+        user_no integer not null,
+        primary key (acc_no)
+    )
+Hibernate: 
+    
+    create table restaurant (
+       res_no integer generated by default as identity,
+        res_address varchar(255),
+        res_img varchar(255),
+        res_name varchar(255),
+        res_tel varchar(255),
+        save_no integer not null,
+        user_no integer not null,
+        primary key (res_no)
+    )
+Hibernate: 
+    
+    create table save (
+       save_no integer generated by default as identity,
+        end_date timestamp,
+        end_place varchar(255),
+        first_date timestamp,
+        first_place varchar(255),
+        save_title varchar(255),
+        todo varchar(255),
+        user_no integer not null,
+        primary key (save_no)
+    )
+Hibernate: 
+    
+    create table tour (
+       tour_no integer generated by default as identity,
+        save_no integer not null,
+        tour_address varchar(255),
+        tour_img varchar(255),
+        tour_name varchar(255),
+        user_no integer not null,
+        primary key (tour_no)
+    )
+Hibernate: 
+    
+    create table transportation (
+       trans_no integer generated by default as identity,
+        end_place varchar(255),
+        first_place varchar(255),
+        save_no integer not null,
+        time timestamp,
+        trans_name varchar(255),
+        user_no integer not null,
+        primary key (trans_no)
+    )
+Hibernate: 
+    
+    create table users (
+       user_no integer generated by default as identity,
+        email varchar(255),
+        login_id varchar(255),
+        pw varchar(255),
+        tel varchar(255),
+        primary key (user_no)
+    )
 </pre>
 </span>
 </div>
@@ -145,7 +215,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.7</a> at Jun 6, 2024, 1:16:46 AM</p>
+<a href="http://www.gradle.org">Gradle 8.7</a> at Jun 8, 2024, 1:40:40 AM</p>
 </div>
 </div>
 </body>

@@ -1,25 +1,27 @@
 path:hover {
     outline: none;
-    fill: #5F5F5F;
+    fill: #50BCDF;
 }
 
 
 .rank1 {
-    fill: #C0C0C0;
+    fill: #E6F4Fa;
 }
 
 .rank2 {
-    fill: #808080;
+    fill: #CCE8F4;
 }
 
 .rank3 {
-    fill: #696969;
+    fill: #B2DDEF;
 }
 
 .rank4 {
-    fill: #A9A9A9;
+    fill: #96D2EA;
 }
 
 .rank5 {
-    fill: #D3D3D3;
+    fill: #76C7E4;
 }
+
+

@@ -1,0 +1,45 @@
+.myplandetail-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 2rem;
+}
+
+.myplandetail-card {
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    background-color: #fff;
+    width: 100%;
+    max-width: 800px;
+}
+
+.myplandetail-text-center {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.myplandetail-section {
+    margin-bottom: 1rem;
+}
+
+.myplandetail-section h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.myplandetail-section p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.myplandetail-btn {
+    margin-top: 0.5rem;
+    width: 100%;
+
+}
+
+
+

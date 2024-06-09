@@ -1,8 +1,7 @@
-// src/components/TrainList.js
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import TrainCode from './TrainCode';
+import RecommendedPlaces from './RecommendedPlaces';
 
 const TrainList = ({ depPlaceId, arrPlaceId, startDate, selectedTrains, setSelectedTrains }) => {
   const [trainData, setTrainData] = useState([]);

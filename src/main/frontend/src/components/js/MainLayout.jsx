@@ -4,10 +4,8 @@ import axios from 'axios';
 import Weather from './Weather';
 import DummyFooter from './DummyFooter';
 import '../css/header.css';
-import '../css/MainLayout.css'
 import Header from './Header';
-
-
+import '../css/MainLayout.css'
 
 const MainLayout = () => {
       return (

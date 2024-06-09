@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import TrainCode from './TrainCode';
-import LocationBasedList from './LocationBasedList';
 import TrainList from './TrainList';
 import DummyLocationBasedList from './DummyLocationBasedList';
-import RecommendedPlaces from './RecommendedPlaces';
+import '../css/RecommendedPlaces.css';
+import DummyFooter from './DummyFooter';
+import '../css/header.css';
+import Header from './Header';
 
 const TravelDetails = () => {
   const location = useLocation();
@@ -51,38 +53,42 @@ const TravelDetails = () => {
   }
 
   return (
-    <div>
-      <h2>Travel Details</h2>
-      <p><strong>Departure:</strong> {departure}</p>
-      <p><strong>Destination:</strong> {destination}</p>
-      <p><strong>Start Date:</strong> {startDate}</p>
-      <p><strong>End Date:</strong> {endDate}</p>
- {departureCodes.length > 0 && destinationCodes.length > 0 && (
-        <TrainList
-          depPlaceId={departureCodes}
-          arrPlaceId={destinationCodes}
-          startDate={startDate}
-          selectedTrains={selectedTrains}
-          setSelectedTrains={setSelectedTrains}
-        />
-      )}
-      <LocationBasedList destination={destination} />
-      <DummyLocationBasedList
-          destination2={destination2}
-          departure={departure}
-          destination={destination}
-          startDate={startDate}
-          endDate={endDate}
-      />
-      <h1>Selected Train</h1>
-      <div className="selected-items">
-        {selectedTrains.map((train) => (
-          <div key={train.uniqueId} className="card">
-            <p>{train.traingradename} / 출발: {train.depplacename}역 {train.depplandtime} / 도착: {train.arrplacename}역 {train.arrplandtime} / 요금: {train.adultcharge}원 / 열차번호: {train.trainno}</p>
-            <button onClick={() => setSelectedTrains(selectedTrains.filter(t => t.trainno !== train.trainno))}>삭제</button>
+    <div className="container">
+      <Header />
+      <div className="header"></div>
+      <div className="main">
+        <div className="content">
+          <div className="filters">
+            <p><strong>Departure:</strong> {departure}</p>
+            <p><strong>Destination:</strong> {destination}</p>
+            <p><strong>Start Date:</strong> {startDate}</p>
+            <p><strong>End Date:</strong> {endDate}</p>
           </div>
-        ))}
-      </div>
+
+          <DummyLocationBasedList
+            destination2={destination2}
+            departure={departure}
+            destination={destination}
+            startDate={startDate}
+            endDate={endDate}
+            initialView="trains"  // 초기 view 상태를 'trains'로 설정
+            setSelectedTrains={setSelectedTrains}  // 선택된 열차 업데이트
+          />
+
+{/*         <div className="selected-container"> */}
+{/*           <div className="selected-sidebar"> */}
+            <h4>선택된 기차</h4>
+            {selectedTrains.map((train) => (
+              <div key={train.uniqueId} className="card">
+                <p>{train.traingradename} / 출발: {train.depplacename}역 {train.depplandtime} / 도착: {train.arrplacename}역 {train.arrplandtime} / 요금: {train.adultcharge}원 / 열차번호: {train.trainno}</p>
+                <button onClick={() => setSelectedTrains(selectedTrains.filter(t => t.trainno !== train.trainno))}>삭제</button>
+              </div>
+            ))}
+          </div>
+        </div>
+{/* //       </div> */}
+{/* // </div> */}
+      <DummyFooter />
     </div>
   );
 };

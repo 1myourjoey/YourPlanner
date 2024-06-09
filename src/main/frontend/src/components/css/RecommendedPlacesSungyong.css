@@ -43,11 +43,12 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  width: 50%; /* 필요에 따라 너비 조정 */
+  width: 45%; /* 필요에 따라 너비 조정 */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   overflow-y: auto; /* 내용이 넘칠 경우 스크롤 추가 */
+  margin-left: 10px;
 }
 
 /*.card {

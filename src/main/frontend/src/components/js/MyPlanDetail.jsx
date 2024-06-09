@@ -3,7 +3,10 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 import '../css/MyPlanDetail.css'; // CSS 파일 호출
+
 import DummyFooter from './DummyFooter';
+
+import Kakao from '../img/Kakao.png';
 
 function MyPlanDetail() {
   const { state } = useLocation();
@@ -15,6 +18,8 @@ function MyPlanDetail() {
     restaurants: [],
     transportations: []
   });
+  const [isKakaoInitialized, setIsKakaoInitialized] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     async function fetchPlanDetails() {
@@ -46,6 +51,61 @@ function MyPlanDetail() {
     }
   };
 
+  // 카카오 SDK 초기화 및 로그인 상태 확인
+  useEffect(() => {
+    if (!window.Kakao.isInitialized()) {
+      window.Kakao.init('0912fbb913424b3216c43753395338bd'); // 카카오 앱 JavaScript 키로 초기화
+      setIsKakaoInitialized(true);
+    }
+
+    // 로그인 상태 확인
+    const accessToken = window.Kakao.Auth.getAccessToken();
+    setIsLoggedIn(!!accessToken);
+  }, []);
+
+  const handleKakaoLogin = () => {
+    window.Kakao.Auth.login({
+      success: (authObj) => {
+        setIsLoggedIn(true);
+        console.log(authObj);
+      },
+      fail: (err) => {
+        console.error(err);
+      }
+    });
+  };
+
+  const getAccommodationsText = () => {
+    return details.accommodations.map(acc => `${acc.accName} (${acc.accAddress})`).join(', ');
+  };
+
+  const getRestaurantsText = () => {
+    return details.restaurants.map(res => `${res.resName} (${res.resAddress})`).join(', ');
+  };
+
+  const getTransportationsText = () => {
+    return details.transportations.map(trans => `${trans.transName}: ${trans.firstPlace} → ${trans.endPlace} (${trans.time})`).join(', ');
+  };
+
+  const getToursText = () => {
+    return details.tours.map(tour => `${tour.tourName} (${tour.tourAddress})`).join(', ');
+  };
+
+ const handleKakaoShare = () => {
+   const title = `여행 계획: ${plan.firstDate} ${plan.saveTitle}`;
+   const description = `여행기간: ${plan.firstDate} - ${plan.endDate}\n출발지: ${plan.firstPlace}\n도착지: ${plan.endPlace}\n숙박: ${getAccommodationsText()}\n레스토랑: ${getRestaurantsText()}\n교통: ${getTransportationsText()}\n관광: ${getToursText()}\n할일: ${plan.todo}`;
+
+   window.Kakao.Link.sendDefault({
+     objectType: 'text', // 텍스트 타입 사용
+     text: `${title}\n${description}`,
+     link: {
+       mobileWebUrl: window.location.href,
+       webUrl: window.location.href
+     },
+     buttonTitle: '자세히 보기'
+   });
+ };
+
   return (
     <div>
       <div className="myplandetail-container">
@@ -73,6 +133,7 @@ function MyPlanDetail() {
                 <h3>도착지</h3>
                 <p>{plan.endPlace}</p>
               </div>
+
               <div className="myplandetail-section">
                 <h3>할일</h3>
                 <p>{plan.todo}</p>
@@ -93,6 +154,9 @@ function MyPlanDetail() {
       <div className="myplandetail-container">
         <div className="myplandetail-card">
           <h2 className="myplandetail-text-center">나의 여행 계획 상세</h2>
+
+          
+
           {plan && (
             <>
               {details.accommodations.length > 0 && (
@@ -149,6 +213,30 @@ function MyPlanDetail() {
                 </div>
               )}
             </>
+          )}
+
+
+          <div className="myplandetail-section">
+            <h3>할일</h3>
+            <p>{plan.todo}</p>
+            <input
+              type="text"
+              className="form-control"
+              value={newTodo}
+              onChange={(e) => setNewTodo(e.target.value)}
+            />
+            <button className="myplandetail-btn btn btn-primary" onClick={handleUpdateTodo}>입력</button>
+          </div>
+          {isLoggedIn ? (
+           <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoShare}>
+                           <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
+                           카카오톡 공유하기
+                         </button>
+          ) : (
+            <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoLogin}>
+                           <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
+                           카카오톡 로그인하기
+                         </button>
           )}
         </div>
       </div>

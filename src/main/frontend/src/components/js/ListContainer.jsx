@@ -4,7 +4,7 @@ import ListComponent from "./ListComponent";
 import DummyListHotel from "./DummyListHotel";
 import RecommendedPlaces from "./RecommendedPlaces";
 import LoadMoreButton from './LoadMoreButton';
-import SaveTourInfo from "./SavePlanInfo";
+import SaveTourInfo from "./SaveTourInfo";
 
 const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, startDate, endDate }) => {
     const [data, setData] = useState([]);

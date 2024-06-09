@@ -67,7 +67,13 @@ const TravelDetails = () => {
         />
       )}
       <LocationBasedList destination={destination} />
-      <DummyLocationBasedList destination2={destination2} />
+      <DummyLocationBasedList
+          destination2={destination2}
+          departure={departure}
+          destination={destination}
+          startDate={startDate}
+          endDate={endDate}
+      />
       <h1>Selected Train</h1>
       <div className="selected-items">
         {selectedTrains.map((train) => (

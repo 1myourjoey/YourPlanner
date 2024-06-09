@@ -1,11 +1,19 @@
-.myplandetail-container {
+.myplandetail-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    background-color: #f8f9fa;
-    padding: 2rem;
+    justify-content: space-between;
+    gap: 10px; /* 컨테이너 간의 간격 */
+    flex-wrap: wrap; /* 필요한 경우 줄바꿈 */
 }
+
+.myplandetail-container {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    padding: 2rem;
+    box-sizing: border-box;
+    flex: 1; /* 각 컨테이너가 남은 공간을 동일하게 차지 */
+    min-width: 300px; /* 최소 너비를 설정하여 너무 작아지지 않도록 함 */
+}
+
 
 .myplandetail-card {
     padding: 1.5rem;
@@ -36,9 +44,23 @@
 }
 
 .myplandetail-btn {
-    margin-top: 0.5rem;
-    width: 100%;
-
+    margin: auto;
+    display: block;
+    width: 30%;
+    padding: 10px;
+    background-color: #50bcdf;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+.myplandetail-btn:hover {
+    background-color: #3ba9c9;
+}
+.myplandetail-section .form-control {
+    margin-bottom: 15px;
 }
 
 

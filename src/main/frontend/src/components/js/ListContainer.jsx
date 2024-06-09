@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import RecommendedPlaces from "./RecommendedPlaces";
 import SaveTourInfo from "./SaveTourInfo";
+import '../css/RecommendedPlacesSungyong.css';
 
 const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, startDate, endDate }) => {
     const [data, setData] = useState([]);

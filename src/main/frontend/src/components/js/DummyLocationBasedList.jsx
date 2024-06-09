@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ListContainer from './ListContainer';
+import '../css/RecommendedPlacesSungyong.css';
 
 const DummyLocationBasedList = ({ destination2, departure, destination, startDate, endDate }) => {
     const [locations, setLocations] = useState([]);
@@ -109,22 +110,28 @@ const DummyLocationBasedList = ({ destination2, departure, destination, startDat
                     ))}
                 </select>
             )}
+            <div className="body-container">
+                <div className="index-container">
+                    <button onClick={() => handleViewChange('attractions')}>추천 명소</button>
+                    <button onClick={() => handleViewChange('hotels')}>숙박</button>
+                    <button onClick={() => handleViewChange('restaurant')}>맛집</button>
+                </div>
 
-            <button onClick={() => handleViewChange('attractions')}>추천 명소</button>
-            <button onClick={() => handleViewChange('hotels')}>숙박</button>
-            <button onClick={() => handleViewChange('restaurant')}>맛집</button>
+                {selectedLocation && (
+                    <ListContainer
+                        areaCode={selectedLocation}
+                        sigunguCode={selectedSigungu}
+                        view={view}
+                        departure={departure}
+                        destination={destination}
+                        startDate={startDate}
+                        endDate={endDate}
+                    />
+                )}
 
-            {selectedLocation && (
-                <ListContainer
-                    areaCode={selectedLocation}
-                    sigunguCode={selectedSigungu}
-                    view={view}
-                    departure={departure}
-                    destination={destination}
-                    startDate={startDate}
-                    endDate={endDate}
-                />
-            )}
+            </div>
+
+
         </div>
     );
 };

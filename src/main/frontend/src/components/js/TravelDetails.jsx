@@ -4,7 +4,6 @@ import TrainCode from './TrainCode';
 import LocationBasedList from './LocationBasedList';
 import TrainList from './TrainList';
 import DummyLocationBasedList from './DummyLocationBasedList';
-import RecommendedPlaces from './RecommendedPlaces';
 
 const TravelDetails = () => {
   const location = useLocation();

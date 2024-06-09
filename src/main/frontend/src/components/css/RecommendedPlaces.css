@@ -2,6 +2,7 @@
   display: flex; /* Flexbox 레이아웃 사용 */
   flex-wrap: wrap; /* 요소가 영역을 넘어가면 줄 바꿈 */
   gap: 16px;
+  width: 50%;
 }
 
 .card-container {

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/RecommendedPlaces.css';
+import '../css/RecommendedPlacesSungyong.css';
 import LoadMoreButton from './LoadMoreButton';
 
 const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSelectedItems, selectedTrains, setSelectedTrains }) => {
@@ -65,7 +65,7 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
   };
 
   return (
-    <div>
+    <div className="recommendedPlaces-body">
       <div className="card-container">
         {data.map((item, index) => {
           let category;
@@ -83,68 +83,81 @@ const RecommendedPlaces = ({ data, loadMore, loading, view, selectedItems, setSe
               return null;
           }
           return (
-            <div key={item.contentid + index} className="card">
-              <h2>{item.title}</h2>
-              <p>{item.addr1}</p>
-              <img
-                src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
-                alt={item.title}
-                className="hotel-image"
-              />
-              {isItemSelected(item.contentid, category) ? (
-                <button onClick={() => handleRemoveClick(item.contentid, category)}>체크</button>
-              ) : (
-                <button onClick={() => handleAddClick(item)}>추가</button>
-              )}
-            </div>
+              <div key={item.contentid + index} className="card">
+                <img
+                    src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
+                    alt={item.title}
+                    className="hotel-image"
+                />
+                <div className="card-info">
+                  <h4>{item.title}</h4>
+                  <p>{item.addr1}</p>
+                </div>
+
+                {isItemSelected(item.contentid, category) ? (
+                    <button onClick={() => handleRemoveClick(item.contentid, category)}>체크</button>
+                ) : (
+                    <button onClick={() => handleAddClick(item)}>추가</button>
+                )}
+              </div>
           );
         })}
+        <LoadMoreButton loadMore={loadMore} loading={loading}/>
       </div>
-      <LoadMoreButton loadMore={loadMore} loading={loading} />
-      <div>
-        <h1>Selected Attractions</h1>
+
+      {/* ---------- 선택한 값들 저장하는 컨테이너 시작 ---------- */}
+      <div className="select-container">
         <div className="selected-items">
+          <h3>Selected Attractions</h3>
           {selectedItems.attractions && selectedItems.attractions.map((item) => (
-            <div key={item.uniqueId} className="card">
-              <h2>{item.title}</h2>
-              <p>{item.addr1}</p>
-              <img
-                src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
-                alt={item.title}
-                className="selected-image"
-              />
-              <button onClick={() => handleRemoveClick(item.contentid, 'attractions')}>삭제</button>
-            </div>
+              <div key={item.uniqueId} className="card">
+                <img
+                    src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
+                    alt={item.title}
+                    className="selected-image"
+                />
+                <div className="card-info">
+                  <h4>{item.title}</h4>
+                  <p>{item.addr1}</p>
+                </div>
+                <button onClick={() => handleRemoveClick(item.contentid, 'attractions')}>삭제</button>
+              </div>
           ))}
         </div>
-        <h1>Selected Hotels</h1>
+
         <div className="selected-items">
+          <h3>Selected Hotels</h3>
           {selectedItems.hotels && selectedItems.hotels.map((item) => (
-            <div key={item.uniqueId} className="card">
-              <h2>{item.title}</h2>
-              <p>{item.addr1}</p>
-              <img
-                src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
-                alt={item.title}
-                className="selected-image"
-              />
-              <button onClick={() => handleRemoveClick(item.contentid, 'hotels')}>삭제</button>
-            </div>
+              <div key={item.uniqueId} className="card">
+                <img
+                    src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
+                    alt={item.title}
+                    className="selected-image"
+                />
+                <div className="card-info">
+                  <h4>{item.title}</h4>
+                  <p>{item.addr1}</p>
+                </div>
+                <button onClick={() => handleRemoveClick(item.contentid, 'hotels')}>삭제</button>
+              </div>
           ))}
         </div>
-        <h1>Selected Restaurants</h1>
+
         <div className="selected-items">
+          <h3>Selected Restaurants</h3>
           {selectedItems.restaurants && selectedItems.restaurants.map((item) => (
-            <div key={item.uniqueId} className="card">
-              <h2>{item.title}</h2>
-              <p>{item.addr1}</p>
-              <img
-                src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
-                alt={item.title}
-                className="selected-image"
-              />
-              <button onClick={() => handleRemoveClick(item.contentid, 'restaurants')}>삭제</button>
-            </div>
+              <div key={item.uniqueId} className="card">
+                <img
+                    src={item.firstimage2 || 'https://via.placeholder.com/300x200?text=No+Image'}
+                    alt={item.title}
+                    className="selected-image"
+                />
+                <div className="card-info">
+                  <h4>{item.title}</h4>
+                  <p>{item.addr1}</p>
+                </div>
+                <button onClick={() => handleRemoveClick(item.contentid, 'restaurants')}>삭제</button>
+              </div>
           ))}
         </div>
 

@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import DummyListRestaurant from "./DummyListRestaurant";
-import ListComponent from "./ListComponent";
-import DummyListHotel from "./DummyListHotel";
 import RecommendedPlaces from "./RecommendedPlaces";
-import LoadMoreButton from './LoadMoreButton';
 import SaveTourInfo from "./SaveTourInfo";
 
 const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, startDate, endDate }) => {
@@ -79,7 +75,7 @@ const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, st
     };
 
     return (
-        <div>
+        <div className="recommended-container">
             <RecommendedPlaces
                 data={data}
                 loadMore={loadMore}

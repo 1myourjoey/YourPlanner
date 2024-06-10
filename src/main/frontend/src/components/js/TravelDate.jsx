@@ -3,7 +3,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from 'react-router-dom';
 import MapSvg from "./MapSvg";
-import '../css/TravelDate.css'; // CSS 파일 import
+import '../css/TravelDate.css';
+import Plane from "./Plane";
 
 // 날짜를 'yyyy-MM-dd' 형식으로 변환하는 함수
 const formatDate = (date) => {
@@ -40,6 +41,7 @@ const TravelDate = () => {
 
     return (
         <div className="form">
+            <Plane/>
             <div className="left-panel">
                 <MapSvg onCityClick={setDestination}/>
             </div>
@@ -91,6 +93,7 @@ const TravelDate = () => {
 
                 <button onClick={handleTravel} className="button">여행하기</button> {/* 클래스 추가 */}
             </div>
+
         </div>
     );
 };

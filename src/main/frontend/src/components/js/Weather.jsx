@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import Chat from './Chat';
 
 
 const Weather = () => {
@@ -30,7 +30,6 @@ const Weather = () => {
 
     return (
         <footer className="container footer-flow">
-
             <div className="row">
                 {weatherData.map((data, index) => (
                     <div className="col" key={index}>

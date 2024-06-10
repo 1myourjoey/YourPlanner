@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../css/ListComponent.css';
 import RecommendedPlaces from './RecommendedPlaces';
 
 const ListHotel = ({ areaCode, sigunguCode }) => {

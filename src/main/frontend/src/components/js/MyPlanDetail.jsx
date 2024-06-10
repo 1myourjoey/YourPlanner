@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import '../css/MyPlanDetail.css'; // CSS 파일 호출
-<<<<<<< HEAD
+
 import Header from "../js/Header";
 import Chat from "../js/Chat";
-=======
+
 import Kakao from '../img/Kakao.png';
->>>>>>> gwangsu
+
 
 function MyPlanDetail() {
   const { state } = useLocation();
@@ -117,7 +117,7 @@ function MyPlanDetail() {
   };
 
   return (
-<<<<<<< HEAD
+
       <div>
         <Header/>
         <div className="myplandetail-wrapper">
@@ -227,7 +227,7 @@ function MyPlanDetail() {
           </div>
         </div>
       </div>
-=======
+
     <div>
       <div className="myplandetail-container">
         <div className="myplandetail-card">
@@ -341,7 +341,7 @@ function MyPlanDetail() {
         </div>
       </div>
     </div>
->>>>>>> gwangsu
+
   );
 }
 

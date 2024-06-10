@@ -26,10 +26,12 @@ const MainLayout = () => {
                         </div>
                     </div>
                     <Weather/>
-                    <DummyFooter/>
+                    <div className='gap'></div>
                 </section>
+                
             </section>
-
+            
+            <DummyFooter/>
 
 
         </div>

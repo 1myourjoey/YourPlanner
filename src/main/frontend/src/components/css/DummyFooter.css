@@ -6,13 +6,16 @@
   font-family: Arial, sans-serif;
   color: #333;
   text-align: left;
-  margin-top: 250px;
+
+  
 }
 
 .footer-content {
   max-width: 1800px;
   margin: 0px 0px 0px 280px;
   padding: 10px 20px;
+  width: 100%;
+  
 }
 
 .foot-quick {
@@ -62,4 +65,7 @@
 
 .f-copy {
   margin-bottom: 10px;
+}
+.gap{
+  margin-bottom: 200px;
 }

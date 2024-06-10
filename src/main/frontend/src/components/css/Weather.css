@@ -3,15 +3,15 @@
     position: relative;
 }
 
-<<<<<<< HEAD:src/main/frontend/src/components/css/footer.css
+
 .footer-flow .row {
     display: flex; /* Flexbox 레이아웃 사용 */
     animation: footerFlow 30s linear infinite; /* 애니메이션 적용 */
-=======
+}
 .footer-flow .card {
     animation: footerFlow 20s linear infinite;
     top: 0;
->>>>>>> master:src/main/frontend/src/components/css/Weather.css
+
 }
 
 .footer-flow .card {

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-<<<<<<< HEAD:src/main/frontend/src/components/js/Footer.jsx
+
 import 'bootstrap/dist/css/bootstrap.min.css';
-=======
+
 import Chat from './Chat';
->>>>>>> master:src/main/frontend/src/components/js/Weather.jsx
+
 
 const Weather = () => {
     const [weatherData, setWeatherData] = useState([]);
 
     useEffect(() => {
-        const cities = ['Seoul','Jeju', 'Busan', 'Incheon', 'Daegu','Daejeon','Ulsan'];
+        const cities = ['Seoul', 'Busan', 'Incheon'];
 
         const fetchWeatherData = async () => {
             try {

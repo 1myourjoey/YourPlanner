@@ -5,15 +5,10 @@ import DummyListHotel from "./DummyListHotel";
 import RecommendedPlaces from "./RecommendedPlaces";
 import LoadMoreButton from './LoadMoreButton';
 import SaveTourInfo from "./SaveTourInfo";
-<<<<<<< HEAD
-
-const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, startDate, endDate }) => {
-=======
 
 
 const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, startDate, endDate, selectedTrains, setSelectedTrains}) => {
 
->>>>>>> YKS
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
@@ -101,14 +96,10 @@ const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, st
                 loading={loading}
                 view={view}
                 selectedItems={selectedItems}
-<<<<<<< HEAD
-                setSelectedItems={setSelectedItems}
-=======
 
                 setSelectedItems={setSelectedItems} 
                 selectedTrains={selectedTrains}
                 setSelectedTrains={setSelectedTrains}
->>>>>>> YKS
                 startDate={startDate}
                 endDate={endDate}
                 departure={departure}

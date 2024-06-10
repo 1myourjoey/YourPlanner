@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import MyPlan from './MyPlan';
+import Header from './Header';
+import Chat from './Chat';
 
 function MyPage() {
   const [plans, setPlans] = useState([]);
@@ -40,23 +43,31 @@ function MyPage() {
 
   return (
     <div className="myplan-container">
-      <h2>마이페이지</h2>
+        <Header />
+     <MyPlan />
 
-      <Link to="/myplan">회원정보</Link>
+      <div className="PlanList" >
+      <p >나의 계획</p>
+      </div>
       {plans.length > 0 ? (
-        <div className="plan-list">
-         {plans.map((plan, index) => (
-           <div key={index} className="plan-details">
-             <p><strong>저장 제목:</strong> {plan.saveTitle}</p>
-             <p><strong>여행 시작 날짜:</strong> {plan.firstDate}</p>
-             <p><strong>여행 종료 날짜:</strong> {plan.endDate}</p>
-             <p><strong>출발지:</strong> {plan.firstPlace}</p>
-             <p><strong>도착지:</strong> {plan.endPlace}</p>
-
-             <button type="button" onClick={() => handleShowDetails(plan)}>상세 보기</button>
-             <button type="button" onClick={() => handleDeletePlan(plan.saveNo)}>삭제</button>
-           </div>
-         ))}
+        <div className="row d-flex justify-content-center">
+          {plans.map((plan, index) => (
+            <div key={index} className="col-lg-3 mb-6">
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">{plan.saveTitle}</h5>
+                  <p className="card-text">
+                    <strong>여행 시작 날짜:</strong> {plan.firstDate}<br />
+                    <strong>여행 종료 날짜:</strong> {plan.endDate}<br />
+                    <strong>출발지:</strong> {plan.firstPlace}<br />
+                    <strong>도착지:</strong> {plan.endPlace}
+                  </p>
+                  <button className="custom-button" onClick={() => handleShowDetails(plan)}>상세 보기</button>
+                  <button className="btn btn-danger ml-2" onClick={() => handleDeletePlan(plan.saveNo)}>삭제</button>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       ) : (
         <p>여행 계획이 없습니다.</p>

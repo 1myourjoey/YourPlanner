@@ -3,10 +3,15 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import '../css/MyPlanDetail.css'; // CSS 파일 호출
 
+
+import DummyFooter from './DummyFooter';
+
 import Header from "../js/Header";
 import Chat from "../js/Chat";
 
 import Kakao from '../img/Kakao.png';
+
+
 
 function MyPlanDetail() {
   const { state } = useLocation();
@@ -21,12 +26,15 @@ function MyPlanDetail() {
   const [isKakaoInitialized, setIsKakaoInitialized] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+
+
   // 컴포넌트가 마운트될 때 newTodo의 초기값을 plan.todo로 설정
   useEffect(() => {
     if (plan && plan.todo) {
       setNewTodo(plan.todo);
     }
   }, [plan]);
+
 
   useEffect(() => {
     async function fetchPlanDetails() {
@@ -99,21 +107,21 @@ function MyPlanDetail() {
     return details.tours.map(tour => `${tour.tourName} (${tour.tourAddress})`).join(', ');
   };
 
-  const handleKakaoShare = () => {
-    if (!plan) return;
-    const title = `여행 계획: ${plan.firstDate} ${plan.saveTitle}`;
-    const description = `여행기간: ${plan.firstDate} - ${plan.endDate}\n출발지: ${plan.firstPlace}\n도착지: ${plan.endPlace}\n숙박: ${getAccommodationsText()}\n레스토랑: ${getRestaurantsText()}\n교통: ${getTransportationsText()}\n관광: ${getToursText()}\n할일: ${plan.todo}`;
 
-    window.Kakao.Link.sendDefault({
-      objectType: 'text',
-      text: `${title}\n${description}`,
-      link: {
-        mobileWebUrl: window.location.href,
-        webUrl: window.location.href
-      },
-      buttonTitle: '자세히 보기'
-    });
-  };
+ const handleKakaoShare = () => {
+   const title = `여행 계획: ${plan.firstDate} ${plan.saveTitle}`;
+   const description = `여행기간: ${plan.firstDate} - ${plan.endDate}\n출발지: ${plan.firstPlace}\n도착지: ${plan.endPlace}\n숙박: ${getAccommodationsText()}\n레스토랑: ${getRestaurantsText()}\n교통: ${getTransportationsText()}\n관광: ${getToursText()}\n할일: ${plan.todo}`;
+
+   window.Kakao.Link.sendDefault({
+     objectType: 'text', // 텍스트 타입 사용
+     text: `${title}\n${description}`,
+     link: {
+       mobileWebUrl: window.location.href,
+       webUrl: window.location.href
+     },
+     buttonTitle: '자세히 보기'
+   });
+ };
 
   return (
     <div>
@@ -229,6 +237,7 @@ function MyPlanDetail() {
               </div>
             )}
           </div>
+
         </div>
       </div>
     </div>

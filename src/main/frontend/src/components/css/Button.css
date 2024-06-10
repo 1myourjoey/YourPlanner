@@ -1,0 +1,26 @@
+button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #d6d6d6; /* 약간 연한 회색 */
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px 0px 10px 5px;
+  
+}
+
+button:hover {
+  background-color: #3aa4c3; 
+}
+
+
+.selected {
+  background-color: #50BCDF; /* 선택된 버튼 배경색 */
+}
+
+.more-button{
+  background-color: #d6d6d6; /* 약간 연한 회색 */
+  color: white;
+  width: 600px;
+  margin: 30px 0px 100px 0px;
+}

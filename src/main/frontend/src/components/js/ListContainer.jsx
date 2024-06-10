@@ -5,7 +5,7 @@ import DummyListHotel from "./DummyListHotel";
 import RecommendedPlaces from "./RecommendedPlaces";
 import LoadMoreButton from './LoadMoreButton';
 
-const ListContainer = ({ areaCode, sigunguCode, view, selectedTrains, setSelectedTrains}) => {
+const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, startDate, endDate, selectedTrains, setSelectedTrains}) => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
@@ -92,6 +92,10 @@ const ListContainer = ({ areaCode, sigunguCode, view, selectedTrains, setSelecte
                 setSelectedItems={setSelectedItems} 
                 selectedTrains={selectedTrains}
                 setSelectedTrains={setSelectedTrains}
+                startDate={startDate}
+                endDate={endDate}
+                departure={departure}
+                destination={destination}
             />
         </div>
     );

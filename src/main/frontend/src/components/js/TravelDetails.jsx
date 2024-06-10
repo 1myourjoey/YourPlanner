@@ -4,7 +4,15 @@ import TrainCode from './TrainCode';
 import LocationBasedList from './LocationBasedList';
 import TrainList from './TrainList';
 import DummyLocationBasedList from './DummyLocationBasedList';
+<<<<<<< HEAD
 import RecommendedPlaces from './RecommendedPlaces';
+=======
+import '../css/header.css';
+import '../css/TravelDetails.css';
+import Header from './Header';
+import SelectedTrains from './SelectedTrains';
+
+>>>>>>> YKS
 
 const TravelDetails = () => {
   const location = useLocation();
@@ -51,6 +59,7 @@ const TravelDetails = () => {
   }
 
   return (
+<<<<<<< HEAD
     <div>
       <h2>Travel Details</h2>
       <p><strong>Departure:</strong> {departure}</p>
@@ -58,6 +67,21 @@ const TravelDetails = () => {
       <p><strong>Start Date:</strong> {startDate}</p>
       <p><strong>End Date:</strong> {endDate}</p>
  {departureCodes.length > 0 && destinationCodes.length > 0 && (
+=======
+    <div className="travel-container">
+      <Header />
+      <div className="travel-details-card">
+            <h2>Travel Details</h2>
+            <div className="travel-info">
+              <p><strong>Departure:</strong> {departure}</p>
+              <p><strong>Destination:</strong> {destination}</p>
+              <p><strong>Start Date:</strong> {startDate}</p>
+              <p><strong>End Date:</strong> {endDate}</p>
+            </div>
+          </div>
+          
+      {departureCodes.length > 0 && destinationCodes.length > 0 && (
+>>>>>>> YKS
         <TrainList
           depPlaceId={departureCodes}
           arrPlaceId={destinationCodes}
@@ -66,13 +90,18 @@ const TravelDetails = () => {
           setSelectedTrains={setSelectedTrains}
         />
       )}
+<<<<<<< HEAD
       <LocationBasedList destination={destination} />
       <DummyLocationBasedList
+=======
+        <DummyLocationBasedList
+>>>>>>> YKS
           destination2={destination2}
           departure={departure}
           destination={destination}
           startDate={startDate}
           endDate={endDate}
+<<<<<<< HEAD
       />
       <h1>Selected Train</h1>
       <div className="selected-items">
@@ -83,6 +112,11 @@ const TravelDetails = () => {
           </div>
         ))}
       </div>
+=======
+          selectedTrains={selectedTrains}
+          setSelectedTrains={setSelectedTrains}
+      />
+>>>>>>> YKS
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import '../css/MyPlanDetail.css'; // CSS 파일 호출
 
+
 import Header from "../js/Header";
 import Chat from "../js/Chat";
 
@@ -122,7 +123,7 @@ function MyPlanDetail() {
         <div className="myplandetail-container">
           <div className="myplandetail-card">
             <h2 className="myplandetail-text-center">나의 여행 계획 상세 <Chat/></h2>
-            {plan ? (
+            {plan && (
               <>
                 <div className="myplandetail-section">
                   <h3>저장 제목</h3>
@@ -156,7 +157,16 @@ function MyPlanDetail() {
                   />
                   <button className="myplandetail-btn btn btn-primary" onClick={handleUpdateTodo}>입력/수정</button>
                 </div>
+              </>
+            )}
+          </div>
+        </div>
 
+        <div className="myplandetail-container">
+          <div className="myplandetail-card">
+            <h2 className="myplandetail-text-center">나의 여행 계획 상세</h2>
+            {plan && (
+              <>
                 {details.accommodations.length > 0 && (
                   <div className="myplandetail-section">
                     <h3>숙박 정보</h3>
@@ -165,7 +175,7 @@ function MyPlanDetail() {
                         <p>{acc.accName}</p>
                         <p>{acc.accAddress}</p>
                         <p>{acc.accImg}</p>
-                        <p>{acc.accTel}</p>
+                                                <p>{acc.accTel}</p>
                       </div>
                     ))}
                   </div>
@@ -208,31 +218,28 @@ function MyPlanDetail() {
                         <p>{tour.tourImg}</p>
                       </div>
                     ))}
-                  </div>
-                )}
+                                  </div>
+                                )}
 
-                {isLoggedIn ? (
-                  <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoShare}>
-                    <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
-                    카카오톡 공유하기
-                  </button>
-                ) : (
-                  <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoLogin}>
-                    <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
-                    카카오톡 로그인하기
-                  </button>
-                )}
-              </>
-            ) : (
-              <div className="myplandetail-section">
-                <h3>여행 계획을 불러오지 못했습니다.</h3>
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+                                {isLoggedIn && (
+                                  <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoShare}>
+                                    <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
+                                    카카오톡 공유하기
+                                  </button>
+                                )}
 
-export default MyPlanDetail;
+                                {!isLoggedIn && (
+                                  <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoLogin}>
+                                    카카오톡 로그인
+                                  </button>
+                                )}
+                              </>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+
+                export default MyPlanDetail;

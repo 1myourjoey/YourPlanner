@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../css/modal.css';
 import chatIcon from '../img/chat.png';
@@ -28,6 +28,12 @@ function Chat() {
     setInput(e.target.value);
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSend();
+    }
+  };
+
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -35,16 +41,21 @@ function Chat() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+   useEffect(() => {
+      if (isModalOpen) {
+        setMessages([{ text: '무엇을 도와드릴까요?', sender: 'bot' }]);
+      }
+    }, [isModalOpen]);
 
   return (
-    <div>
-      <img src={chatIcon} alt="Chat Icon" onClick={openModal} />
-
+    <div className="chat">
+      <img className="chatIcon" src={chatIcon} alt="Chat Icon" onClick={openModal} />
+        <div className="icon-label">AI 비서</div>
       {/* 모달 */}
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <span className="close" onClick={closeModal}>&times;</span>
+            <div className="close" onClick={closeModal}>&times;</div>
 
             {/* 대화 표시 */}
             <div className="chat-box">
@@ -56,14 +67,16 @@ function Chat() {
             </div>
 
             {/* 입력 필드 */}
-            <div className="input-group mb-3">
-              <input type="text" className="form-control" placeholder="Type your message..." value={input} onChange={handleInputChange} />
-              <div className="input-group-append">
-                <button className="btn btn-primary" type="button" onClick={handleSend}>Send</button>
-              </div>
+     <div className="row mb-3">
+       <div className="col">
+         <input type="text" className="form-control" value={input} onChange={handleInputChange} onKeyPress={handleKeyPress} />
+       </div>
+       <div className="col-auto">
+         <button className="btn btn-primary" type="button" onClick={handleSend}>Send</button>
+       </div>
+     </div>
             </div>
           </div>
-        </div>
       )}
     </div>
   );

@@ -6,7 +6,7 @@ import DummyFooter from './DummyFooter';
 import '../css/header.css';
 import '../css/MainLayout.css'
 import Header from './Header';
-
+import Chat from './Chat';
 
 
 const MainLayout = () => {
@@ -14,7 +14,7 @@ const MainLayout = () => {
         <div className="App">
             <Header/>
             <section className="section1">
-
+                <Chat />
                 <section className="container">
                     <div className="col">
                         <h1>YOUR PLANNER</h1>

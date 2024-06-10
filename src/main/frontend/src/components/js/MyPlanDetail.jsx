@@ -3,15 +3,10 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import '../css/MyPlanDetail.css'; // CSS 파일 호출
 
-
-
 import Header from "../js/Header";
 import Chat from "../js/Chat";
 
 import Kakao from '../img/Kakao.png';
-
-import Header from "../js/Header";
-import Chat from "../js/Chat";
 
 
 function MyPlanDetail() {
@@ -226,25 +221,8 @@ function MyPlanDetail() {
                     ))}
                                   </div>
                                 )}
-
-
-                {isLoggedIn ? (
-                  <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoShare}>
-                    <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
-                    카카오톡 공유하기
-                  </button>
-                ) : (
-                  <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoLogin}>
-                    <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
-                    카카오톡 로그인하기
-                  </button>
-                )}
               </>
-            ) : (
-              <div className="myplandetail-section">
-                <h3>여행 계획을 불러오지 못했습니다.</h3>
-              </div>
-            )}
+           }
           </div>
         </div>
       </div>
@@ -363,6 +341,7 @@ function MyPlanDetail() {
   );
 }
 
+                                    // 이 부분은 수정된 코드입니다.
                                 {isLoggedIn && (
                                   <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoShare}>
                                     <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
@@ -370,14 +349,12 @@ function MyPlanDetail() {
                                   </button>
                                 )}
 
-
                                 {!isLoggedIn && (
                                   <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoLogin}>
                                     카카오톡 로그인
                                   </button>
                                 )}
-                              </>
-                            )}
+
                           </div>
                         </div>
                       </div>

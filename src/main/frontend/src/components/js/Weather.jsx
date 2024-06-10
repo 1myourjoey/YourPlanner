@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Chat from './Chat';
 
+
 const Weather = () => {
     const [weatherData, setWeatherData] = useState([]);
 
@@ -29,9 +30,6 @@ const Weather = () => {
 
     return (
         <footer className="container footer-flow">
-            <div>
-                <Chat />
-            </div>
             <div className="row">
                 {weatherData.map((data, index) => (
                     <div className="col" key={index}>
@@ -50,7 +48,9 @@ const Weather = () => {
                         </div>
                     </div>
                 ))}
+                
             </div>
+            
         </footer>
     );
 };

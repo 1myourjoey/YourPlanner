@@ -26,7 +26,7 @@ const Header = () => {
       return (
             <header className="container header">
             <div className="row">
-                <h3 className="logo"></h3>
+                <Link to="/" className="logo"></Link>
                 <div className="col auth-container">
                 <div className="auth-links">
                     {isLoggedIn ? (

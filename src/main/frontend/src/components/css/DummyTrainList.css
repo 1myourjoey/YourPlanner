@@ -1,0 +1,26 @@
+/* 기본 테이블 스타일 */
+.train-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+}
+
+/* 테이블 헤더 스타일 */
+.train-table th {
+  background-color: #f2f2f2;
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 테이블 셀 스타일 */
+.train-table td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+
+h1 {
+  text-align: center; /* 텍스트를 가운데로 정렬 */
+}
+

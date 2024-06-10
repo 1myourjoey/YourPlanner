@@ -1,7 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
 import RecommendedPlaces from './RecommendedPlaces';
-import '../css/ListComponent.css';
 
 const ListComponent = ({ areaCode, sigunguCode}) => {
   const [data, setData] = useState([]);

@@ -9,10 +9,10 @@
 .logo {
   flex: 1;
   text-align: left;
-  background-image: url('../img/Header.png'); /* 로고 이미지 경로 설정 */
+  background-image: url('../img/Mypick.png'); /* 로고 이미지 경로 설정 */
   background-size: contain; /* 이미지가 요소에 맞게 조절되도록 설정 */
   background-repeat: no-repeat; /* 이미지 반복 설정 제거 */
-  width: 150px; /* 로고 이미지의 너비 설정 */
+  width: 75px; /* 로고 이미지의 너비 설정 */
   height: 75px; /* 로고 이미지의 높이 설정 */
 }
 

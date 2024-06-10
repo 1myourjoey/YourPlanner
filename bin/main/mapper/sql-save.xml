@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sky.yp.mapper.SaveMapper">
+
+
+
+    <!-- 쿼리 -->
+    <select id="selectlist" resultType="sky.yp.dto.Save">
+        <![CDATA[
+            SELECT
+                save_no,
+                user_no,
+                save_title,
+                first_date,
+                end_date,
+                first_place,
+                end_place,
+                todo
+            FROM
+                Save
+            WHERE
+                user_no = #{userNo};
+        ]]>
+    </select>
+
+
+    <update id="updateTodo" parameterType="sky.yp.dto.Save">
+        UPDATE Save
+        SET todo = #{todo}
+        WHERE save_no = #{saveNo}
+    </update>
+
+
+
+
+
+
+
+    <!-- saveNo를 기준으로 숙박 정보를 가져오는 쿼리 -->
+    <select id="selectAccommodationBySaveNo" resultType="sky.yp.entity.AccommodationEntity">
+        SELECT * FROM accommodation
+        WHERE save_no = #{saveNo}
+    </select>
+
+    <!-- saveNo를 기준으로 레스토랑 정보를 가져오는 쿼리 -->
+    <select id="selectRestaurantBySaveNo" resultType="sky.yp.entity.RestaurantEntity">
+        SELECT * FROM restaurant
+        WHERE save_no = #{saveNo}
+    </select>
+
+    <!-- saveNo를 기준으로 교통 수단 정보를 가져오는 쿼리 -->
+    <select id="selectTransportationBySaveNo" resultType="sky.yp.entity.TransportationEntity">
+        SELECT * FROM transportation
+        WHERE save_no = #{saveNo}
+    </select>
+
+    <!-- saveNo를 기준으로 관광 정보를 가져오는 쿼리 -->
+    <select id="selectTourBySaveNo" resultType="sky.yp.entity.TourEntity">
+        SELECT * FROM tour
+        WHERE save_no = #{saveNo}
+    </select>
+
+    <delete id="deletePlan" parameterType="int">
+        DELETE FROM Save WHERE save_no = #{saveNo}
+    </delete>
+
+</mapper>

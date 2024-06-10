@@ -1,0 +1,41 @@
+.header {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 100px;
+
+  padding: 10px; /* 내부 여백 추가 */
+}
+
+.logo {
+  flex: 1;
+  text-align: left;
+  background-image: url('../img/Header.png'); /* 로고 이미지 경로 설정 */
+  background-size: contain; /* 이미지가 요소에 맞게 조절되도록 설정 */
+  background-repeat: no-repeat; /* 이미지 반복 설정 제거 */
+  width: 150px; /* 로고 이미지의 너비 설정 */
+  height: 75px; /* 로고 이미지의 높이 설정 */
+}
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 750px; 
+}
+
+.auth-links {
+  margin-top: 20px; /* 필요한 경우 간격 조정 */
+}
+
+.auth-links a {
+  padding: 10px 20px;
+  margin-right: 10px; /* 필요한 경우 간격 조정 */
+  text-decoration: none;
+  color: black;
+}
+
+.auth-links a:hover {
+  background-color: #B2DDEF; 
+
+  color: white;
+}

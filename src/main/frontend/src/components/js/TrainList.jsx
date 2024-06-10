@@ -1,55 +1,95 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import TrainCode from './TrainCode';
+import RecommendedPlaces from './RecommendedPlaces';
 
-const TrainList = ({ depPlaceId, arrPlaceId, startDate }) => {
+const TrainList = ({ depPlaceId, arrPlaceId, startDate, selectedTrains, setSelectedTrains }) => {
   const [trainData, setTrainData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const formatDate = (date) => {
-    const d = new Date(date);
-    let month = '' + (d.getMonth() + 1);
-    let day = '' + d.getDate();
-    const year = d.getFullYear();
+  const formatDate = (datetime) => {
+    if (typeof datetime !== 'string') {
+      datetime = datetime.toString();
+    }
+    const year = datetime.substring(0, 4);
+    const month = datetime.substring(4, 6);
+    const day = datetime.substring(6, 8);
+    const hour = datetime.substring(8, 10);
+    const minute = datetime.substring(10, 12);
+    return `${month}월 ${day}일 ${hour}시 ${minute}분`;
+  };
 
-    if (month.length < 2)
-      month = '0' + month;
-    if (day.length < 2)
-      day = '0' + day;
+  const handleAddClick = (train) => {
+    if (!isTrainSelected(train.trainno)) {
+      const newTrain = { ...train, uniqueId: Date.now() + Math.random().toString(36).substr(2, 9) };
+      setSelectedTrains([...selectedTrains, newTrain]);
+    }
+  };
 
-    return [year, month, day].join('');
+  const handleRemoveClick = (trainno) => {
+    setSelectedTrains(selectedTrains.filter(train => train.trainno !== trainno));
+  };
+
+  const isTrainSelected = (trainno) => {
+    return selectedTrains.some(train => train.trainno === trainno);
   };
 
   useEffect(() => {
     const fetchTrainData = async () => {
       try {
         setLoading(true);
-        const serviceKey = 'LOr7zB0jDV%2BlQ6WGnVGCY%2BvG22rkxdPRMM36e7spCgFeKjRlh488A09FtjZbwnw6bEMMW3Virexop2ihnhIe7g%3D%3D';
-        const response = await axios.get(`http://apis.data.go.kr/1613000/TrainInfoService/getStrtpntAlocFndTrainInfo`, {
-          params: {
-            serviceKey,
-            depPlaceId,
-            arrPlaceId,
-            depPlandTime: startDate,
-            _type: 'json'
-          }
-        });
+        const serviceKey = 'LOr7zB0jDV+lQ6WGnVGCY+vG22rkxdPRMM36e7spCgFeKjRlh488A09FtjZbwnw6bEMMW3Virexop2ihnhIe7g==';
+        const formattedDate = startDate.replace(/-/g, '');
 
-        const items = response.data.response?.body?.items?.item;
-        if (items) {
-          const extractedData = items.map(item => ({
-            traingradename: item.traingradename,
-            depplandtime: item.depplandtime,
-            arrplandtime: item.arrplandtime,
-            depplacename: item.depplacename,
-            arrplacename: item.arrplacename,
-            adultcharge: item.adultcharge,
-            trainno: item.trainno
-          }));
-          setTrainData(extractedData);
-        } else {
-          setTrainData([]);
+        const allTrainData = [];
+
+        for (const depCode of depPlaceId) {
+          for (const destCode of arrPlaceId) {
+            console.log(`Fetching data for depCode: ${depCode}, destCode: ${destCode}, date: ${formattedDate}`);
+
+            const response = await axios.get('http://apis.data.go.kr/1613000/TrainInfoService/getStrtpntAlocFndTrainInfo', {
+              params: {
+                serviceKey,
+                depPlaceId: depCode,
+                arrPlaceId: destCode,
+                depPlandTime: formattedDate,
+                _type: 'json',
+                trainGradeCode: '00'
+              }
+            });
+
+            console.log('API response:', response.data);
+
+            const items = response.data.response?.body?.items?.item;
+
+            if (items && Array.isArray(items)) {
+              const extractedData = items.map(item => ({
+                traingradename: item.traingradename,
+                depplandtime: item.depplandtime,
+                arrplandtime: item.arrplandtime,
+                depplacename: item.depplacename,
+                arrplacename: item.arrplacename,
+                adultcharge: item.adultcharge,
+                trainno: item.trainno
+              }));
+              allTrainData.push(...extractedData);
+            } else if (items) {
+              const extractedData = [{
+                traingradename: items.traingradename,
+                depplandtime: items.depplandtime,
+                arrplandtime: items.arrplandtime,
+                depplacename: items.depplacename,
+                arrplacename: items.arrplacename,
+                adultcharge: items.adultcharge,
+                trainno: items.trainno
+              }];
+              allTrainData.push(...extractedData);
+            }
+          }
         }
+
+        setTrainData(allTrainData);
       } catch (error) {
         console.error('Error fetching data:', error);
         setError(error);
@@ -71,26 +111,21 @@ const TrainList = ({ depPlaceId, arrPlaceId, startDate }) => {
     return <div>데이터를 불러오는 중 오류가 발생했습니다: {error.message}</div>;
   }
 
-  if (!trainData.length) {
-    return <div>해당 날짜에 대한 기차 정보를 찾을 수 없습니다.</div>;
-  }
-
   return (
     <div>
-      <h1>기차 정보</h1>
       <ul>
         {trainData.map((train, index) => (
           <li key={train.trainno || index}>
-            <p>기차 이름: {train.traingradename}</p>
-            <p>출발 시간: {train.depplandtime}</p>
-            <p>도착 시간: {train.arrplandtime}</p>
-            <p>출발역: {train.depplacename}</p>
-            <p>도착역: {train.arrplacename}</p>
-            <p>요금: {train.adultcharge}</p>
-            <p>기차 번호: {train.trainno}</p>
+            <p>{train.traingradename} / 출발: {train.depplacename}역 {formatDate(train.depplandtime)} / 도착: {train.arrplacename}역 {formatDate(train.arrplandtime)} / 요금: {train.adultcharge}원 / 열차번호: {train.trainno}</p>
+            {isTrainSelected(train.trainno) ? (
+              <button onClick={() => handleRemoveClick(train.trainno)}>삭제</button>
+            ) : (
+              <button onClick={() => handleAddClick(train)}>추가</button>
+            )}
           </li>
         ))}
       </ul>
+
     </div>
   );
 };

@@ -1,55 +1,96 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import LocationBasedList from './LocationBasedList';
+import TrainCode from './TrainCode';
 import TrainList from './TrainList';
+import DummyLocationBasedList from './DummyLocationBasedList';
+import '../css/RecommendedPlaces.css';
+import DummyFooter from './DummyFooter';
+import '../css/header.css';
+import Header from './Header';
 
 const TravelDetails = () => {
-    const location = useLocation();
-    const params = new URLSearchParams(location.search);
-    const startDate = params.get('startDate');
-    const endDate = params.get('endDate');
-    let departure = params.get('departure');
-    let destination = params.get('destination');
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const startDate = params.get('startDate');
+  const endDate = params.get('endDate');
+  let departure = params.get('departure');
+  let destination = params.get('destination');
+  let destination2 = params.get('destination');
 
-    const regionMapping = {
-        "서울": "1",
-        "인천": "2",
-        "대전": "3",
-        "대구": "4",
-        "광주": "5",
-        "부산": "6",
-        "울산": "7",
-        "세종": "8",
-        "경기도": "31",
-        "강원도": "32",
-        "충청북도": "33",
-        "충청남도": "34",
-        "경상북도": "35",
-        "경상남도": "36",
-        "전라북도": "37",
-        "전라남도": "38",
-        "제주도": "39"
-    };
+  const regionMapping = {
+    "서울": "1",
+    "인천": "2",
+    "대전": "3",
+    "대구": "4",
+    "광주": "5",
+    "부산": "6",
+    "울산": "7",
+    "세종": "8",
+    "경기도": "31",
+    "강원도": "32",
+    "충청북도": "33",
+    "충청남도": "34",
+    "경상북도": "35",
+    "경상남도": "36",
+    "전라북도": "37",
+    "전라남도": "38",
+    "제주도": "39"
+  };
 
-    const departureCode = regionMapping[departure];
-    const destinationCode = regionMapping[destination];
+  const [selectedTrains, setSelectedTrains] = useState([]);
+  const [selectedItems, setSelectedItems] = useState({
+    attractions: [],
+    hotels: [],
+    restaurants: [],
+  });
 
-    // destination 값을 rnum 값으로 변환
-    if (regionMapping[destination]) {
-        destination = regionMapping[destination];
-    }
+  const departureCodes = TrainCode[departure] || [];
+  const destinationCodes = TrainCode[destination] || [];
 
-    return (
-        <div>
-            <h2>Travel Details</h2>
+  // destination 값을 rnum 값으로 변환
+  if (regionMapping[destination2]) {
+    destination2 = regionMapping[destination2];
+  }
+
+  return (
+    <div className="container">
+      <Header />
+      <div className="header"></div>
+      <div className="main">
+        <div className="content">
+          <div className="filters">
             <p><strong>Departure:</strong> {departure}</p>
             <p><strong>Destination:</strong> {destination}</p>
             <p><strong>Start Date:</strong> {startDate}</p>
             <p><strong>End Date:</strong> {endDate}</p>
-            <TrainList depPlaceId={departureCode} arrPlaceId={destinationCode} startDate={startDate} />
-            <LocationBasedList destination={destination} />
+          </div>
+
+          <DummyLocationBasedList
+            destination2={destination2}
+            departure={departure}
+            destination={destination}
+            startDate={startDate}
+            endDate={endDate}
+            initialView="trains"  // 초기 view 상태를 'trains'로 설정
+            setSelectedTrains={setSelectedTrains}  // 선택된 열차 업데이트
+          />
+
+{/*         <div className="selected-container"> */}
+{/*           <div className="selected-sidebar"> */}
+            <h4>선택된 기차</h4>
+            {selectedTrains.map((train) => (
+              <div key={train.uniqueId} className="card">
+                <p>{train.traingradename} / 출발: {train.depplacename}역 {train.depplandtime} / 도착: {train.arrplacename}역 {train.arrplandtime} / 요금: {train.adultcharge}원 / 열차번호: {train.trainno}</p>
+                <button onClick={() => setSelectedTrains(selectedTrains.filter(t => t.trainno !== train.trainno))}>삭제</button>
+              </div>
+            ))}
+          </div>
         </div>
-    );
+{/* //       </div> */}
+{/* // </div> */}
+      <DummyFooter />
+    </div>
+  );
 };
 
 export default TravelDetails;

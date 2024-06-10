@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sky.yp.mapper.PlanSaveMapper">
+
+
+
+    <!-- 쿼리 -->
+    <select id="saveTour" resultType="sky.yp.entity.Tour">
+        <![CDATA[
+            INSERT INTO TOUR (TOUR_NAME, TOUR_ADDRESS, TOUR_IMG)
+            VALUES (#{tourName},#{tourAddr},#{tourImg});
+        ]]>
+    </select>
+
+
+
+</mapper>

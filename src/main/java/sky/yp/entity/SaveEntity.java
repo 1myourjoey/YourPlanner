@@ -1,15 +1,19 @@
 package sky.yp.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@Setter
 @Table(name = "Save")
 public class SaveEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int saveNo;
 
 
@@ -19,10 +23,10 @@ public class SaveEntity {
     private String saveTitle;
 
 
-    private LocalDateTime firstDate;
+    private String firstDate;
 
 
-    private LocalDateTime endDate;
+    private String endDate;
 
 
     private String firstPlace;

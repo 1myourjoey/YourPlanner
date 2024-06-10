@@ -4,12 +4,8 @@ package sky.yp.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import sky.yp.dto.*;
-import sky.yp.entity.Accommodation;
-import sky.yp.entity.Restaurant;
-import sky.yp.entity.SaveEntity;
-import sky.yp.repository.AccommodationRepository;
-import sky.yp.repository.RestaurantRepository;
-import sky.yp.repository.SaveRepository;
+import sky.yp.entity.*;
+import sky.yp.repository.*;
 import sky.yp.service.PlanSaveService;
 
 @RestController
@@ -17,12 +13,22 @@ public class PlanSaveController {
     private final SaveRepository saveRepository;
     private final AccommodationRepository accommodationRepository;
     private final RestaurantRepository restaurantRepository;
+    private final TourRepository tourRepository;
+    private final TransportationRepository transportationRepository;
 
     @Autowired
-    public PlanSaveController(PlanSaveService planSaveService, SaveRepository saveRepository, AccommodationRepository accommodationRepository, RestaurantRepository restaurantRepository) {
+    public PlanSaveController(PlanSaveService planSaveService,
+                              SaveRepository saveRepository,
+                              AccommodationRepository accommodationRepository,
+                              RestaurantRepository restaurantRepository,
+                              TourRepository tourRepository,
+                              TransportationRepository transportationRepository
+    ) {
         this.saveRepository = saveRepository;
         this.accommodationRepository = accommodationRepository;
         this.restaurantRepository = restaurantRepository;
+        this.tourRepository = tourRepository;
+        this.transportationRepository = transportationRepository;
     }
 
     @PostMapping("/api/savePlan")
@@ -40,7 +46,7 @@ public class PlanSaveController {
 
         // HotelDto를 받아와서 Accommodation 엔티티로 매핑하여 저장
         for (HotelDto hotelDto : savePlanRequest.getSelectedItems().getHotels()) {
-            Accommodation accommodation = new Accommodation();
+            AccommodationEntity accommodation = new AccommodationEntity();
             accommodation.setSaveNo(save.getSaveNo());
             accommodation.setAccName(hotelDto.getTitle());
             accommodation.setAccAddress(hotelDto.getAddr1());
@@ -50,12 +56,33 @@ public class PlanSaveController {
 
         // RestaurantDto를 받아와서 Restaurant 엔티티로 매핑하여 저장
         for (RestaurantDto restaurantDto : savePlanRequest.getSelectedItems().getRestaurants()) {
-            Restaurant restaurant = new Restaurant();
+            RestaurantEntity restaurant = new RestaurantEntity();
             restaurant.setSaveNo(save.getSaveNo());
             restaurant.setResName(restaurantDto.getTitle());
             restaurant.setResAddress(restaurantDto.getAddr1());
             restaurant.setResImg(restaurantDto.getFirstimage2());
             restaurantRepository.save(restaurant);
+        }
+
+        // AttractionDto를 받아와서 Tour 엔티티로 매핑하여 저장
+        for (AttractionDto attractionDto : savePlanRequest.getSelectedItems().getAttractions()) {
+            TourEntity tour = new TourEntity();
+            tour.setSaveNo(save.getSaveNo());
+            tour.setTourName(attractionDto.getTitle());
+            tour.setTourAddress(attractionDto.getAddr1());
+            tour.setTourImg(attractionDto.getFirstimage2());
+            tourRepository.save(tour);
+        }
+
+        for (SelectedTrains selectedTrains : savePlanRequest.getSelectedTrains()){
+            TransportationEntity transportationEntity = new TransportationEntity();
+            transportationEntity.setSaveNo(save.getSaveNo());
+            transportationEntity.setTransName(selectedTrains.getTraingradename());
+            transportationEntity.setFirstPlace(selectedTrains.getArrplacename());
+            transportationEntity.setEndPlace(selectedTrains.getDepplacename());
+            transportationEntity.setFirstTime(selectedTrains.getArrplandtime());
+            transportationEntity.setEndTime(selectedTrains.getDepplandtime());
+            transportationRepository.save(transportationEntity);
         }
 
 

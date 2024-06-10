@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SaveTourInfo = ({ startDate, endDate, departure, destination, selectedItems }) => {
+const SaveTourInfo = ({ startDate, endDate, departure, destination, selectedItems, selectedTrains={selectedTrains} }) => {
 
     const handleClick = () => {
         console.log('Selected Items:', selectedItems);
@@ -8,6 +8,7 @@ const SaveTourInfo = ({ startDate, endDate, departure, destination, selectedItem
         console.log('End Date:', endDate);
         console.log('Departure:', departure);
         console.log('Destination:', destination);
+        console.log('selectedTrains:', selectedTrains);
 
         /* 컨트롤러로 api값 전송 */
         fetch('/api/savePlan', {
@@ -20,7 +21,8 @@ const SaveTourInfo = ({ startDate, endDate, departure, destination, selectedItem
                 endDate: endDate,
                 departure: departure,
                 destination: destination,
-                selectedItems:  selectedItems
+                selectedItems:  selectedItems,
+                selectedTrains: selectedTrains
             })
 
         })

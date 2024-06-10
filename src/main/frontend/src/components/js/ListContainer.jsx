@@ -3,7 +3,7 @@ import RecommendedPlaces from "./RecommendedPlaces";
 import SaveTourInfo from "./SaveTourInfo";
 import '../css/RecommendedPlacesSungyong.css';
 
-const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, startDate, endDate }) => {
+const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, startDate, endDate, selectedTrains, setSelectedTrains }) => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
@@ -76,7 +76,7 @@ const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, st
     };
 
     return (
-        <div className="recommended-container">
+        <div>
             <RecommendedPlaces
                 data={data}
                 loadMore={loadMore}
@@ -84,6 +84,8 @@ const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, st
                 view={view}
                 selectedItems={selectedItems}
                 setSelectedItems={setSelectedItems}
+                selectedTrains={selectedTrains}
+                setSelectedTrains={setSelectedTrains}
                 startDate={startDate}
                 endDate={endDate}
                 departure={departure}
@@ -93,6 +95,7 @@ const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, st
             {/* 플랜 저장 버튼을 누를 시 값들을 전달함 */}
             <SaveTourInfo
                 selectedItems={selectedItems}
+                selectedTrains={selectedTrains}
                 startDate={startDate}
                 endDate={endDate}
                 departure={departure}

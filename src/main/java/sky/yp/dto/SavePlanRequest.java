@@ -21,6 +21,7 @@ public class SavePlanRequest {
     private String departure;       // 출발 지역
     private String destination;     // 도착 지역
     private SelectedItems selectedItems;    // 선택한 여행 정보들(관광지 / 숙소 / 맛집)
+    private List<SelectedTrains> selectedTrains;
 
     @Override
     public String toString() {
@@ -30,6 +31,7 @@ public class SavePlanRequest {
                 ", departure=" + getDeparture() +
                 ", destination=" + getDestination() +
                 ", selectedItems=" + selectedItems.toString() +
+                ", selectedTrains=" + selectedTrains.toString() +
                 "}";
     }
 

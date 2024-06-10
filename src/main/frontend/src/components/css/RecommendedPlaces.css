@@ -1,29 +1,147 @@
-.selected-items {
+/* 전체 리스트 컨테이너는 가로로 배치 */
+.list-container {
   display: flex; /* Flexbox 레이아웃 사용 */
-  flex-wrap: wrap; /* 요소가 영역을 넘어가면 줄 바꿈 */
-  gap: 16px;
-  width: 50%;
+  flex-direction: row; /* 요소들을 가로로 나란히 배치 */
+  gap: 32px;
 }
 
+/* 카드 컨테이너는 블록 레벨 요소로 배치 */
 .card-container {
-  display: flex; /* Flexbox 레이아웃 사용 */
+  /* 여전히 세로로 배치되어야 하므로 flex 속성 제거 */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 600px;
+  max-height: 1800px; /* 최대 높이 설정 */
+  overflow-y: auto; /* 수직 스크롤바 생성 */
 }
 
-.card {
-  width: 300px; /* 카드의 너비 지정 */
-  margin: 10px; /* 카드 간 간격 설정 */
+.card-container .card {
   padding: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 카드에 그림자 추가 */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-bottom: 16px; /* 리스트 아이템 간 간격 설정 */
 }
 
-.selected-image {
-  width: 300px; /* 카드 너비에 맞추기 */
-  height: 200px; /* 고정된 높이 설정 */
+.card-container .hotel-image {
+  width: 100px; /* 이미지의 너비 */
+  height: 100px; /* 이미지의 높이 */
   object-fit: cover; /* 이미지가 영역을 채우도록 조정 */
   border-radius: 8px;
+  margin-right: 15px; /* 이미지와 텍스트 사이 간격 */
+}
+
+.card-container .text-container {
+  display: flex;
+  margin-top: 10px; /* 이미지와 텍스트 사이 간격 */
+  flex-direction: column; /* 텍스트를 수직으로 배치 */
+}
+
+.card-container .card button {
+  margin-left: auto; /* 버튼을 오른쪽 끝으로 배치 */
+  padding: 8px 16px;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+
+.selected-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.selected-items .card {
+  position: relative; /* 버튼의 위치를 조정하기 위해 relative 설정 */
+  width: 550px;
+  display: flex; /* Flexbox 사용 */
+  flex-direction: row;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 카드에 그림자 추가 */
+  margin-bottom: 16px; /* 리스트 아이템 간 간격 설정 */
+  margin-left: 15px;
+}
+
+.selected-items .selected-image {
+  width: 75px; /* 이미지의 너비 */
+  height: 75px; /* 이미지의 높이 */
+  object-fit: cover; /* 이미지가 영역을 채우도록 조정 */
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+.selected-items .text-container {
+  display: flex;
+  flex-direction: column; /* 텍스트를 수직으로 배치 */
+  flex-grow: 1; /* 텍스트 컨테이너가 가능한 공간을 차지하도록 설정 */
+}
+
+.selected-items .card button {
+  position: absolute; /* 절대 위치 설정 */
+  bottom: 16px; /* 카드의 하단에서 16px 간격 */
+  right: 16px; /* 카드의 오른쪽에서 16px 간격 */
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.selected-items .card button:hover {
+  background-color: #3aa4c3; 
+}
+
+.text-container p {
+  margin: 0; /* 문단의 기본 마진 제거 */
+}
+
+.text-container h5 {
+  font-weight: bold;
+}
+
+.image-text-container {
+  display: flex;
+  align-items: center; /* 이미지와 텍스트를 수직 중앙 정렬 */
+  gap: 16px; /* 이미지와 텍스트 사이 간격 설정 */
+}
+
+.image-text-container h5 {
+  font-weight: bold;
+}
+
+.selected-container {
+  display: flex; /* Flexbox 레이아웃 사용 */
+  flex-direction: column; /* 내부 아이템들을 세로로 배치 */
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  min-width: 600px; /* 최소 너비 설정 */
+  max-height: 1800px; /* 최대 높이 설정 */
+  overflow-y: auto; /* 수직 스크롤바 생성 */
+  margin-left: 70px;
+}
+
+/* YourComponent.css */
+
+.add-button {
+  padding: 8px 16px;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.selected-button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #50BCDF; /* 선택되었을 때의 배경색 */
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
 }

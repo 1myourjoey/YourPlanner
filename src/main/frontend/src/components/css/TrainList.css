@@ -1,0 +1,16 @@
+.train-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.train-info {
+  flex: 1;
+}
+
+.train-actions {
+  margin-left: 10px;
+}
+
+

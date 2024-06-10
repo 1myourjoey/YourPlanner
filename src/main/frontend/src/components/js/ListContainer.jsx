@@ -5,7 +5,7 @@ import DummyListHotel from "./DummyListHotel";
 import RecommendedPlaces from "./RecommendedPlaces";
 import LoadMoreButton from './LoadMoreButton';
 
-const ListContainer = ({ areaCode, sigunguCode, view }) => {
+const ListContainer = ({ areaCode, sigunguCode, view, selectedTrains, setSelectedTrains}) => {
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
@@ -21,7 +21,7 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
             let url;
             switch (type) {
                 case 'attractions':
-                    url = `http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5uJ1mFn4tOfEwReTW3dupjd4w2n5kEHO5nciT%2BDVGAVWTl90sysBKbMTIlIxLW5lCPo1VmpZ%2FXggxU84GhG81g%3D%3D&pageNo=${pageNumber}&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=${areaCode}&sigunguCode=${sigunguCode}`;
+                    url = `http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5uJ1mFn4tOfEwReTW3dupjd4w2n5kEHO5nciT%2BDVGAVWTl90sysBKbMTIlIxLW5lCPo1VmpZ%2FXggxU84GhG81g%3D%3D&pageNo=${pageNumber}&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=A&areaCode=${areaCode}&sigunguCode=${sigunguCode}&contentTypeId=12`;
                     break;
                 case 'hotels':
                     url = `http://apis.data.go.kr/B551011/KorService1/areaBasedList1?serviceKey=5uJ1mFn4tOfEwReTW3dupjd4w2n5kEHO5nciT%2BDVGAVWTl90sysBKbMTIlIxLW5lCPo1VmpZ%2FXggxU84GhG81g%3D%3D&pageNo=${pageNumber}&numOfRows=10&MobileApp=AppTest&MobileOS=ETC&arrange=B&areaCode=${areaCode}&sigunguCode=${sigunguCode}&contentTypeId=32`;
@@ -47,7 +47,11 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
                 addr1: item.getElementsByTagName('addr1')[0].textContent,
                 contenttypeid: item.getElementsByTagName('contenttypeid')[0].textContent,
                 firstimage2: item.getElementsByTagName('firstimage2')[0]?.textContent || ''
+
+                
             }));
+            
+
             setData(prevData => {
                 const newData = [...prevData, ...extractedData];
                 const uniqueData = Array.from(new Set(newData.map(item => item.contentid)))
@@ -86,6 +90,8 @@ const ListContainer = ({ areaCode, sigunguCode, view }) => {
                 view={view}
                 selectedItems={selectedItems}
                 setSelectedItems={setSelectedItems} 
+                selectedTrains={selectedTrains}
+                setSelectedTrains={setSelectedTrains}
             />
         </div>
     );

@@ -20,6 +20,7 @@ public class User {
 
     String tel;
 
+
     public User(String loginId, String pw) {
         this.loginId = loginId;
         this.pw = pw;

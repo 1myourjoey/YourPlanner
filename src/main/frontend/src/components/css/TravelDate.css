@@ -63,7 +63,7 @@
 
 /* 버튼 스타일 */
 .button {
-    background-color: #D3D3D3;
+    background-color: #B2DDEF;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -74,5 +74,5 @@
 }
 
 .button:hover {
-    background-color: #808080;
+    background-color: #50BCDF;
 }

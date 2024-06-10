@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
+
 const Weather = () => {
     const [weatherData, setWeatherData] = useState([]);
 
@@ -48,7 +49,9 @@ const Weather = () => {
                         </div>
                     </div>
                 ))}
+                
             </div>
+            
         </footer>
     );
 };

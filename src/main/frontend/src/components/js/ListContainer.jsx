@@ -105,6 +105,7 @@ const ListContainer = ({ areaCode, sigunguCode, view, departure, destination, st
             {/* 플랜 저장 버튼을 누를 시 값들을 전달함 */}
             <SaveTourInfo
                 selectedItems={selectedItems}
+                selectedTrains={selectedTrains}
                 startDate={startDate}
                 endDate={endDate}
                 departure={departure}

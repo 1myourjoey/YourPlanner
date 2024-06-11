@@ -18,14 +18,17 @@ const App = () => {
   // 다른 필요한 상태와 로직을 추가할 수 있습니다.
 
   return (
-    <div>
-      <h1>Recommended Places and Train List</h1>
-      <RecommendedPlaces
-        data={/* data props */}
-        loadMore={/* loadMore props */}
-        loading={/* loading props */}
-        view={/* view props */}
-        selectedItems={selectedItems}
-        setSelectedItems={setSelectedItems}
-      />
-      <TrainList
+      <div>
+          <h1>Recommended Places and Train List</h1>
+          <RecommendedPlaces
+              data={/* data props */}
+              loadMore={/* loadMore props */}
+              loading={/* loading props */}
+              view={/* view props */}
+              selectedItems={selectedItems}
+              setSelectedItems={setSelectedItems}
+          />
+          <TrainList/>
+      </div>
+      )
+}

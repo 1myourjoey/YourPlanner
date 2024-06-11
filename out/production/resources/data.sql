@@ -17,17 +17,17 @@ VALUES (2, 'Title', '2024-06-06T12:00:00', '2024-06-07T12:00:00', '파주', '강
 
 
 -- Accommodation 테이블에 데이터 삽입
-INSERT INTO Accommodation (acc_no, save_no, user_no, acc_name, acc_address, acc_img, acc_tel)
-VALUES (1, 1, 1, 'Accommodation A', '123 Main St', 'http://example.com/accommodation_img.jpg', '010-5597-1898');
+INSERT INTO Accommodation (ACCNO, SAVENO, USERNO, ACCNAME, ACCADDRESS, ACCIMG)
+VALUES (1, 1, 1, 'Accommodation A', '123 Main St', 'http://example.com/accommodation_img.jpg');
 
 -- Restaurant 테이블에 데이터 삽입
-INSERT INTO Restaurant (res_no, save_no, user_no, res_name, res_address, res_img, res_tel)
-VALUES (1, 1, 1, 'Restaurant X', '456 Oak St', 'http://example.com/restaurant_img.jpg', '010-9915-7748');
+INSERT INTO RESTAURANT (RESNO, SAVENO, USERNO, RESNAME, RESADDRESS, RESIMG)
+VALUES (1, 1, 1, 'Restaurant X', '456 OAK ST', 'http://example.com/restaurant_img.jpg');
 
 -- Transportation 테이블에 데이터 삽입
-INSERT INTO Transportation (trans_no, save_no, user_no, trans_name, first_place, end_place, time)
-VALUES (1, 1, 1, 'Bus', 'City A', 'City B', '2024-06-07 12:00:00');
+INSERT INTO TRANSPORTATION (TRANS_NO, SAVE_NO, USER_NO, TRANS_NAME, FIRST_PLACE, END_PLACE, FIRST_TIME, END_TIME)
+VALUES (1, 1, 1, 'Bus', 'CITY A', 'CITY B', 20240606182600, 20240606154000);
 
 -- Tour 테이블에 데이터 삽입
-INSERT INTO Tour (tour_no, save_no, user_no, tour_name, tour_address, tour_img)
-VALUES (1, 1, 1, 'Tour Y', '789 Elm St', 'http://example.com/tour_img.jpg');
+INSERT INTO TOUR (TOURNO, SAVENO, USERNO, TOURNAME, TOURADDRESS, TOURIMG)
+VALUES (1, 1, 1, 'Tour Y', '789 ELM ST', 'http://example.com/tour_img.jpg');

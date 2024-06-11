@@ -2,9 +2,9 @@ package sky.yp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import sky.yp.entity.AccommodationEntity;
+import sky.yp.entity.TransportationEntity;
 
 @Repository
-public interface AccommodationRepository extends JpaRepository<AccommodationEntity, Integer> {
+public interface TransportationRepository extends JpaRepository<TransportationEntity, Integer> {
 
 }

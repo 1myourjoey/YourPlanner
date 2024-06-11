@@ -15,7 +15,7 @@ VALUES (2, 'Title', '2024-06-06T12:00:00', '2024-06-07T12:00:00', '파주', '강
 
 
 
-
+/*
 -- Accommodation 테이블에 데이터 삽입
 INSERT INTO Accommodation (ACCNO, SAVENO, USERNO, ACCNAME, ACCADDRESS, ACCIMG)
 VALUES (1, 1, 1, 'Accommodation A', '123 Main St', 'http://example.com/accommodation_img.jpg');
@@ -30,4 +30,4 @@ VALUES (1, 1, 1, 'Bus', 'CITY A', 'CITY B', 20240606182600, 20240606154000);
 
 -- Tour 테이블에 데이터 삽입
 INSERT INTO TOUR (TOURNO, SAVENO, USERNO, TOURNAME, TOURADDRESS, TOURIMG)
-VALUES (1, 1, 1, 'Tour Y', '789 ELM ST', 'http://example.com/tour_img.jpg');
+VALUES (1, 1, 1, 'Tour Y', '789 ELM ST', 'http://example.com/tour_img.jpg');*/

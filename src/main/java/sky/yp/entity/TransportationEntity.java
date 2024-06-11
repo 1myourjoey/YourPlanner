@@ -18,28 +18,28 @@ public class TransportationEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "TRANS_NO")
-    private int trans_no;
+    @Column(name = "TRANSNO")
+    private int transNo;
 
-    @Column(name = "SAVE_NO")
+    @Column(name = "SAVENO")
     private int saveNo;
 
-    @Column(name = "USER_NO")
+    @Column(name = "USERNO")
     private int userNo;
 
-    @Column(name = "TRANS_NAME")
+    @Column(name = "TRANSNAME")
     private String transName;
 
-    @Column(name = "FIRST_PLACE")
+    @Column(name = "FIRSTPLACE")
     private String firstPlace;
 
-    @Column(name = "END_PLACE")
+    @Column(name = "ENDPLACE")
     private String endPlace;
 
-    @Column(name = "FIRST_TIME")
+    @Column(name = "FIRSTTIME")
     private long firstTime;
 
-    @Column(name = "END_TIME")
+    @Column(name = "ENDTIME")
     private long endTime;
 
     // 생성자, getter 및 setter는 생략되어 있습니다.

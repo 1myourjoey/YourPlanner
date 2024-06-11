@@ -37,6 +37,8 @@ public class PlanSaveController {
 
         // 새로운 save(여행 플랜) 엔티티 생성
         SaveEntity save = new SaveEntity();
+        save.setUserNo(savePlanRequest.getUserNo());        // 유저번호 저장
+        save.setSaveTitle(savePlanRequest.getSaveTitle());
         save.setFirstDate(savePlanRequest.getStartDate());  // 시작일 저장
         save.setEndDate(savePlanRequest.getEndDate());      // 종료일 저장
         save.setFirstPlace(savePlanRequest.getDeparture()); // 출발지 저장

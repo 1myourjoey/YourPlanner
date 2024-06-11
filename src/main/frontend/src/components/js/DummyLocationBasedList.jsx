@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ListContainer from './ListContainer';
 import '../css/Button.css';
 
-<<<<<<< HEAD
-const DummyLocationBasedList = ({ destination2, departure, destination, startDate, endDate }) => {
-=======
 const DummyLocationBasedList = ({ destination2,departure, destination, startDate, endDate, selectedTrains, setSelectedTrains }) => {
->>>>>>> YKS
     const [locations, setLocations] = useState([]);
     const [selectedLocation, setSelectedLocation] = useState(destination2);
     const [selectedSigungu, setSelectedSigungu] = useState('');
@@ -141,22 +137,8 @@ const DummyLocationBasedList = ({ destination2,departure, destination, startDate
                 selectedTrains={selectedTrains}
                 setSelectedTrains={setSelectedTrains}
 
-<<<<<<< HEAD
-            {selectedLocation && (
-                <ListContainer
-                    areaCode={selectedLocation}
-                    sigunguCode={selectedSigungu}
-                    view={view}
-                    departure={departure}
-                    destination={destination}
-                    startDate={startDate}
-                    endDate={endDate}
-                />
-            )}
-=======
             />
           )}
->>>>>>> YKS
         </div>
       );      
 };

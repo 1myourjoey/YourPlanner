@@ -3,10 +3,14 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 import '../css/MyPlanDetail.css'; // CSS 파일 호출
 
+
+import DummyFooter from './DummyFooter';
+
 import Header from "../js/Header";
 import Chat from "../js/Chat";
 
 import Kakao from '../img/Kakao.png';
+
 
 
 function MyPlanDetail() {
@@ -22,12 +26,15 @@ function MyPlanDetail() {
   const [isKakaoInitialized, setIsKakaoInitialized] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+
+
   // 컴포넌트가 마운트될 때 newTodo의 초기값을 plan.todo로 설정
   useEffect(() => {
     if (plan && plan.todo) {
       setNewTodo(plan.todo);
     }
   }, [plan]);
+
 
   useEffect(() => {
     async function fetchPlanDetails() {
@@ -100,31 +107,30 @@ function MyPlanDetail() {
     return details.tours.map(tour => `${tour.tourName} (${tour.tourAddress})`).join(', ');
   };
 
-  const handleKakaoShare = () => {
-    if (!plan) return;
-    const title = `여행 계획: ${plan.firstDate} ${plan.saveTitle}`;
-    const description = `여행기간: ${plan.firstDate} - ${plan.endDate}\n출발지: ${plan.firstPlace}\n도착지: ${plan.endPlace}\n숙박: ${getAccommodationsText()}\n레스토랑: ${getRestaurantsText()}\n교통: ${getTransportationsText()}\n관광: ${getToursText()}\n할일: ${plan.todo}`;
 
-    window.Kakao.Link.sendDefault({
-      objectType: 'text',
-      text: `${title}\n${description}`,
-      link: {
-        mobileWebUrl: window.location.href,
-        webUrl: window.location.href
-      },
-      buttonTitle: '자세히 보기'
-    });
-  };
+ const handleKakaoShare = () => {
+   const title = `여행 계획: ${plan.firstDate} ${plan.saveTitle}`;
+   const description = `여행기간: ${plan.firstDate} - ${plan.endDate}\n출발지: ${plan.firstPlace}\n도착지: ${plan.endPlace}\n숙박: ${getAccommodationsText()}\n레스토랑: ${getRestaurantsText()}\n교통: ${getTransportationsText()}\n관광: ${getToursText()}\n할일: ${plan.todo}`;
+
+   window.Kakao.Link.sendDefault({
+     objectType: 'text', // 텍스트 타입 사용
+     text: `${title}\n${description}`,
+     link: {
+       mobileWebUrl: window.location.href,
+       webUrl: window.location.href
+     },
+     buttonTitle: '자세히 보기'
+   });
+ };
 
   return (
-
     <div>
       <Header/>
       <div className="myplandetail-wrapper">
         <div className="myplandetail-container">
           <div className="myplandetail-card">
             <h2 className="myplandetail-text-center">나의 여행 계획 상세 <Chat/></h2>
-            {plan && (
+            {plan ? (
               <>
                 <div className="myplandetail-section">
                   <h3>저장 제목</h3>
@@ -158,16 +164,7 @@ function MyPlanDetail() {
                   />
                   <button className="myplandetail-btn btn btn-primary" onClick={handleUpdateTodo}>입력/수정</button>
                 </div>
-              </>
-            )}
-          </div>
-        </div>
 
-        <div className="myplandetail-container">
-          <div className="myplandetail-card">
-            <h2 className="myplandetail-text-center">나의 여행 계획 상세</h2>
-            {plan && (
-              <>
                 {details.accommodations.length > 0 && (
                   <div className="myplandetail-section">
                     <h3>숙박 정보</h3>
@@ -176,7 +173,7 @@ function MyPlanDetail() {
                         <p>{acc.accName}</p>
                         <p>{acc.accAddress}</p>
                         <p>{acc.accImg}</p>
-                                                <p>{acc.accTel}</p>
+                        <p>{acc.accTel}</p>
                       </div>
                     ))}
                   </div>
@@ -219,147 +216,32 @@ function MyPlanDetail() {
                         <p>{tour.tourImg}</p>
                       </div>
                     ))}
-                                  </div>
-                                )}
+                  </div>
+                )}
+
+                {isLoggedIn ? (
+                  <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoShare}>
+                    <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
+                    카카오톡 공유하기
+                  </button>
+                ) : (
+                  <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoLogin}>
+                    <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
+                    카카오톡 로그인하기
+                  </button>
+                )}
               </>
-           }
+            ) : (
+              <div className="myplandetail-section">
+                <h3>여행 계획을 불러오지 못했습니다.</h3>
+              </div>
+            )}
           </div>
+
         </div>
       </div>
     </div>
-
-      <div>
-        <Header/>
-        <div className="myplandetail-wrapper">
-          <div className="myplandetail-container">
-            <div className="myplandetail-card">
-              <h2 className="myplandetail-text-center">나의 여행 계획 상세 <Chat/></h2>
-              {plan && (
-                  <>
-                    <div className="myplandetail-section">
-                      <h3>저장 제목</h3>
-                      <p>{plan.saveTitle}</p>
-                    </div>
-                    <div className="myplandetail-section">
-                      <h3>여행 시작 날짜</h3>
-                      <p>{plan.firstDate}</p>
-                    </div>
-                    <div className="myplandetail-section">
-                      <h3>여행 종료 날짜</h3>
-                      <p>{plan.endDate}</p>
-                    </div>
-                    <div className="myplandetail-section">
-                      <h3>출발지</h3>
-                      <p>{plan.firstPlace}</p>
-                    </div>
-                    <div className="myplandetail-section">
-                      <h3>도착지</h3>
-                      <p>{plan.endPlace}</p>
-                    </div>
-                    <div className="myplandetail-section">
-                      <h3>할일</h3>
-                      <p>{plan.todo}</p>
-                      <input
-                          type="text"
-                          className="form-control"
-                          value={newTodo}
-                          onChange={(e) => setNewTodo(e.target.value)}
-                          placeholder="새로운 할일 입력"
-                      />
-                      <button className="myplandetail-btn btn btn-primary" onClick={handleUpdateTodo}>입력</button>
-                    </div>
-                  </>
-              )}
-            </div>
-          </div>
-
-          <div className="myplandetail-container">
-            <div className="myplandetail-card">
-              <h2 className="myplandetail-text-center">나의 여행 계획 상세</h2>
-              {plan && (
-                  <>
-                    {details.accommodations.length > 0 && (
-                        <div className="myplandetail-section">
-                          <h3>숙박 정보</h3>
-                          {details.accommodations.map((acc, index) => (
-                              <div key={index}>
-                                <p>{acc.accName}</p>
-                                <p>{acc.accAddress}</p>
-                                <p>{acc.accImg}</p>
-                                <p>{acc.accTel}</p>
-                              </div>
-                          ))}
-                        </div>
-                    )}
-
-                    {details.restaurants.length > 0 && (
-                        <div className="myplandetail-section">
-                          <h3>레스토랑 정보</h3>
-                          {details.restaurants.map((res, index) => (
-                              <div key={index}>
-                                <p>{res.resName}</p>
-                                <p>{res.resAddress}</p>
-                                <p>{res.resImg}</p>
-                                <p>{res.resTel}</p>
-                              </div>
-                          ))}
-                        </div>
-                    )}
-
-                    {details.transportations.length > 0 && (
-                        <div className="myplandetail-section">
-                          <h3>교통 수단 정보</h3>
-                          {details.transportations.map((trans, index) => (
-                              <div key={index}>
-                                <p>{trans.transName}</p>
-                                <p>{trans.firstPlace} → {trans.endPlace}</p>
-                                <p>{trans.time}</p>
-                              </div>
-                          ))}
-                        </div>
-                    )}
-
-                    {details.tours.length > 0 && (
-                        <div className="myplandetail-section">
-                          <h3>관광 정보</h3>
-                          {details.tours.map((tour, index) => (
-                              <div key={index}>
-                                <p>{tour.tourName}</p>
-                                <p>{tour.tourAddress}</p>
-                                <p>{tour.tourImg}</p>
-                              </div>
-                          ))}
-                        </div>
-                    )}
-                  </>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
   );
 }
 
-                                    // 이 부분은 수정된 코드입니다.
-                                {isLoggedIn && (
-                                  <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoShare}>
-                                    <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
-                                    카카오톡 공유하기
-                                  </button>
-                                )}
-
-                                {!isLoggedIn && (
-                                  <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoLogin}>
-                                    카카오톡 로그인
-                                  </button>
-                                )}
-
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                }
-
-                export default MyPlanDetail;
+export default MyPlanDetail;

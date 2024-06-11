@@ -4,15 +4,11 @@ import TrainCode from './TrainCode';
 import LocationBasedList from './LocationBasedList';
 import TrainList from './TrainList';
 import DummyLocationBasedList from './DummyLocationBasedList';
-<<<<<<< HEAD
-import RecommendedPlaces from './RecommendedPlaces';
-=======
 import '../css/header.css';
 import '../css/TravelDetails.css';
 import Header from './Header';
 import SelectedTrains from './SelectedTrains';
 
->>>>>>> YKS
 
 const TravelDetails = () => {
   const location = useLocation();
@@ -59,15 +55,6 @@ const TravelDetails = () => {
   }
 
   return (
-<<<<<<< HEAD
-    <div>
-      <h2>Travel Details</h2>
-      <p><strong>Departure:</strong> {departure}</p>
-      <p><strong>Destination:</strong> {destination}</p>
-      <p><strong>Start Date:</strong> {startDate}</p>
-      <p><strong>End Date:</strong> {endDate}</p>
- {departureCodes.length > 0 && destinationCodes.length > 0 && (
-=======
     <div className="travel-container">
       <Header />
       <div className="travel-details-card">
@@ -81,7 +68,6 @@ const TravelDetails = () => {
           </div>
           
       {departureCodes.length > 0 && destinationCodes.length > 0 && (
->>>>>>> YKS
         <TrainList
           depPlaceId={departureCodes}
           arrPlaceId={destinationCodes}
@@ -90,33 +76,15 @@ const TravelDetails = () => {
           setSelectedTrains={setSelectedTrains}
         />
       )}
-<<<<<<< HEAD
-      <LocationBasedList destination={destination} />
-      <DummyLocationBasedList
-=======
         <DummyLocationBasedList
->>>>>>> YKS
           destination2={destination2}
           departure={departure}
           destination={destination}
           startDate={startDate}
           endDate={endDate}
-<<<<<<< HEAD
-      />
-      <h1>Selected Train</h1>
-      <div className="selected-items">
-        {selectedTrains.map((train) => (
-          <div key={train.uniqueId} className="card">
-            <p>{train.traingradename} / 출발: {train.depplacename}역 {train.depplandtime} / 도착: {train.arrplacename}역 {train.arrplandtime} / 요금: {train.adultcharge}원 / 열차번호: {train.trainno}</p>
-            <button onClick={() => setSelectedTrains(selectedTrains.filter(t => t.trainno !== train.trainno))}>삭제</button>
-          </div>
-        ))}
-      </div>
-=======
           selectedTrains={selectedTrains}
           setSelectedTrains={setSelectedTrains}
       />
->>>>>>> YKS
     </div>
   );
 };

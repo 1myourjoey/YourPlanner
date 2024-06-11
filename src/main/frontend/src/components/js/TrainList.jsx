@@ -1,14 +1,9 @@
-// src/components/TrainList.js
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import TrainCode from './TrainCode';
-<<<<<<< HEAD
-=======
 import RecommendedPlaces from './RecommendedPlaces';
 import '../css/DummyTrainList.css';
 import Check from '../img/Check.png';
->>>>>>> YKS
 
 const TrainList = ({ depPlaceId, arrPlaceId, startDate, selectedTrains, setSelectedTrains }) => {
   const [trainData, setTrainData] = useState([]);
@@ -53,8 +48,6 @@ const TrainList = ({ depPlaceId, arrPlaceId, startDate, selectedTrains, setSelec
 
         for (const depCode of depPlaceId) {
           for (const destCode of arrPlaceId) {
-            console.log(`Fetching data for depCode: ${depCode}, destCode: ${destCode}, date: ${formattedDate}`);
-
             const response = await axios.get('http://apis.data.go.kr/1613000/TrainInfoService/getStrtpntAlocFndTrainInfo', {
               params: {
                 serviceKey,
@@ -65,8 +58,6 @@ const TrainList = ({ depPlaceId, arrPlaceId, startDate, selectedTrains, setSelec
                 trainGradeCode: '00'
               }
             });
-
-            console.log('API response:', response.data);
 
             const items = response.data.response?.body?.items?.item;
 
@@ -157,10 +148,6 @@ const TrainList = ({ depPlaceId, arrPlaceId, startDate, selectedTrains, setSelec
   </table>
 </div>
 
-<<<<<<< HEAD
-    </div>
-=======
->>>>>>> YKS
   );
 };
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Chat from './Chat';
 
 <<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -36,7 +37,6 @@ const Weather = () => {
 
     return (
         <footer className="container footer-flow">
-
             <div className="row">
                 {weatherData.map((data, index) => (
                     <div className="col" key={index}>
@@ -55,7 +55,9 @@ const Weather = () => {
                         </div>
                     </div>
                 ))}
+                
             </div>
+            
         </footer>
     );
 };

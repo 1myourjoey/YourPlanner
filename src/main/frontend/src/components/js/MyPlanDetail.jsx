@@ -70,7 +70,7 @@ function MyPlanDetail() {
   // 카카오 SDK 초기화 및 로그인 상태 확인
   useEffect(() => {
     if (!window.Kakao.isInitialized()) {
-      window.Kakao.init('asdasd'); // 카카오 앱 JavaScript 키로 초기화
+      window.Kakao.init('0912fbb913424b3216c43753395338bd'); // 카카오 앱 JavaScript 키로 초기화
       setIsKakaoInitialized(true);
     }
 

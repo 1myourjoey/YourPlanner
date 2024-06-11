@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Chat from './Chat';
-
-<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Chat from './Chat';
-=======
->>>>>>> master
+
+
 
 
 const Weather = () => {

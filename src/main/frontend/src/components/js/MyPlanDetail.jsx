@@ -70,7 +70,7 @@ function MyPlanDetail() {
   // 카카오 SDK 초기화 및 로그인 상태 확인
   useEffect(() => {
     if (!window.Kakao.isInitialized()) {
-      window.Kakao.init('asdasdasd'); // 카카오 앱 JavaScript 키로 초기화
+      window.Kakao.init('asdasd'); // 카카오 앱 JavaScript 키로 초기화
       setIsKakaoInitialized(true);
     }
 
@@ -123,11 +123,13 @@ function MyPlanDetail() {
    });
  };
 
+  // 코드 수정 후
   return (
     <div>
       <Header/>
       <div className="myplandetail-wrapper">
         <div className="myplandetail-container">
+          {/* 왼쪽 박스 */}
           <div className="myplandetail-card">
             <h2 className="myplandetail-text-center">나의 여행 계획 상세 <Chat/></h2>
             {plan ? (
@@ -164,72 +166,6 @@ function MyPlanDetail() {
                   />
                   <button className="myplandetail-btn btn btn-primary" onClick={handleUpdateTodo}>입력/수정</button>
                 </div>
-
-                {details.accommodations.length > 0 && (
-                  <div className="myplandetail-section">
-                    <h3>숙박 정보</h3>
-                    {details.accommodations.map((acc, index) => (
-                      <div key={index}>
-                        <p>{acc.accName}</p>
-                        <p>{acc.accAddress}</p>
-                        <p>{acc.accImg}</p>
-                        <p>{acc.accTel}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {details.restaurants.length > 0 && (
-                  <div className="myplandetail-section">
-                    <h3>레스토랑 정보</h3>
-                    {details.restaurants.map((res, index) => (
-                      <div key={index}>
-                        <p>{res.resName}</p>
-                        <p>{res.resAddress}</p>
-                        <p>{res.resImg}</p>
-                        <p>{res.resTel}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {details.transportations.length > 0 && (
-                  <div className="myplandetail-section">
-                    <h3>교통 수단 정보</h3>
-                    {details.transportations.map((trans, index) => (
-                      <div key={index}>
-                        <p>{trans.transName}</p>
-                        <p>{trans.firstPlace} → {trans.endPlace}</p>
-                        <p>{trans.time}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {details.tours.length > 0 && (
-                  <div className="myplandetail-section">
-                    <h3>관광 정보</h3>
-                    {details.tours.map((tour, index) => (
-                      <div key={index}>
-                        <p>{tour.tourName}</p>
-                        <p>{tour.tourAddress}</p>
-                        <p>{tour.tourImg}</p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {isLoggedIn ? (
-                  <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoShare}>
-                    <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
-                    카카오톡 공유하기
-                  </button>
-                ) : (
-                  <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoLogin}>
-                    <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
-                    카카오톡 로그인하기
-                  </button>
-                )}
               </>
             ) : (
               <div className="myplandetail-section">
@@ -238,10 +174,79 @@ function MyPlanDetail() {
             )}
           </div>
 
+          {/* 오른쪽 박스 */}
+
+          <div className="myplandetail-card">
+            {details.accommodations.length > 0 && (
+              <div className="myplandetail-section">
+                <h3>숙박 정보</h3>
+                {details.accommodations.map((acc, index) => (
+                  <div key={index}>
+                    <p>{acc.accName}</p>
+                    <p>{acc.accAddress}</p>
+                    <p>{acc.accImg}</p>
+                    <p>{acc.accTel}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {details.restaurants.length > 0 && (
+              <div className="myplandetail-section">
+                <h3>레스토랑 정보</h3>
+                {details.restaurants.map((res, index) => (
+                  <div key={index}>
+                    <p>{res.resName}</p>
+                    <p>{res.resAddress}</p>
+                    <p>{res.resImg}</p>
+                    <p>{res.resTel}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {details.transportations.length > 0 && (
+              <div className="myplandetail-section">
+                <h3>교통 수단 정보</h3>
+                {details.transportations.map((trans, index) => (
+                  <div key={index}>
+                    <p>{trans.transName}</p>
+                    <p>{trans.firstPlace} → {trans.endPlace}</p>
+                    <p>{trans.time}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {details.tours.length > 0 && (
+              <div className="myplandetail-section">
+                <h3>관광 정보</h3>
+                {details.tours.map((tour, index) => (
+                  <div key={index}>
+                    <p>{tour.tourName}</p>
+                    <p>{tour.tourAddress}</p>
+                    <p>{tour.tourImg}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {isLoggedIn ? (
+              <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoShare}>
+                <img src={Kakao} alt="Kakao" style={{ width: '23px', marginRight: '8px' }} /> {/* 카카오톡 아이콘 삽입 */}
+                카카오톡 공유
+              </button>
+            ) : (
+              <button className="myplandetail-btn btn btn-primary" onClick={handleKakaoLogin}>
+                <img src={Kakao} alt="Kakao" style={{ width: '20px', marginRight: '5px' }} /> {/* 카카오톡 아이콘 삽입 */}
+                카카오톡 로그인
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>
   );
-}
 
+}
 export default MyPlanDetail;

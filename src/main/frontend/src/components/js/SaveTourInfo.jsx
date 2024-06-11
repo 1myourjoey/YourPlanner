@@ -92,21 +92,25 @@ const Modal = ({isOpen, onClose, onSave}) => {
     };
 
     return (
-        <div className="modal">
-            <div className="modal-content">
-                <h2>제목을 입력하세요</h2>
-                <input
-                    type="text"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                />
+        <div className="modal-save">
+            <div className="modal-content-save">
+                <div>
+                    <h4 className="modal-title">플랜 제목을 적어주세요</h4>
+                </div>
+                <div>
+                    <input
+                        type="text"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                </div>
+
                 <button onClick={handleSave}>저장</button>
                 <button onClick={onClose}>닫기</button>
             </div>
         </div>
     );
 };
-
 
 
 export default SaveTourInfo;

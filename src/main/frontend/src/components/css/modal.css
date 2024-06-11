@@ -29,6 +29,35 @@
   position: relative; /* close 버튼 위치 상대적으로 설정 */
 }
 
+.modal-save{
+  display: flex;
+  align-items: center; /* 수직 중앙 정렬 */
+  justify-content: center; /* 수평 중앙 정렬 */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content-save {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  height: 180px;
+  min-width: 200px;
+  position: relative; /* close 버튼 위치 상대적으로 설정 */
+}
+
+.modal-content-save input{
+  width:250px;
+}
+
 .close:hover,
 .close:focus {
   color: black;

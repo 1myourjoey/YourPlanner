@@ -39,6 +39,8 @@ const handleSend = async (message) => {
   setMessages(prevMessages => [...prevMessages, { text: message, sender: 'user' }]);
   // 로딩 상태를 활성화합니다.
   setIsLoading(true);
+      // 추천 질문을 사라지게 설정합니다.
+      setSelectedQuestion(message);
   try {
     // 답변을 받아옵니다.
     const reply = await fetchReply(message);

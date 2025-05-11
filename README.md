@@ -8,8 +8,6 @@
 
 GitHub Code
 
-[GitHub - 1myourjoey/YourPlanner](https://github.com/1myourjoey/YourPlanner)
-
 ---
 
 ## 📖 “Your Planner“상세 내용
